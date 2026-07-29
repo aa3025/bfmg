@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexflake Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Fira+Code:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-runnable-track {
+            background: #e4e4e7;
+            height: 0.375rem;
+            border-radius: 0.5rem;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            margin-top: -6px;
+            background-color: #18181b;
+            height: 1rem;
+            width: 1rem;
+            border-radius: 50%;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e4e4e7;
+            border-radius: 10px;
+        }
+        
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #18181b;
+        }
+        .toggle-checkbox:checked + .toggle-label .toggle-dot {
+            transform: translateX(1.25rem);
+        }
+
+        #mainCanvas {
+            cursor: grab;
+        }
+        #mainCanvas:active {
+            cursor: grabbing;
+        }
+    </style>
+</head>
+<body class="bg-zinc-50 text-zinc-900 overflow-hidden">
+    <div class="flex flex-col h-screen">
+        <!-- Header -->
+        <header class="p-4 border-b border-zinc-200 flex justify-between items-center bg-white/80 backdrop-blur-md z-10 shadow-sm">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-zinc-900 rounded-lg shadow-md">
+                    <i data-lucide="maximize" class="text-white w-5 h-5"></i>
+                </div>
+                <h1 class="text-xl font-bold tracking-tight text-zinc-900">Hexflake Explorer</h1>
+            </div>
+            <div class="flex gap-2 relative">
+                <button id="infoBtn" class="p-2 hover:bg-zinc-100 rounded-full transition-colors text-zinc-500 hover:text-zinc-900">
+                    <i data-lucide="info" class="w-5 h-5"></i>
+                </button>
+                
+                <!-- Fixed Export Button with Click Toggle -->
+                <div id="exportContainer" class="relative">
+                    <button id="exportToggleBtn" class="flex items-center gap-2 px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white rounded-lg transition-all text-sm font-medium">
+                        <i data-lucide="download" class="w-4 h-4"></i> Export <i data-lucide="chevron-down" class="w-3 h-3 ml-1"></i>
+                    </button>
+                    <div id="exportDropdown" class="hidden absolute right-0 mt-2 w-56 bg-white border border-zinc-200 rounded-xl shadow-2xl overflow-hidden z-50">
+                        <button id="downloadPngBtn" class="w-full text-left px-4 py-3 text-xs font-semibold hover:bg-zinc-50 flex flex-col border-b border-zinc-100 transition-colors">
+                            <span class="flex items-center gap-2"><i data-lucide="image" class="w-3 h-3 text-zinc-400"></i> High-Res PNG</span>
+                            <span class="text-[10px] text-zinc-400 font-normal mt-0.5">4000x4000 px • 100% Quality</span>
+                        </button>
+                        <button id="downloadSvgBtn" class="w-full text-left px-4 py-3 text-xs font-semibold hover:bg-zinc-50 flex flex-col transition-colors">
+                            <span class="flex items-center gap-2"><i data-lucide="file-code" class="w-3 h-3 text-zinc-400"></i> Vector SVG</span>
+                            <span class="text-[10px] text-zinc-400 font-normal mt-0.5">Infinite resolution • Scalable</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-1 flex overflow-hidden relative">
+            <!-- Sidebar -->
+            <aside class="w-80 border-r border-zinc-200 bg-white p-6 flex flex-col gap-8 overflow-y-auto custom-scrollbar">
+                
+                <!-- Complexity Section -->
+                <section>
+                    <div class="flex justify-between items-center mb-4">
+                        <label class="text-xs font-bold uppercase tracking-widest text-zinc-400 flex items-center gap-2">
+                            <i data-lucide="settings" class="w-3.5 h-3.5"></i> Complexity
+                        </label>
+                        <span id="depthLabel" class="px-2 py-0.5 bg-zinc-100 text-zinc-900 text-xs font-bold rounded border border-zinc-200">
+                            Level 5
+                        </span>
+                    </div>
+                    <input type="range" id="depthInput" min="0" max="7" step="1" value="5" class="w-full">
+                </section>
+
+                <!-- Center Text Section -->
+                <section class="space-y-4">
+                    <label class="text-xs font-bold uppercase tracking-widest text-zinc-400 flex items-center gap-2">
+                        <i data-lucide="type" class="w-3.5 h-3.5"></i> Center Text
+                    </label>
+                    <div class="space-y-3">
+                        <input type="text" id="textContentInput" value="BFMG" placeholder="Enter text..." class="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-900/10">
+                        
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-[10px] text-zinc-400 uppercase font-bold px-1">
+                                <span>Size</span>
+                                <span id="fontSizeLabel">76px</span>
+                            </div>
+                            <input type="range" id="fontSizeInput" min="10" max="200" step="1" value="76" class="w-full">
+                        </div>
+
+                        <select id="fontFamilyInput" class="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-2 text-sm focus:outline-none cursor-pointer">
+                            <option value="Inter">Inter (Sans)</option>
+                            <option value="'Playfair Display'">Playfair (Serif)</option>
+                            <option value="'Libre Baskerville'" selected>Baskerville</option>
+                            <option value="'Fira Code'">Fira Code (Mono)</option>
+                            <option value="system-ui">System Default</option>
+                        </select>
+
+                        <div class="flex gap-2">
+                            <button id="boldBtn" class="flex-1 py-2 border border-zinc-200 rounded-lg text-xs font-bold hover:bg-zinc-50 transition-colors">B</button>
+                            <button id="italicBtn" class="flex-1 py-2 border border-zinc-200 rounded-lg text-xs italic hover:bg-zinc-50 transition-colors">I</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Structure Selection -->
+                <section class="space-y-4">
+                    <label class="text-xs font-bold uppercase tracking-widest text-zinc-400">Structure</label>
+                    <div class="flex items-center justify-between bg-zinc-50 p-3 rounded-lg border border-zinc-200">
+                        <span class="text-xs text-zinc-700 font-medium">Center Snowflake</span>
+                        <div class="relative inline-block w-10 h-5 align-middle select-none transition duration-200 ease-in">
+                            <input type="checkbox" name="toggle" id="centerToggle" class="toggle-checkbox absolute opacity-0 w-10 h-5 cursor-pointer z-10" />
+                            <label for="centerToggle" class="toggle-label block overflow-hidden h-5 rounded-full bg-zinc-200 cursor-pointer transition-colors duration-200">
+                                <span class="toggle-dot block w-4 h-4 mt-0.5 ml-0.5 rounded-full bg-white shadow-sm transform transition-transform"></span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Visuals Section -->
+                <section class="space-y-4">
+                    <label class="text-xs font-bold uppercase tracking-widest text-zinc-400">Visuals</label>
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <label class="text-xs text-zinc-500 font-bold uppercase tracking-tighter">Foreground</label>
+                            <div class="flex items-center gap-3 bg-zinc-50 p-2 rounded-lg border border-zinc-200">
+                                <input type="color" id="fgColorInput" value="#000000" class="w-8 h-8 bg-transparent border-none cursor-pointer">
+                                <div class="flex flex-col">
+                                    <span id="fgHex" class="text-[10px] font-mono font-bold uppercase">#000000</span>
+                                    <span id="fgRgb" class="text-[9px] font-mono text-zinc-400">0, 0, 0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs text-zinc-500 font-bold uppercase tracking-tighter">Background</label>
+                            <div class="flex items-center gap-3 bg-zinc-50 p-2 rounded-lg border border-zinc-200">
+                                <input type="color" id="bgColorInput" value="#ffffff" class="w-8 h-8 bg-transparent border-none cursor-pointer">
+                                <div class="flex flex-col">
+                                    <span id="bgHex" class="text-[10px] font-mono font-bold uppercase">#FFFFFF</span>
+                                    <span id="bgRgb" class="text-[9px] font-mono text-zinc-400">255, 255, 255</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Transparent Export Option -->
+                        <div class="flex items-center justify-between bg-zinc-50 p-3 rounded-lg border border-zinc-200">
+                            <span class="text-xs text-zinc-700 font-medium">Transparent Export</span>
+                            <div class="relative inline-block w-10 h-5 align-middle select-none transition duration-200 ease-in">
+                                <input type="checkbox" name="trans-toggle" id="transparentToggle" class="toggle-checkbox absolute opacity-0 w-10 h-5 cursor-pointer z-10" />
+                                <label for="transparentToggle" class="toggle-label block overflow-hidden h-5 rounded-full bg-zinc-200 cursor-pointer transition-colors duration-200">
+                                    <span class="toggle-dot block w-4 h-4 mt-0.5 ml-0.5 rounded-full bg-white shadow-sm transform transition-transform"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Transform Section -->
+                <section class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <label class="text-xs font-bold uppercase tracking-widest text-zinc-400">Transform</label>
+                        <button id="resetBtn" class="text-xs text-zinc-900 font-bold hover:underline flex items-center gap-1">
+                            <i data-lucide="rotate-ccw" class="w-3 h-3"></i> Reset
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs">
+                            <span class="text-zinc-500">Rotation</span>
+                            <span id="rotationLabel" class="font-medium">0°</span>
+                        </div>
+                        <input type="range" id="rotationInput" min="0" max="360" value="0" class="w-full">
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs">
+                            <span class="text-zinc-500">Scale</span>
+                            <span id="scaleLabel" class="font-medium">100%</span>
+                        </div>
+                        <input type="range" id="scaleInput" min="0.8" max="20" step="0.1" value="1.0" class="w-full">
+                    </div>
+                </section>
+
+                <div class="mt-auto border-t border-zinc-200 pt-6">
+                    <div class="bg-zinc-50 rounded-xl p-4 border border-zinc-200 flex items-start gap-3">
+                        <i data-lucide="mouse-pointer-2" class="text-zinc-400 w-4 h-4 mt-0.5 shrink-0"></i>
+                        <div>
+                            <h4 class="text-[10px] font-bold text-zinc-900 uppercase tracking-widest mb-1">Interaction</h4>
+                            <p class="text-[11px] text-zinc-500 leading-tight">
+                                Left-click & drag to pan. Scroll to zoom.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Canvas Area -->
+            <div class="flex-1 bg-zinc-100 p-8 relative flex items-center justify-center">
+                <div class="w-full h-full relative">
+                    <canvas id="mainCanvas" class="w-full h-full rounded-2xl shadow-xl bg-white border border-zinc-200"></canvas>
+                </div>
+                
+                <!-- Info Modal -->
+                <div id="infoModal" class="hidden absolute inset-0 z-20 flex items-center justify-center p-8">
+                    <div id="modalOverlay" class="absolute inset-0 bg-zinc-900/40 backdrop-blur-sm"></div>
+                    <div class="relative bg-white border border-zinc-200 p-8 rounded-3xl max-w-lg shadow-2xl">
+                        <h3 class="text-2xl font-bold mb-4 text-zinc-900 text-center">Professional Export Options</h3>
+                        <p class="text-zinc-600 mb-4 leading-relaxed">
+                            A Hexflake is a fractal constructed by repeatedly replacing a hexagon with seven smaller ones. 
+                        </p>
+                        <ul class="text-zinc-600 text-sm space-y-2 mb-6 list-disc px-4">
+                            <li><strong>High-Res PNG:</strong> Renders at 4000x4000px, perfect for print or desktop wallpapers.</li>
+                            <li><strong>Vector SVG:</strong> Exports the fractal as a scale-independent vector file for design software.</li>
+                        </ul>
+                        <button id="closeInfoBtn" class="w-full py-3 bg-zinc-900 hover:bg-zinc-800 text-white rounded-xl font-bold transition-colors shadow-lg shadow-zinc-900/20">
+                            Start Exploring
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // DOM Elements
+        const canvas = document.getElementById('mainCanvas');
+        const ctx = canvas.getContext('2d');
+        const depthInput = document.getElementById('depthInput');
+        const depthLabel = document.getElementById('depthLabel');
+        const textContentInput = document.getElementById('textContentInput');
+        const fontSizeInput = document.getElementById('fontSizeInput');
+        const fontSizeLabel = document.getElementById('fontSizeLabel');
+        const fontFamilyInput = document.getElementById('fontFamilyInput');
+        const boldBtn = document.getElementById('boldBtn');
+        const italicBtn = document.getElementById('italicBtn');
+        const fgColorInput = document.getElementById('fgColorInput');
+        const bgColorInput = document.getElementById('bgColorInput');
+        const transparentToggle = document.getElementById('transparentToggle');
+        const fgHex = document.getElementById('fgHex');
+        const bgHex = document.getElementById('bgHex');
+        const fgRgb = document.getElementById('fgRgb');
+        const bgRgb = document.getElementById('bgRgb');
+        const rotationInput = document.getElementById('rotationInput');
+        const rotationLabel = document.getElementById('rotationLabel');
+        const scaleInput = document.getElementById('scaleInput');
+        const scaleLabel = document.getElementById('scaleLabel');
+        const centerToggle = document.getElementById('centerToggle');
+        const resetBtn = document.getElementById('resetBtn');
+        
+        // Export Elements
+        const exportToggleBtn = document.getElementById('exportToggleBtn');
+        const exportDropdown = document.getElementById('exportDropdown');
+        const downloadPngBtn = document.getElementById('downloadPngBtn');
+        const downloadSvgBtn = document.getElementById('downloadSvgBtn');
+        
+        const infoBtn = document.getElementById('infoBtn');
+        const infoModal = document.getElementById('infoModal');
+        const closeInfoBtn = document.getElementById('closeInfoBtn');
+        const modalOverlay = document.getElementById('modalOverlay');
+
+        // State Management
+        const state = {
+            depth: parseInt(depthInput.value),
+            color: fgColorInput.value,
+            bgColor: bgColorInput.value,
+            transparentExport: transparentToggle.checked,
+            rotation: parseInt(rotationInput.value),
+            scale: parseFloat(scaleInput.value),
+            offsetX: 0,
+            offsetY: 0,
+            showCenter: centerToggle.checked, 
+            text: textContentInput.value,     
+            fontSize: parseInt(fontSizeInput.value), 
+            fontFamily: fontFamilyInput.value, 
+            isBold: false,
+            isItalic: false
+        };
+
+        let isDragging = false;
+        let lastMouseX = 0;
+        let lastMouseY = 0;
+
+        function hexToRgb(hex) {
+            const r = parseInt(hex.slice(1, 3), 16);
+            const g = parseInt(hex.slice(3, 5), 16);
+            const b = parseInt(hex.slice(5, 7), 16);
+            return `${r}, ${g}, ${b}`;
+        }
+
+        // Shared Drawing Core
+        function getHexPoints(x, y, radius) {
+            const points = [];
+            for (let i = 0; i < 6; i++) {
+                const angle = (Math.PI / 3) * i + (Math.PI / 6);
+                points.push({
+                    x: x + radius * Math.cos(angle),
+                    y: y + radius * Math.sin(angle)
+                });
+            }
+            return points;
+        }
+
+        function drawHexagon(context, x, y, radius) {
+            const pts = getHexPoints(x, y, radius);
+            context.beginPath();
+            context.moveTo(pts[0].x, pts[0].y);
+            for (let i = 1; i < 6; i++) context.lineTo(pts[i].x, pts[i].y);
+            context.closePath();
+            context.stroke();
+        }
+
+        function drawHexflake(context, x, y, radius, currentDepth) {
+            if (radius < 0.5) return;
+            if (currentDepth === 0) {
+                drawHexagon(context, x, y, radius);
+                return;
+            }
+            const newRadius = radius / 3;
+            if (state.showCenter) drawHexflake(context, x, y, newRadius, currentDepth - 1);
+            for (let i = 0; i < 6; i++) {
+                const angle = (Math.PI / 3) * i + (Math.PI / 6);
+                const nx = x + (radius * 2 / 3) * Math.cos(angle);
+                const ny = y + (radius * 2 / 3) * Math.sin(angle);
+                drawHexflake(context, nx, ny, newRadius, currentDepth - 1);
+            }
+        }
+
+        // Main UI Render
+        function render() {
+            const width = canvas.width;
+            const height = canvas.height;
+            ctx.fillStyle = state.bgColor;
+            ctx.fillRect(0, 0, width, height);
+            ctx.strokeStyle = state.color;
+            ctx.lineWidth = Math.max(0.2, (1.5 - state.depth * 0.1) / (state.scale * 0.5));
+
+            ctx.save();
+            ctx.translate(width / 2 + state.offsetX, height / 2 + state.offsetY);
+            ctx.save();
+            ctx.rotate((state.rotation * Math.PI) / 180);
+            const baseRadius = (Math.min(width, height) / 2) * state.scale;
+            drawHexflake(ctx, 0, 0, baseRadius, state.depth);
+            ctx.restore();
+
+            if (state.text.trim()) {
+                const currentFontSize = state.fontSize * state.scale;
+                const fontStyle = `${state.isItalic ? 'italic ' : ''}${state.isBold ? 'bold ' : ''}`;
+                ctx.font = `${fontStyle}${currentFontSize}px ${state.fontFamily}`;
+                ctx.fillStyle = state.color;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(state.text, 0, 0);
+            }
+            ctx.restore();
+        }
+
+        function resizeCanvas() {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+            render();
+        }
+
+        // Export Functions
+        function exportHighResPNG() {
+            const size = 4000;
+            const offscreen = document.createElement('canvas');
+            offscreen.width = size;
+            offscreen.height = size;
+            const octx = offscreen.getContext('2d');
+
+            // Conditional background fill
+            if (!state.transparentExport) {
+                octx.fillStyle = state.bgColor;
+                octx.fillRect(0, 0, size, size);
+            }
+
+            octx.save();
+            octx.translate(size / 2 + state.offsetX, size / 2 + state.offsetY);
+            
+            octx.strokeStyle = state.color;
+            octx.lineWidth = Math.max(1, (1.5 - state.depth * 0.1) / (state.scale * 0.5)) * 4;
+
+            octx.save();
+            octx.rotate((state.rotation * Math.PI) / 180);
+            const baseRadius = (size / 2) * state.scale;
+            drawHexflake(octx, 0, 0, baseRadius, state.depth);
+            octx.restore();
+
+            if (state.text.trim()) {
+                const currentFontSize = state.fontSize * state.scale * (size / Math.min(canvas.width, canvas.height));
+                const fontStyle = `${state.isItalic ? 'italic ' : ''}${state.isBold ? 'bold ' : ''}`;
+                octx.font = `${fontStyle}${currentFontSize}px ${state.fontFamily}`;
+                octx.fillStyle = state.color;
+                octx.textAlign = 'center';
+                octx.textBaseline = 'middle';
+                octx.fillText(state.text, 0, 0);
+            }
+            octx.restore();
+
+            const link = document.createElement('a');
+            link.download = `hexflake-4k${state.transparentExport ? '-transparent' : ''}.png`;
+            link.href = offscreen.toDataURL('image/png', 1.0);
+            link.click();
+            exportDropdown.classList.add('hidden');
+        }
+
+        function exportSVG() {
+            const size = 2000;
+            let svgPaths = "";
+            
+            function buildHexflakeSVG(x, y, radius, currentDepth) {
+                if (radius < 0.5) return;
+                if (currentDepth === 0) {
+                    const pts = getHexPoints(x, y, radius);
+                    svgPaths += `<polygon points="${pts.map(p => `${p.x},${p.y}`).join(' ')}" fill="none" />`;
+                    return;
+                }
+                const newRadius = radius / 3;
+                if (state.showCenter) buildHexflakeSVG(x, y, newRadius, currentDepth - 1);
+                for (let i = 0; i < 6; i++) {
+                    const angle = (Math.PI / 3) * i + (Math.PI / 6);
+                    const nx = x + (radius * 2 / 3) * Math.cos(angle);
+                    const ny = y + (radius * 2 / 3) * Math.sin(angle);
+                    buildHexflakeSVG(nx, ny, newRadius, currentDepth - 1);
+                }
+            }
+
+            const baseRadius = (size / 2) * state.scale;
+            const lineWidth = Math.max(1, (1.5 - state.depth * 0.1) / (state.scale * 0.5)) * 2;
+            
+            buildHexflakeSVG(0, 0, baseRadius, state.depth);
+
+            const textElement = state.text.trim() ? `
+                <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" 
+                    fill="${state.color}" 
+                    style="font-family: ${state.fontFamily}; font-size: ${state.fontSize * state.scale * 2}px; font-weight: ${state.isBold ? 'bold' : 'normal'}; font-style: ${state.isItalic ? 'italic' : 'normal'};">
+                    ${state.text}
+                </text>` : "";
+
+            // Conditional background rect
+            const bgRect = state.transparentExport ? "" : `<rect width="100%" height="100%" fill="${state.bgColor}" />`;
+
+            const svgString = `
+                <svg viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
+                    ${bgRect}
+                    <g transform="translate(${size/2 + state.offsetX}, ${size/2 + state.offsetY})">
+                        <g transform="rotate(${state.rotation})" stroke="${state.color}" stroke-width="${lineWidth}">
+                            ${svgPaths}
+                        </g>
+                        ${textElement}
+                    </g>
+                </svg>
+            `;
+
+            const blob = new Blob([svgString], {type: 'image/svg+xml'});
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `hexflake${state.transparentExport ? '-transparent' : ''}.svg`;
+            link.click();
+            URL.revokeObjectURL(url);
+            exportDropdown.classList.add('hidden');
+        }
+
+        // Interaction Handlers
+        canvas.addEventListener('mousedown', (e) => {
+            if (e.button === 0) { isDragging = true; lastMouseX = e.clientX; lastMouseY = e.clientY; }
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            state.offsetX += e.clientX - lastMouseX;
+            state.offsetY += e.clientY - lastMouseY;
+            lastMouseX = e.clientX;
+            lastMouseY = e.clientY;
+            render();
+        });
+
+        window.addEventListener('mouseup', () => { isDragging = false; });
+
+        // Sidebar Inputs
+        depthInput.addEventListener('input', (e) => {
+            state.depth = parseInt(e.target.value);
+            depthLabel.textContent = `Level ${state.depth}`;
+            render();
+        });
+
+        textContentInput.addEventListener('input', (e) => { state.text = e.target.value; render(); });
+        fontSizeInput.addEventListener('input', (e) => {
+            state.fontSize = parseInt(e.target.value);
+            fontSizeLabel.textContent = `${state.fontSize}px`;
+            render();
+        });
+        fontFamilyInput.addEventListener('change', (e) => { state.fontFamily = e.target.value; render(); });
+        
+        boldBtn.addEventListener('click', () => {
+            state.isBold = !state.isBold;
+            boldBtn.classList.toggle('bg-zinc-900', state.isBold);
+            boldBtn.classList.toggle('text-white', state.isBold);
+            render();
+        });
+
+        italicBtn.addEventListener('click', () => {
+            state.isItalic = !state.isItalic;
+            italicBtn.classList.toggle('bg-zinc-900', state.isItalic);
+            italicBtn.classList.toggle('text-white', state.isItalic);
+            render();
+        });
+
+        centerToggle.addEventListener('change', (e) => { state.showCenter = e.target.checked; render(); });
+        transparentToggle.addEventListener('change', (e) => { state.transparentExport = e.target.checked; });
+
+        fgColorInput.addEventListener('input', (e) => {
+            state.color = e.target.value;
+            fgHex.textContent = state.color.toUpperCase();
+            fgRgb.textContent = hexToRgb(state.color);
+            render();
+        });
+
+        bgColorInput.addEventListener('input', (e) => {
+            state.bgColor = e.target.value;
+            bgHex.textContent = state.bgColor.toUpperCase();
+            bgRgb.textContent = hexToRgb(state.bgColor);
+            render();
+        });
+
+        rotationInput.addEventListener('input', (e) => {
+            state.rotation = parseInt(e.target.value);
+            rotationLabel.textContent = `${state.rotation}°`;
+            render();
+        });
+
+        scaleInput.addEventListener('input', (e) => {
+            state.scale = parseFloat(e.target.value);
+            scaleLabel.textContent = `${Math.round(state.scale * 100)}%`;
+            render();
+        });
+
+        resetBtn.addEventListener('click', () => {
+            state.rotation = 0; state.scale = 1.0; state.offsetX = 0; state.offsetY = 0;
+            state.showCenter = false; state.text = 'BFMG'; state.fontSize = 76;
+            state.transparentExport = false;
+            textContentInput.value = 'BFMG'; fontSizeInput.value = 76;
+            fontSizeLabel.textContent = '76px'; rotationInput.value = 0;
+            rotationLabel.textContent = '0°'; scaleInput.value = 1.0;
+            scaleLabel.textContent = '100%'; centerToggle.checked = false;
+            transparentToggle.checked = false;
+            boldBtn.classList.remove('bg-zinc-900', 'text-white');
+            italicBtn.classList.remove('bg-zinc-900', 'text-white');
+            render();
+        });
+
+        canvas.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = -e.deltaY;
+            const newScale = state.scale + delta * 0.0015 * state.scale;
+            state.scale = Math.min(Math.max(newScale, 0.8), 500);
+            scaleLabel.textContent = `${Math.round(state.scale * 100)}%`;
+            render();
+        }, { passive: false });
+
+        // Fixed Menu Toggle Logic
+        exportToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            exportDropdown.classList.toggle('hidden');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (!exportContainer.contains(e.target)) {
+                exportDropdown.classList.add('hidden');
+            }
+        });
+
+        downloadPngBtn.addEventListener('click', exportHighResPNG);
+        downloadSvgBtn.addEventListener('click', exportSVG);
+
+        const toggleModal = (show) => infoModal.classList.toggle('hidden', !show);
+        infoBtn.addEventListener('click', () => toggleModal(true));
+        closeInfoBtn.addEventListener('click', () => toggleModal(false));
+        modalOverlay.addEventListener('click', () => toggleModal(false));
+
+        window.addEventListener('resize', resizeCanvas);
+        window.onload = () => {
+            lucide.createIcons();
+            resizeCanvas();
+            fgHex.textContent = state.color.toUpperCase();
+            fgRgb.textContent = hexToRgb(state.color);
+            bgHex.textContent = state.bgColor.toUpperCase();
+            bgRgb.textContent = hexToRgb(state.bgColor);
+        };
+    </script>
+</body>
+</html>
