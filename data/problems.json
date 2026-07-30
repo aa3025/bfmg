@@ -16,7 +16,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "(coefficient 14) \nThe number 23.24252525... where 25 is \nrepeated infinitely, is the unlimited \ndecimal expansion of an irreducible \nfraction. \nWhich fraction? \n \nEND for C2 PARTICIPANTS",
+    "statement": "(coefficient 14) The number 23.24252525... where 25 is repeated infinitely, is the unlimited decimal expansion of an irreducible fraction. Which fraction?\n\nEND for C2 PARTICIPANTS",
     "diagrams": [
       "/media/problem_diagrams/39_30_page3_Image52.jpg",
       "/media/problem_diagrams/39_30_page3_Image53.png"
@@ -44,7 +44,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "Alice, Bertrand and Camilla are lost in a huge\nforest. Thanks to their respective smartphones,\nthey establish that their three positions form a\ntriangle whose dimensions are all whole numbers\nof metres and such that one of the angles\nof the triangle measures exactly 5 times the\nmeasurement of another angle. Knowing that\nBertrand and Camilla are less than 500 metres\nfrom each other, what is the distance between\nAlice and Camilla?\nEND for L2, HC PARTICIPANTS",
+    "statement": "Alice, Bertrand and Camilla are lost in a huge forest. Thanks to their respective smartphones, they establish that their three positions form a triangle whose dimensions are all whole numbers of metres and such that one of the angles of the triangle measures exactly 5 times the measurement of another angle. Knowing that Bertrand and Camilla are less than 500 metres from each other, what is the distance between Alice and Camilla? END for L2, HC PARTICIPANTS",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 18 (LOST IN THE FOREST)",
@@ -69,7 +69,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "Figaro, nicknamed Fifi, has written successive\nnumbers of a sequence as follows:\n1, 1, 2, 3, 5, 8, 13, 21, 34, 55, . . .\nwhere each term is equal to the sum of the two\nprevious terms. He stopped after writing the first\nnumber which is a multiple of 100.\nHow many numbers did he write in total?",
+    "statement": "Figaro, nicknamed Fifi, has written successive numbers of a sequence as follows: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, . . . where each term is equal to the sum of the two previous terms. He stopped after writing the first number which is a multiple of 100. How many numbers did he write in total?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 17 (FIFI’S SEQUENCE)",
@@ -96,7 +96,7 @@
       "HC"
     ],
     "complexity_label": "Adults / General Public",
-    "statement": "Count Themall owns a parcel of land ABC in the\nshape of a right-angled triangle.\nA\nB\nD\nE\nCF\nI\nThis land is divided into three plots: IDBE,\nIECF and IFAD, point I being located at the\nintersection of the bisectors of angles B and C.\nEach of the straight lines (ID), (IE) and (IF) is\nperpendicular to a side of the ABC triangle. The\nIDBE plot has an area of 676 m 2 and the IECF\nplot an area of 1014 m2.\nWhat is the area of the third plot?\nEND for L1, GP PARTICIPANTS",
+    "statement": "Count Themall owns a parcel of land ABC in the shape of a right-angled triangle. A B D E CF I This land is divided into three plots: IDBE, IECF and IFAD, point I being located at the intersection of the bisectors of angles B and C. Each of the straight lines (ID), (IE) and (IF) is perpendicular to a side of the ABC triangle. The IDBE plot has an area of 676 m 2 and the IECF plot an area of 1014 m2. What is the area of the third plot? END for L1, GP PARTICIPANTS",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 16 (COUNT THEMALL)",
@@ -123,7 +123,7 @@
       "HC"
     ],
     "complexity_label": "Adults / General Public",
-    "statement": "Zbyszek builds an increasing sequence made up\nof all the whole numbers that are written only\nwith the digits 3 and 7. The start of his sequence\nis 3, 7, 33, 37, 73, . . .\nWhat number will be the 2023 rd in Zbyszek’s\nsequence?",
+    "statement": "Zbyszek builds an increasing sequence made up of all the whole numbers that are written only with the digits 3 and 7. The start of his sequence is 3, 7, 33, 37, 73, . . . What number will be the 2023 rd in Zbyszek’s sequence?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 15 (INCREASING SEQUENCE)",
@@ -151,7 +151,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "19 \n5\n6\na\nThe discs of this star must contain all the whole\nnumbers from 1 to 19 (the numbers 5, 6 and 19\nare already placed) so that:\n– the sum of the three numbers written on each\nof the spokes, starting from the central 6 (which\nwill be counted) is always equal to 23;\n– the sum of the three numbers written on each\nside of the hexagon is also always equal to 23.\nWhat number will go in box a?\nEND for C2 PARTICIPANTS",
+    "statement": "19 5 6 a The discs of this star must contain all the whole numbers from 1 to 19 (the numbers 5, 6 and 19 are already placed) so that: – the sum of the three numbers written on each of the spokes, starting from the central 6 (which will be counted) is always equal to 23; – the sum of the three numbers written on each side of the hexagon is also always equal to 23. What number will go in box a? END for C2 PARTICIPANTS",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 14 (STAR OF THE YEAR)",
@@ -179,7 +179,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "The numbers from 1 to 7 are placed in the\nseven stars of the constellation. Each of the larger\nstars contains a number greater than those in its\ntwo or three neighbours. We then calculate the\ndifferences, taken in absolute values, between\nnumbers in two stars connected by a segment, and\nwe add these differences.\nWhat is this sum, at most?",
+    "statement": "The numbers from 1 to 7 are placed in the seven stars of the constellation. Each of the larger stars contains a number greater than those in its two or three neighbours. We then calculate the differences, taken in absolute values, between numbers in two stars connected by a segment, and we add these differences. What is this sum, at most?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 13 (CONSTELLATION)",
@@ -207,7 +207,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "In this cryptarithm the same letter always replaces\nthe same digit and the same digit is always\nreplaced by the same letter.\nPOLAND × 3 = WROCLA W\nWe specify that L = 0.\nWhat is the value of WROCLA W?",
+    "statement": "In this cryptarithm the same letter always replaces the same digit and the same digit is always replaced by the same letter. POLAND × 3 = WROCLA W We specify that L = 0. What is the value of WROCLA W?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 12 (CRYPTARITHM)",
@@ -236,7 +236,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "Daniel enjoys doing exercises in arithmetic. He\ndivides each three-digit number (all digits non-\nzero) by the product of its digits. For some\nof these numbers the result of the division is\nan integer. What surprised him was when for\na certain number the quotient turned out to be\nwhole and greater than 50.\nWhat is this three-digit number?\nEND for C1 PARTICIPANTS",
+    "statement": "Daniel enjoys doing exercises in arithmetic. He divides each three-digit number (all digits nonzero) by the product of its digits. For some of these numbers the result of the division is an integer. What surprised him was when for a certain number the quotient turned out to be whole and greater than 50. What is this three-digit number? END for C1 PARTICIPANTS",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 11 (A RELATIVELY LARGE NUMBER)",
@@ -265,7 +265,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "For his birthday, Matthew has just received a\nbook, a collection of mathematical games whose\npages are numbered from 1, in order and without\nskipping numbers. Matthew has fun counting the\ntotal number of digits used for page numbering.\nHe finds that this number is equal to 2.5 times the\nnumber of numbered pages.\nWhat is the last page number?",
+    "statement": "For his birthday, Matthew has just received a book, a collection of mathematical games whose pages are numbered from 1, in order and without skipping numbers. Matthew has fun counting the total number of digits used for page numbering. He finds that this number is equal to 2.5 times the number of numbered pages. What is the last page number?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 10 (BIRTHDAY GIFT)",
@@ -294,7 +294,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "A three-digit number, with all-different non-zero\ndigits, is the sum of all two-digit numbers formed\nfrom two of the three digits of the initial number.\nWhat is this number?",
+    "statement": "A three-digit number, with all-different non-zero digits, is the sum of all two-digit numbers formed from two of the three digits of the initial number. What is this number?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 9 (A VERY SPECIAL NUMBER)",
@@ -324,7 +324,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "From a rectangle of 2 squares by 3, we create a\nnew figure by adding a square on each side of\nthe rectangle, this square having a side coinciding\nwith a side of a square of the rectangle.\nHow many different figures can we make?\nFigures that look identical after rotation or\nflipping only count as one!\nEND for CM PARTICIPANTS\nProblems 9 to 18: beware! For a problem to\nbe completely solved, you must give both the\nnumber of solutions, AND give the solution\nif there is only one, or give any two correct\nsolutions if there are more than one. For all\nproblems that may have more than one solution,\nthere is space for two answers on the answer\nsheet (but there may still be just one solution).",
+    "statement": "From a rectangle of 2 squares by 3, we create a new figure by adding a square on each side of the rectangle, this square having a side coinciding with a side of a square of the rectangle. How many different figures can we make? Figures that look identical after rotation or flipping only count as one! END for CM PARTICIPANTS Problems 9 to 18: beware! For a problem to be completely solved, you must give both the number of solutions, AND give the solution if there is only one, or give any two correct solutions if there are more than one. For all problems that may have more than one solution, there is space for two answers on the answer sheet (but there may still be just one solution).",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 8 (COMPLETED RECTANGLE)",
@@ -354,7 +354,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "The organizers of the International Final decide\nto fill water bottles for the participants and\naccompanying persons. They have 350 bottles to\nfill at two taps: at one of the taps, they can fill\nthree bottles in two minutes and at the other they\ncan fill two bottles in one minute.\nWhat is the minimum time in hours and\nminutes needed to fill the 350 bottles?",
+    "statement": "The organizers of the International Final decide to fill water bottles for the participants and accompanying persons. They have 350 bottles to fill at two taps: at one of the taps, they can fill three bottles in two minutes and at the other they can fill two bottles in one minute. What is the minimum time in hours and minutes needed to fill the 350 bottles?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 7 (W ATER BOTTLES)",
@@ -384,7 +384,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "In the square boxes of a\ndiagram of 3 boxes by\n3, place all the numbers\nfrom 1 to 9. The four\ncircles will contain the\nsums of the numbers in\nthe 4 squares that they\neach partially cover. Finally, take the sum of the\nfour numbers in the circles.\nWhat is the maximum value of this last sum?",
+    "statement": "In the square boxes of a diagram of 3 boxes by 3, place all the numbers from 1 to 9. The four circles will contain the sums of the numbers in the 4 squares that they each partially cover. Finally, take the sum of the four numbers in the circles. What is the maximum value of this last sum?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 6 (SOME SUMS OF SUMS)",
@@ -415,7 +415,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "W R O C Ł\nR O C Ł A\nO C Ł A W\nIn this maze, you enter through the box located at\nthe top left and exit through the box located at the\nbottom right by going through the seven letters\nof the word WROCŁAW in order. You can only\nmove in the direction of the arrows.\nHow many different paths are there?",
+    "statement": "W R O C Ł R O C Ł A O C Ł A W In this maze, you enter through the box located at the top left and exit through the box located at the bottom right by going through the seven letters of the word WROCŁAW in order. You can only move in the direction of the arrows. How many different paths are there?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 5 (LABYRINTH)",
@@ -446,7 +446,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "1 2 3 4 + –\nBy using one or more of these six tokens,\nMatthew can form different numbers, for\nexample:\n1\n2 3\n1\n11 \n23 \n1 4 – 3\nHow many numbers, between 1 and 23, will\nhe not be able to form? Note: Only one of each\ntoken is available.",
+    "statement": "1 2 3 4 + – By using one or more of these six tokens, Matthew can form different numbers, for example: 1 2 3 1 11 23 1 4 – 3 How many numbers, between 1 and 23, will he not be able to form? Note: Only one of each token is available.",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 4 (FROM 1 TO 23)",
@@ -477,7 +477,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "9\n1\nMatthew wants to place the\nnumbers from 1 to 9 (1 and\n9 are already placed) in the\ndiscs of the figure so that\nthe difference between two\nneighbouring numbers (the\nlarger minus the smaller) is\nalways equal to 2 or 3.\nWhat number will go in\nthe shaded box?",
+    "statement": "9 1 Matthew wants to place the numbers from 1 to 9 (1 and 9 are already placed) in the discs of the figure so that the difference between two neighbouring numbers (the larger minus the smaller) is always equal to 2 or 3. What number will go in the shaded box?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 3 (DIFFERENCE OF 2 or 3)",
@@ -508,7 +508,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "If we draw a circle and two straight lines, we\nobtain a maximum of 5 points of intersection.\nHow many will be obtained, at most, by\ndrawing 2 distinct circles and 3 distinct\nstraight lines?",
+    "statement": "If we draw a circle and two straight lines, we obtain a maximum of 5 points of intersection. How many will be obtained, at most, by drawing 2 distinct circles and 3 distinct straight lines?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 2 (CIRCLES AND LINES)",
@@ -539,7 +539,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "Pieces are removed from these boards until they\nappear to be identical.\nHow many pieces will then have been removed,\nat least?",
+    "statement": "Pieces are removed from these boards until they appear to be identical. How many pieces will then have been removed, at least?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 1 (TWO BOARDS)",
@@ -564,7 +564,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "Caesar Myriad is a\nghost materialising in\na square room whose\nwalls are mirrors except\nfor two mirrorless half-\nwalls around the same\ncorner (the bold line\nsegments in the figure, drawn as viewed from\nabove). If he stands as in the drawing, he sees\nan infinity of reflections of himself. He decides\nto move, without touching a wall, and notices\nthat he only sees a finite number of reflections\nof himself. Looking around the room, he will see\none of his reflections when he looks at one of a\nfinite number of points on the mirrors.\nWhat will then be the minimum number of\npoints where he will see one of his reflections?\nEND for L2, HC PARTICIPANTS",
+    "statement": "Caesar Myriad is a ghost materialising in a square room whose walls are mirrors except for two mirrorless halfwalls around the same corner (the bold line segments in the figure, drawn as viewed from above). If he stands as in the drawing, he sees an infinity of reflections of himself. He decides to move, without touching a wall, and notices that he only sees a finite number of reflections of himself. Looking around the room, he will see one of his reflections when he looks at one of a finite number of points on the mirrors. What will then be the minimum number of points where he will see one of his reflections? END for L2, HC PARTICIPANTS",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 18 (CAESAR MYRIAD)",
@@ -589,7 +589,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "The plane is paved with squares as shown in the\nfigure.\nWhat is the length of the side of the\nsquare containing the point of coordinates\n(2023, 2023)?",
+    "statement": "The plane is paved with squares as shown in the figure. What is the length of the side of the square containing the point of coordinates (2023, 2023)?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 17 (GROWTH)",
@@ -616,7 +616,7 @@
       "HC"
     ],
     "complexity_label": "Adults / General Public",
-    "statement": "Nathalie cuts out the shaded\nparts of a square sheet to\nobtain a trapezium equal to\nhalf of a regular convex\nhexagon. The two bases of\nthe trapezium are parallel to\na diagonal of the square and all its vertices are\nplaced on the sides of the square. The total area\nof the four rejected parts is 216 cm2.\nWhat is the length, in cm, of the longest side of\nthe trapezium she cut out? Round the answer to\ntenths of a cm. If necessary, take\n√\n2 as 1.41 and√\n3 as 1.73.\nEND for L1, GP PARTICIPANTS",
+    "statement": "Nathalie cuts out the shaded parts of a square sheet to obtain a trapezium equal to half of a regular convex hexagon. The two bases of the trapezium are parallel to a diagonal of the square and all its vertices are placed on the sides of the square. The total area of the four rejected parts is 216 cm2. What is the length, in cm, of the longest side of the trapezium she cut out? Round the answer to tenths of a cm. If necessary, take √ 2 as 1.41 and√ 3 as 1.73. END for L1, GP PARTICIPANTS",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 16 (NATHALIE’S CUTOUT)",
@@ -643,7 +643,7 @@
       "HC"
     ],
     "complexity_label": "Adults / General Public",
-    "statement": "Matthew has a square\ngarden crossed by\nthree streams as in the\ndrawing. The streams\nenter and leave the\ngarden either at a corner\nor at the middle of\na side. Matthew is\nmaking his vegetable garden in the little triangle\nbetween the three streams. Knowing that his\nvegetable garden is 10 m2,\nwhat is the area of Matthew’s garden (in m2)?",
+    "statement": "Matthew has a square garden crossed by three streams as in the drawing. The streams enter and leave the garden either at a corner or at the middle of a side. Matthew is making his vegetable garden in the little triangle between the three streams. Knowing that his vegetable garden is 10 m2, what is the area of Matthew’s garden (in m2)?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 15 (MATTHEW’S GARDEN)",
@@ -671,7 +671,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "Complete the empty discs of this diagram with\nthe numbers from 2 to 9 (1 and 10 are already\nplaced) so that:\n– the sum of the four numbers located at the\nvertices of each square is 23;\n– the sum of the five numbers in the top row\nis 23.\nEND for C2 PARTICIPANTS",
+    "statement": "Complete the empty discs of this diagram with the numbers from 2 to 9 (1 and 10 are already placed) so that: – the sum of the four numbers located at the vertices of each square is 23; – the sum of the five numbers in the top row is 23. END for C2 PARTICIPANTS",
     "diagrams": [
       "/media/problem_diagrams/37_41_page3_Im8.jpg",
       "/media/problem_diagrams/37_41_page3_Im9.jpg",
@@ -703,7 +703,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "6\n9 8\n13 7 10 \nComplete this\nrectangle which\nmust contain\n15 consecutive\nintegers. The central\nvalue, 13, must be the average of the numbers of\neach column, of each line, of the 4 corners, of the\n4 middles of the four sides, and also the average\nof the numbers of the 4 shaded boxes and that of\nthe numbers of the four hatched boxes.",
+    "statement": "6 9 8 13 7 10 Complete this rectangle which must contain 15 consecutive integers. The central value, 13, must be the average of the numbers of each column, of each line, of the 4 corners, of the 4 middles of the four sides, and also the average of the numbers of the 4 shaded boxes and that of the numbers of the four hatched boxes.",
     "diagrams": [
       "/media/problem_diagrams/37_41_page3_Im8.jpg",
       "/media/problem_diagrams/37_41_page3_Im9.jpg",
@@ -735,7 +735,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "In this cryptarithm the same letter always replaces\nthe same digit and the same digit is always\nreplaced by the same letter. The first digit of a\nmulti-digit number cannot be a 0.\nWROC\nŁAW = 4\n3\nWhat is the number WROCŁA W?",
+    "statement": "In this cryptarithm the same letter always replaces the same digit and the same digit is always replaced by the same letter. The first digit of a multi-digit number cannot be a 0. WROC ŁAW = 4 3 What is the number WROCŁA W?",
     "diagrams": [
       "/media/problem_diagrams/37_41_page3_Im8.jpg",
       "/media/problem_diagrams/37_41_page3_Im9.jpg",
@@ -768,7 +768,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "Matthew filled the nine\nboxes of a 3 × 3 square\nwith the integers from\n1 to 9 so that the six\nsums obtained for the\nrows and columns are\nall different. The largest\nof its six sums is 24.\nMatilda did the same thing, but the largest of her\nsix sums is smaller than 24.\nWhat is this larger sum, at least?\nEND for C1 PARTICIPANTS",
+    "statement": "Matthew filled the nine boxes of a 3 × 3 square with the integers from 1 to 9 so that the six sums obtained for the rows and columns are all different. The largest of its six sums is 24. Matilda did the same thing, but the largest of her six sums is smaller than 24. What is this larger sum, at least? END for C1 PARTICIPANTS",
     "diagrams": [
       "/media/problem_diagrams/37_41_page3_Im8.jpg",
       "/media/problem_diagrams/37_41_page3_Im9.jpg",
@@ -801,7 +801,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "A, B, X and Y are four different digits, A and B\nbeing different from 0.\nAB × BA = AXYB\nBy multiplying the two-digit number AB by its\n”reverse”, we obtain a four-digit number in which\nthe digits X and Y are inserted between A and B.\nWhat is the number AXYB?",
+    "statement": "A, B, X and Y are four different digits, A and B being different from 0. AB × BA = AXYB By multiplying the two-digit number AB by its ”reverse”, we obtain a four-digit number in which the digits X and Y are inserted between A and B. What is the number AXYB?",
     "diagrams": [
       "/media/problem_diagrams/37_41_page2_Im5.jpg"
     ],
@@ -832,7 +832,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "Two friendly numbers are numbers such that each\nis divisible by the sum of the digits of the other.\nA and B are friendly numbers, both between 100\nand 150.\nWhat is the number A + B, knowing that B is\ndivisible by 23?",
+    "statement": "Two friendly numbers are numbers such that each is divisible by the sum of the digits of the other. A and B are friendly numbers, both between 100 and 150. What is the number A + B, knowing that B is divisible by 23?",
     "diagrams": [
       "/media/problem_diagrams/37_41_page2_Im5.jpg"
     ],
@@ -864,7 +864,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "A city would like to encourage carpooling and\nhas decided to count the number of people who\npass by car on a certain stretch of road. Of the\n2550 cars counted, 1 in 25 contained 5 people, 1\nin 10 contained 4, 1 in 17 contained 3 and 1 in 6\ncontained 2; all the others had only 1 person on\nboard.\nHow many people were counted in the 2550\ncars?\nEND for CM PARTICIPANTS\nProblems 9 to 18: beware! For a problem to\nbe completely solved, you must give both the\nnumber of solutions, AND give the solution\nif there is only one, or give any two correct\nsolutions if there are more than one. For all\nproblems that may have more than one solution,\nthere is space for two answers on the answer\nsheet (but there may still be just one solution).",
+    "statement": "A city would like to encourage carpooling and has decided to count the number of people who pass by car on a certain stretch of road. Of the 2550 cars counted, 1 in 25 contained 5 people, 1 in 10 contained 4, 1 in 17 contained 3 and 1 in 6 contained 2; all the others had only 1 person on board. How many people were counted in the 2550 cars? END for CM PARTICIPANTS Problems 9 to 18: beware! For a problem to be completely solved, you must give both the number of solutions, AND give the solution if there is only one, or give any two correct solutions if there are more than one. For all problems that may have more than one solution, there is space for two answers on the answer sheet (but there may still be just one solution).",
     "diagrams": [
       "/media/problem_diagrams/37_41_page2_Im5.jpg"
     ],
@@ -896,7 +896,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "5\n6\nThe discs of this\ndiagram contain all the\nwhole numbers from\n2 to 12 (the numbers\n5 and 6 are already\nplaced). The sum of\nthree numbers located\nin discs placed on the\nsame line segment is\nalways equal to 23.\nFill in the empty discs in the diagram.",
+    "statement": "5 6 The discs of this diagram contain all the whole numbers from 2 to 12 (the numbers 5 and 6 are already placed). The sum of three numbers located in discs placed on the same line segment is always equal to 23. Fill in the empty discs in the diagram.",
     "diagrams": [
       "/media/problem_diagrams/37_41_page2_Im5.jpg"
     ],
@@ -928,7 +928,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "On this grid Matilda has\nplaced a counter. She wants to\nadd counters according to the\nfollowing rules:\n– each horizontal or vertical\nrow must never contain more\nthan two counters;\n– squares that touch a square containing a\ncounter, even diagonally, must be empty.\nHow many counters can she place at most,\nincluding the counter already placed?",
+    "statement": "On this grid Matilda has placed a counter. She wants to add counters according to the following rules: – each horizontal or vertical row must never contain more than two counters; – squares that touch a square containing a counter, even diagonally, must be empty. How many counters can she place at most, including the counter already placed?",
     "diagrams": [
       "/media/problem_diagrams/37_41_page2_Im5.jpg"
     ],
@@ -961,7 +961,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "70 cm\n30 cm\nPaula has received a rectangular pool table\nmeasuring 70 cm by 30 cm. She plays a ball\nfrom a corner of the table following a diagonal\nof a small square. When the ball hits a cushion, it\nalways rebounds following a diagonal of a small\nsquare.\nHow many rebounds will the ball make before\nentering a corner pocket?",
+    "statement": "70 cm 30 cm Paula has received a rectangular pool table measuring 70 cm by 30 cm. She plays a ball from a corner of the table following a diagonal of a small square. When the ball hits a cushion, it always rebounds following a diagonal of a small square. How many rebounds will the ball make before entering a corner pocket?",
     "diagrams": [
       "/media/problem_diagrams/37_41_page1_Im1.jpg"
     ],
@@ -994,7 +994,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "How many five-digit numbers are there where\neach digit, except the rightmost digit, is greater\nthan the sum of the digits (or the digit if there is\nonly one) to its right?",
+    "statement": "How many five-digit numbers are there where each digit, except the rightmost digit, is greater than the sum of the digits (or the digit if there is only one) to its right?",
     "diagrams": [
       "/media/problem_diagrams/37_41_page1_Im1.jpg"
     ],
@@ -1027,7 +1027,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "All the faces of this building\nare horizontal or vertical.\nHow many faces does it\nhave, at least, counting the\nface in contact with the\nground?",
+    "statement": "All the faces of this building are horizontal or vertical. How many faces does it have, at least, counting the face in contact with the ground?",
     "diagrams": [
       "/media/problem_diagrams/37_41_page1_Im1.jpg"
     ],
@@ -1060,7 +1060,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "This band can be cut\ninto three pieces, the\nsum of the numbers\nwritten on each of these\nthree pieces being the\nsame.\nWhich numbers will be on the same piece as\n13? Write these numbers in order from smallest\nto largest.",
+    "statement": "This band can be cut into three pieces, the sum of the numbers written on each of these three pieces being the same. Which numbers will be on the same piece as 13? Write these numbers in order from smallest to largest.",
     "diagrams": [
       "/media/problem_diagrams/37_41_page1_Im1.jpg"
     ],
@@ -1093,7 +1093,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "13 ; 19 ; 44 ; 114 ; 15\nWe add the same number, smaller than 23, to each\nof these five numbers. The five results all contain\nat least one digit 2.\nWhat number was added?",
+    "statement": "13 ; 19 ; 44 ; 114 ; 15 We add the same number, smaller than 23, to each of these five numbers. The five results all contain at least one digit 2. What number was added?",
     "diagrams": [
       "/media/problem_diagrams/37_41_page1_Im1.jpg"
     ],
@@ -1117,7 +1117,7 @@
     "coefficient": 36,
     "categories": [],
     "complexity_label": "Top Competition / L2",
-    "statement": "What number will be written in place \nof the question mark?",
+    "statement": "What number will be written in place of the question mark?",
     "diagrams": [
       "/media/problem_diagrams/36_41_page4_Image49.jpg",
       "/media/problem_diagrams/36_41_page4_Image50.png",
@@ -1158,7 +1158,7 @@
       "HC"
     ],
     "complexity_label": "Adults / General Public",
-    "statement": "(coefficient 15) \n \nFather Away had \nsewn a pennant \nfrom five unequal \npieces of fabric and \nhoisted it to the \nmast of his life raft. \nThe pennant is \nsewn as five similar triangles. The area of \nthe smallest triangle, in grey, is 36 cm2. \n \nWhat is the area of the pennant, in \ncm2 rounded to the nearest cm2? \n \nNote: in a triangle, if the angle between \ntwo sides a and b is 120°, the third side c \nis given by: c2 = a2 + b2 + ab.\n\n \n \nAVEC LE SOUTIEN DE",
+    "statement": "(coefficient 15)\n\nFather Away had sewn a pennant from five unequal pieces of fabric and hoisted it to the mast of his life raft. The pennant is sewn as five similar triangles. The area of the smallest triangle, in grey, is 36 cm2.\n\nWhat is the area of the pennant, in cm2 rounded to the nearest cm2?\n\nNote: in a triangle, if the angle between two sides a and b is 120°, the third side c is given by: c2 = a2 + b2 + ab.\n\nAVEC LE SOUTIEN DE",
     "diagrams": [
       "/media/problem_diagrams/36_41_page4_Image49.jpg",
       "/media/problem_diagrams/36_41_page4_Image50.png",
@@ -1200,7 +1200,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "(coefficient 14) \n \nEach of the three dimensions of Paula’s \nrectangular parallelepiped paver is a \nstrictly positive integer. The total area, \nnecessarily even, can not take certain \nvalues, such as 36. As example s: i t is \nequal to 100 if the dimensions are 1, 2 and \n16, and to 200 if the dimensions are 2, 2 \nand 24. \n \nWhat even integer, between 100 and \n200, cannot be the total area of the \nsix faces? \n \nEND for C2 PARTICIPANTS",
+    "statement": "(coefficient 14)\n\nEach of the three dimensions of Paula’s rectangular parallelepiped paver is a strictly positive integer. The total area, necessarily even, can not take certain values, such as 36. As example s: i t is equal to 100 if the dimensions are 1, 2 and 16, and to 200 if the dimensions are 2, 2 and 24.\n\nWhat even integer, between 100 and 200, cannot be the total area of the six faces?\n\nEND for C2 PARTICIPANTS",
     "diagrams": [
       "/media/problem_diagrams/36_41_page3_Image40.png",
       "/media/problem_diagrams/36_41_page3_Image41.png"
@@ -1231,7 +1231,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "(coefficient 12) \n \nTwo squares alternate \nwith an equilateral triangle \nand a regular pentagon \naround each vertex of a \nsemi-regular polyhedron. \nThe number 36 appears \non each triangular or \npentagonal face. A certain number, always \nthe same, appears on each square face. \nThe sum of the numbers on all the faces is \nequal to 2022. \n \nWhat number appears on each \nsquare face?",
+    "statement": "(coefficient 12)\n\nTwo squares alternate with an equilateral triangle and a regular pentagon around each vertex of a semi-regular polyhedron. The number 36 appears on each triangular or pentagonal face. A certain number, always the same, appears on each square face. The sum of the numbers on all the faces is equal to 2022.\n\nWhat number appears on each square face?",
     "diagrams": [
       "/media/problem_diagrams/36_41_page3_Image40.png",
       "/media/problem_diagrams/36_41_page3_Image41.png"
@@ -1263,7 +1263,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "(coefficient 10) \n \nThis is a two-player game, with nine cards \nbearing the letters A, D, E, G, I, N, O, S \nand T, one letter per card. At the start of \na game, the nine cards are placed, letter \nface up, on the table and each player's \ndisplay is empty. In turn, each player \nchooses a letter from the table and places \nit on their display. A player wins when the \nletter they has just drawn and two letters \nthat were already on their display allow \nthem to form one of the eight \ncombinations (“ words”) ADO, AGE, AIT, \nDIS, EST, GIN, OIE or ONT. A game can \nbe drawn, that is to say end in the ninth \nround without a winner or loser. Caroline \n\nplays first and chooses the letter A. \nSebastian chooses the letter D in the \nsecond round. Caroline chooses the letter \nO in the third round. \n \nWhich letter must Sebastian choose \nin the fourth round so that Caroline \ncannot win in the seventh round?",
+    "statement": "(coefficient 10)\n\nThis is a two-player game, with nine cards bearing the letters A, D, E, G, I, N, O, S and T, one letter per card. At the start of a game, the nine cards are placed, letter face up, on the table and each player's display is empty. In turn, each player chooses a letter from the table and places it on their display. A player wins when the letter they has just drawn and two letters that were already on their display allow them to form one of the eight combinations (“ words”) ADO, AGE, AIT, DIS, EST, GIN, OIE or ONT. A game can be drawn, that is to say end in the ninth round without a winner or loser. Caroline\n\nplays first and chooses the letter A. Sebastian chooses the letter D in the second round. Caroline chooses the letter O in the third round.\n\nWhich letter must Sebastian choose in the fourth round so that Caroline cannot win in the seventh round?",
     "diagrams": [
       "/media/problem_diagrams/36_41_page2_Image35.png",
       "/media/problem_diagrams/36_41_page2_Image36.png",
@@ -1297,7 +1297,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "(coefficient 6) \nMatilda has built a \npyramid of consecutive \nwhole numbers starting from 1 as shown \nin the drawing which represents the top \nfive rows. Matilda's pyramid has 22 rows. \nHow many odd numbers does the \nbottom row have? \n5 4 3\n6 1 2\n987\n1\n3\n1\n2 3 4\n5 6 7 8 9\n11 12 13 14 15 1610\n.... .... .... .... .... ....18 ....17\n2\n1 7\n3\n4\n5\n6\npossible\npossible",
+    "statement": "(coefficient 6) Matilda has built a pyramid of consecutive whole numbers starting from 1 as shown in the drawing which represents the top five rows. Matilda's pyramid has 22 rows. How many odd numbers does the bottom row have? 5 4 3 6 1 2 987 1 3 1 2 3 4 5 6 7 8 9 11 12 13 14 15 1610 .... .... .... .... .... ....18 ....17 2 1 7 3 4 5 6 possible possible",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 6 (Matilda’s Pyramid)",
@@ -1327,7 +1327,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "the digits: the same sticker on \nthe same digit and different \nstickers on different digits. \nWhat was the result of his addition?",
+    "statement": "the digits: the same sticker on the same digit and different stickers on different digits. What was the result of his addition?",
     "diagrams": [
       "/media/problem_diagrams/35_30_page2_Image47.jpg"
     ],

@@ -33,6 +33,26 @@ def get_complexity_label(p_num):
     elif p_num <= 16: return "Adults / General Public"
     else: return "Top Competition / L2"
 
+def clean_statement_text(statement):
+    if not statement:
+        return ""
+    # Remove trailing header/footer metadata
+    statement = re.sub(r'FOR PARTICIPANTS.*', '', statement, flags=re.DOTALL).strip()
+    
+    # Fix hyphenated word breaks at line ends (e.g., differ-\nent -> different)
+    statement = re.sub(r'(\w+)-\s*\n\s*(\w+)', r'\1\2', statement)
+    
+    # Replace single line breaks with space, keeping double line breaks for true paragraphs
+    paragraphs = re.split(r'\n\s*\n', statement)
+    cleaned_paragraphs = []
+    for p in paragraphs:
+        cleaned_p = re.sub(r'\s*\n\s*', ' ', p.strip())
+        cleaned_p = re.sub(r'\s+', ' ', cleaned_p)
+        if cleaned_p:
+            cleaned_paragraphs.append(cleaned_p)
+            
+    return "\n\n".join(cleaned_paragraphs)
+
 def parse_pdf_problems(pdf_path):
     filename = os.path.basename(pdf_path)
     m = re.match(r'(\d+)_(\d+)_([A-Za-z0-9_]+)_(questions|answers)\.pdf', filename)
@@ -89,8 +109,7 @@ def parse_pdf_problems(pdf_path):
             p_num = int(header_match.group(1))
             title = header_match.group(2).strip()
             coeff = int(header_match.group(3)) if header_match.group(3) else p_num
-            statement = header_match.group(4).strip()
-            statement = re.sub(r'FOR PARTICIPANTS.*', '', statement, flags=re.DOTALL).strip()
+            statement = clean_statement_text(header_match.group(4))
             
             pid = f"{edition}_{stage_code}_p{p_num}"
             cats = get_categories(p_num)
