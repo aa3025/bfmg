@@ -2,8 +2,7 @@ import os
 import re
 import json
 import glob
-import io
-import pypdf
+import fitz # PyMuPDF
 from PIL import Image
 from pathlib import Path
 
@@ -44,7 +43,6 @@ def parse_pdf_problems(pdf_path):
     edition = int(m.group(1))
     stage_code = int(m.group(2))
     
-    # 40th Edition = 2025-2026, 39th Edition = 2024-2025, 38th Edition = 2023-2024
     year_start = 1985 + edition
     year_str = f"{year_start}-{year_start+1} ({edition}th Edition)"
     
@@ -56,136 +54,134 @@ def parse_pdf_problems(pdf_path):
     }
     stage_name = stage_names.get(stage_code, f"Stage {stage_code}")
     
-    reader = pypdf.PdfReader(pdf_path)
-    
-    # 1. Extract valid diagram images (>80x80px, non-banner) per page
-    page_diagrams = {}
-    for page_idx, page in enumerate(reader.pages):
-        imgs = []
-        try:
-            for img_idx, img_obj in enumerate(page.images):
-                try:
-                    im = Image.open(io.BytesIO(img_obj.data))
-                    w, h = im.size
-                    # Filter out logos, header banners, or tiny icons
-                    if w >= 80 and h >= 80 and (w / h < 4.0) and (h / w < 4.0):
-                        img_name = f"{edition}_{stage_code}_pg{page_idx+1}_{img_idx+1}_{img_obj.name}"
-                        if not img_name.endswith(('.png', '.jpg', '.jpeg', '.webp')):
-                            img_name += '.png'
-                        img_path = diagrams_dir / img_name
-                        with open(img_path, 'wb') as f:
-                            f.write(img_obj.data)
-                        imgs.append(f"/media/problem_diagrams/{img_name}")
-                except Exception:
-                    pass
-        except Exception:
-            pass
-        page_diagrams[page_idx + 1] = imgs
+    doc = fitz.open(pdf_path)
+    diagram_keywords = ['figure', 'disc', 'token', 'square', 'grid', 'triangle', 'example', 'shown', 'diagram', 'illustration', 'pattern', 'drawing', 'card', 'logo', 'shield', 'as in', 'map', 'cactus', 'tetramino', 'horseshoe', 'pyramid', 'maze', 'discs', 'crossword', 'dots', 'circle', 'quadrilateral', 'domino']
 
-    # 2. Sequential line-by-line problem parsing
-    full_text = "\n".join([page.extract_text() or "" for page in reader.pages])
-    
-    # Normalize problem header newlines
-    full_text = re.sub(r'START for ALL PARTICIPANTS\s*', '\n', full_text, flags=re.I)
-    full_text = re.sub(r'(\s+)(\d{1,2})\.\s+([A-Z])', r'\n\2. \3', full_text)
-
-    lines = full_text.split('\n')
-    problems = []
-    current_prob = None
-    expected_num = 1
-
-    for line in lines:
-        line_str = line.strip()
-        if not line_str:
-            continue
-            
-        m_prob = re.match(r'^(' + str(expected_num) + r')\.\s+(.+)$', line_str)
-        if m_prob:
-            if current_prob:
-                problems.append(current_prob)
-            rest_text = m_prob.group(2).strip()
-            
-            coeff_match = re.search(r'\((?:coefficient|coeff\.|coef\.)\s*(\d+)\)', rest_text, re.I)
-            coeff = int(coeff_match.group(1)) if coeff_match else expected_num
-            
-            title = rest_text
-            extra_statement = ""
-            if coeff_match:
-                title = rest_text[:coeff_match.start()].strip()
-                extra_statement = rest_text[coeff_match.end():].strip()
-            elif "  " in rest_text:
-                parts = rest_text.split("  ", 1)
-                title = parts[0].strip()
-                extra_statement = parts[1].strip()
-                
-            current_prob = {
-                'number': expected_num,
-                'title': title,
-                'coefficient': coeff,
-                'lines': [extra_statement] if extra_statement else []
-            }
-            expected_num += 1
-        elif current_prob:
-            # Skip header / footer / category divider lines
-            if re.search(r'\b(?:END|START)\s+for\b', line_str, re.I):
-                continue
-            if re.search(r'FFJM\s*–|Information and results at|http://|Problems \d+ to \d+:|The Swiss Federation of Mathematical Games', line_str, re.I):
-                continue
-            current_prob['lines'].append(line_str)
-
-    if current_prob:
-        problems.append(current_prob)
-
-    # 3. Format statement text & attach relevant diagrams
     extracted = []
-    diagram_keywords = ['figure', 'disc', 'token', 'square', 'grid', 'triangle', 'example', 'shown', 'diagram', 'illustration', 'pattern', 'drawing', 'card', 'logo', 'shield', 'as in', 'map', 'cactus', 'tetramino', 'horseshoe']
 
-    for p in problems:
-        p_num = p['number']
-        statement_text = " ".join(p['lines'])
+    for page_idx, page in enumerate(doc):
+        page_num = page_idx + 1
+        blocks = page.get_text("blocks")
+        drawings = page.get_drawings()
         
-        # Clean instruction lines from body text
-        statement_text = re.sub(r'\b(?:END|START)\s+for\s+[A-Za-z0-9,\s]+PARTICIPANTS\b.*', '', statement_text, flags=re.I)
-        statement_text = re.sub(r'The Swiss Federation of Mathematical Games.*', '', statement_text, flags=re.I)
-        statement_text = re.sub(r'(\w+)-\s+(\w+)', r'\1\2', statement_text)
-        statement_text = re.sub(r'\s+', ' ', statement_text).strip()
+        # Sort blocks vertically then horizontally
+        blocks.sort(key=lambda b: (b[1], b[0]))
         
-        # Determine page estimate (1-5 -> p1, 6-10 -> p2, 11-14 -> p3, 15-18 -> p4)
-        p_page = 1 if p_num <= 5 else (2 if p_num <= 10 else (3 if p_num <= 14 else 4))
-        
-        # Only attach diagram if problem text explicitly mentions a visual reference
-        diagram_list = []
-        has_visual_ref = any(kw in statement_text.lower() for kw in diagram_keywords) or any(kw in p['title'].lower() for kw in diagram_keywords)
-        if has_visual_ref and p_page in page_diagrams and len(page_diagrams[p_page]) > 0:
-            diagram_list = [page_diagrams[p_page][0]]
+        # Find problem headers on this page
+        prob_headers = []
+        for b_idx, b in enumerate(blocks):
+            b_text = b[4].strip()
+            m_h = re.search(r'^(?:START[^\n]*?)?\s*(\d{1,2})\.\s+([^\n\(]+?)(?:\s*\((?:coefficient|coeff\.|coef\.)\s*(\d+)\))?', b_text, re.I)
+            if m_h:
+                num = int(m_h.group(1))
+                if 1 <= num <= 18:
+                    title = m_h.group(2).strip()
+                    coeff_match = re.search(r'\((?:coefficient|coeff\.|coef\.)\s*(\d+)\)', b_text, re.I)
+                    coeff = int(coeff_match.group(1)) if coeff_match else num
+                    prob_headers.append({
+                        'number': num,
+                        'title': title,
+                        'coefficient': coeff,
+                        'rect': fitz.Rect(b[0], b[1], b[2], b[3]),
+                        'block_idx': b_idx
+                    })
+
+        # Process each problem on page
+        for i, p_info in enumerate(prob_headers):
+            num = p_info['number']
+            title = p_info['title']
+            coeff = p_info['coefficient']
+            h_rect = p_info['rect']
             
-        pid = f"{edition}_{stage_code}_p{p_num}"
-        cats = get_categories(p_num)
-        comp_label = get_complexity_label(p_num)
-        
-        extracted.append({
-            "id": pid,
-            "edition": edition,
-            "year": year_str,
-            "stage": stage_name,
-            "stage_code": stage_code,
-            "number": p_num,
-            "title": p["title"],
-            "coefficient": p["coefficient"],
-            "categories": cats,
-            "complexity_label": comp_label,
-            "statement": statement_text,
-            "diagrams": diagram_list,
-            "solution": {
-                "answer": f"Solution for Problem {p_num} ({p['title']})",
-                "steps": [
-                    f"Read and analyze the given conditions for {p['title']}.",
-                    f"Apply logical deduction for category {comp_label}.",
-                    f"Calculate and verify final result."
-                ]
-            }
-        })
-        
+            # Vertical & horizontal bounds for this problem:
+            next_y = prob_headers[i+1]['rect'].y0 if i+1 < len(prob_headers) else 780.0
+            
+            # Restrict drawing rects to problem's column
+            col_min_x = max(20.0, h_rect.x0 - 25.0)
+            col_max_x = min(580.0, h_rect.x0 + 260.0)
+            
+            p_drawings = []
+            for d in drawings:
+                r = d["rect"]
+                if h_rect.y0 - 10 <= r.y0 < next_y and col_min_x <= r.x0 <= col_max_x and r.height < 450 and r.width < 350:
+                    # Exclude full page border lines
+                    if r.height > 700 or r.width > 550:
+                        continue
+                    p_drawings.append(r)
+
+            diag_union_rect = None
+            if p_drawings:
+                diag_union_rect = p_drawings[0]
+                for r in p_drawings[1:]:
+                    diag_union_rect |= r
+
+            statement_lines = []
+            for b in blocks:
+                # Check if block falls within this problem's vertical band & column
+                if h_rect.y0 - 15 <= b[1] < next_y and col_min_x - 10 <= b[0] <= col_max_x + 30:
+                    txt = b[4].strip()
+                    b_rect = fitz.Rect(b[0], b[1], b[2], b[3])
+                    
+                    # Skip instruction lines / banners / headers
+                    if re.search(r'FFJM\s*–|Information and results at|http://|Problems \d+ to \d+:|END for|START for|The Swiss Federation', txt, re.I):
+                        continue
+                        
+                    # Filter out loose diagram text blocks inside vector drawing bounding rect
+                    if diag_union_rect and (diag_union_rect.intersects(b_rect) or diag_union_rect.contains(b_rect)):
+                        if not re.search(r'\b(?:what|how|find|calculate|is|are|the|how many)\b', txt, re.I):
+                            continue
+                            
+                    # Clean header line text if present
+                    txt_clean = re.sub(r'^\s*\d{1,2}\.\s+[^\n\(]+?(?:\s*\((?:coefficient|coeff\.|coef\.)\s*\d+\))?', '', txt, flags=re.I).strip()
+                    if txt_clean:
+                        statement_lines.append(txt_clean)
+
+            statement_text = " ".join(statement_lines)
+            statement_text = re.sub(r'(\w+)-\s+(\w+)', r'\1\2', statement_text)
+            statement_text = re.sub(r'\s+', ' ', statement_text).strip()
+            
+            # Crop high-res diagram PNG if problem has vector drawings and mentions visual keywords
+            diagram_list = []
+            has_visual_ref = any(kw in statement_text.lower() for kw in diagram_keywords) or any(kw in title.lower() for kw in diagram_keywords)
+            
+            if has_visual_ref and diag_union_rect and diag_union_rect.width >= 30 and diag_union_rect.height >= 30:
+                pad_rect = fitz.Rect(diag_union_rect.x0 - 5, diag_union_rect.y0 - 5, diag_union_rect.x1 + 5, diag_union_rect.y1 + 5)
+                zoom = 300 / 72
+                mat = fitz.Matrix(zoom, zoom)
+                pix = page.get_pixmap(matrix=mat, clip=pad_rect)
+                
+                img_name = f"{edition}_{stage_code}_p{num}_vector_diag.png"
+                img_path = diagrams_dir / img_name
+                pix.save(img_path)
+                diagram_list = [f"/media/problem_diagrams/{img_name}"]
+                
+            pid = f"{edition}_{stage_code}_p{num}"
+            cats = get_categories(num)
+            comp_label = get_complexity_label(num)
+            
+            extracted.append({
+                "id": pid,
+                "edition": edition,
+                "year": year_str,
+                "stage": stage_name,
+                "stage_code": stage_code,
+                "number": num,
+                "title": title,
+                "coefficient": coeff,
+                "categories": cats,
+                "complexity_label": comp_label,
+                "statement": statement_text,
+                "diagrams": diagram_list,
+                "solution": {
+                    "answer": f"Solution for Problem {num} ({title})",
+                    "steps": [
+                        f"Read and analyze the given conditions for {title}.",
+                        f"Apply logical deduction for category {comp_label}.",
+                        f"Calculate and verify final result."
+                    ]
+                }
+            })
+
     return extracted
 
 def main():
@@ -205,7 +201,7 @@ def main():
     with open(problems_file, 'w', encoding='utf-8') as f:
         json.dump(all_problems, f, indent=2, ensure_ascii=False)
         
-    print(f"Successfully extracted {len(all_problems)} problems with exact title & statement separation into {problems_file}")
+    print(f"Successfully extracted {len(all_problems)} pristine problems with column-scoped vector diagram crops into {problems_file}")
 
 if __name__ == "__main__":
     main()
