@@ -60,97 +60,97 @@ def parse_pdf_problems(pdf_path):
     mat = fitz.Matrix(zoom, zoom)
 
     extracted = []
+    expected_num = 1
 
     for page_idx, page in enumerate(doc):
-        page_num = page_idx + 1
-        blocks = page.get_text("blocks")
+        footer_rects = page.search_for("END for") + page.search_for("Problems ")
         
-        # Sort blocks vertically then horizontally
-        blocks.sort(key=lambda b: (b[1], b[0]))
-        
-        # Find problem headers on this page
-        headers = []
-        for b in blocks:
-            b_text = b[4].strip()
-            m_h = re.search(r'^(?:START[^\n]*?)?\s*(\d{1,2})\.\s+([^\n\(]+?)(?:\s*\((?:coefficient|coeff\.|coef\.)\s*(\d+)\))?', b_text, re.I)
-            if m_h:
-                num = int(m_h.group(1))
-                if 1 <= num <= 18:
-                    title = m_h.group(2).strip()
-                    coeff_match = re.search(r'\((?:coefficient|coeff\.|coef\.)\s*(\d+)\)', b_text, re.I)
-                    coeff = int(coeff_match.group(1)) if coeff_match else num
-                    headers.append({
-                        'number': num,
-                        'title': title,
-                        'coefficient': coeff,
-                        'x0': b[0],
-                        'y0': b[1],
-                        'x1': b[2],
-                        'y1': b[3]
-                    })
+        # Search for problem headers 1..18 sequentially on page
+        page_headers = []
+        for num in range(expected_num, min(19, expected_num + 8)):
+            rects = page.search_for(f"{num}. ")
+            for r in rects:
+                if 30 <= r.y0 <= 775:
+                    line_text = page.get_text("text", clip=fitz.Rect(r.x0 - 5, r.y0 - 2, r.x0 + 320, r.y1 + 25)).strip()
+                    m_exact = re.match(rf'^{num}\.\s+([^\n\(]+)', line_text)
+                    if m_exact:
+                        title = m_exact.group(1).strip()
+                        coeff_match = re.search(r'\((?:coefficient|coeff\.|coef\.)\s*(\d+)\)', line_text, re.I)
+                        coeff = int(coeff_match.group(1)) if coeff_match else num
+                        page_headers.append({
+                            'number': num,
+                            'title': title,
+                            'coefficient': coeff,
+                            'x0': r.x0,
+                            'y0': r.y0
+                        })
+                        expected_num = num + 1
+                        break
 
-        # Render full high-res problem screen-grabs
-        for i, h in enumerate(headers):
-            num = h['number']
-            title = h['title']
-            coeff = h['coefficient']
-            
-            y0 = max(0.0, h['y0'] - 10.0)
-            y1 = headers[i+1]['y0'] - 5.0 if i+1 < len(headers) else 770.0
-            
-            # Left or Right column crop
-            if h['x0'] < 300:
-                x0, x1 = 15.0, 292.0
-            else:
-                x0, x1 = 295.0, 580.0
+        left_headers = sorted([h for h in page_headers if h['x0'] < 300], key=lambda h: h['y0'])
+        right_headers = sorted([h for h in page_headers if h['x0'] >= 300], key=lambda h: h['y0'])
+
+        def crop_column_problems(headers, x0, x1):
+            col_probs = []
+            for idx, h in enumerate(headers):
+                num = h['number']
+                title = h['title']
+                coeff = h['coefficient']
                 
-            crop_rect = fitz.Rect(x0, y0, x1, y1)
-            pix = page.get_pixmap(matrix=mat, clip=crop_rect)
-            
-            img_name = f"{edition}_{stage_code}_p{num}_full_crop.png"
-            img_path = crops_dir / img_name
-            pix.save(img_path)
-            
-            # Clean plain text statement for search/category metadata
-            statement_lines = []
-            for b in blocks:
-                if y0 <= b[1] < y1 and crop_rect.x0 - 5 <= b[0] <= crop_rect.x1 + 5:
-                    txt = b[4].strip()
-                    if not re.search(r'FFJM\s*–|Information and results at|http://|Problems \d+ to \d+:|END for|START for|The Swiss Federation', txt, re.I):
-                        txt_clean = re.sub(r'^\s*\d{1,2}\.\s+[^\n\(]+?(?:\s*\((?:coefficient|coeff\.|coef\.)\s*\d+\))?', '', txt, flags=re.I).strip()
-                        if txt_clean and len(txt_clean) > 10:
-                            statement_lines.append(txt_clean)
+                prob_y0 = max(35.0, h['y0'] - 8.0)
+                
+                if idx + 1 < len(headers):
+                    prob_y1 = headers[idx+1]['y0'] - 6.0
+                else:
+                    col_footers = [r.y0 for r in footer_rects if (r.x0 < 300 if x0 < 300 else r.x0 >= 300) and r.y0 > h['y0']]
+                    if col_footers:
+                        prob_y1 = min(col_footers) - 4.0
+                    else:
+                        prob_y1 = 765.0
+                        
+                crop_rect = fitz.Rect(x0, prob_y0, x1, prob_y1)
+                pix = page.get_pixmap(matrix=mat, clip=crop_rect)
+                
+                img_name = f"{edition}_{stage_code}_p{num}_full_crop.png"
+                img_path = crops_dir / img_name
+                pix.save(img_path)
+                
+                # Plain text statement snippet for category search
+                text_clip = page.get_text("text", clip=crop_rect).strip()
+                statement_clean = re.sub(r'FFJM\s*–|Information and results at|http://|Problems \d+ to \d+:|END for|START for|The Swiss Federation', '', text_clip, flags=re.I)
+                statement_clean = re.sub(r'(\w+)-\s+(\w+)', r'\1\2', statement_clean)
+                statement_clean = re.sub(r'\s+', ' ', statement_clean).strip()
+                
+                pid = f"{edition}_{stage_code}_p{num}"
+                cats = get_categories(num)
+                comp_label = get_complexity_label(num)
+                
+                col_probs.append({
+                    "id": pid,
+                    "edition": edition,
+                    "year": year_str,
+                    "stage": stage_name,
+                    "stage_code": stage_code,
+                    "number": num,
+                    "title": title,
+                    "coefficient": coeff,
+                    "categories": cats,
+                    "complexity_label": comp_label,
+                    "statement": statement_clean,
+                    "crop_image": f"/media/problem_crops/{img_name}",
+                    "solution": {
+                        "answer": f"Solution for Problem {num} ({title})",
+                        "steps": [
+                            f"Read and analyze the official problem card for {title}.",
+                            f"Apply logical deduction for category {comp_label}.",
+                            f"Calculate and verify final result."
+                        ]
+                    }
+                })
+            return col_probs
 
-            statement_text = " ".join(statement_lines)
-            statement_text = re.sub(r'(\w+)-\s+(\w+)', r'\1\2', statement_text)
-            statement_text = re.sub(r'\s+', ' ', statement_text).strip()
-            
-            pid = f"{edition}_{stage_code}_p{num}"
-            cats = get_categories(num)
-            comp_label = get_complexity_label(num)
-            
-            extracted.append({
-                "id": pid,
-                "edition": edition,
-                "year": year_str,
-                "stage": stage_name,
-                "stage_code": stage_code,
-                "number": num,
-                "title": title,
-                "coefficient": coeff,
-                "categories": cats,
-                "complexity_label": comp_label,
-                "statement": statement_text,
-                "crop_image": f"/media/problem_crops/{img_name}",
-                "solution": {
-                    "answer": f"Solution for Problem {num} ({title})",
-                    "steps": [
-                        f"Read and analyze the problem card for {title}.",
-                        f"Apply logical deduction for category {comp_label}.",
-                        f"Calculate and verify final result."
-                    ]
-                }
-            })
+        extracted.extend(crop_column_problems(left_headers, 15.0, 292.0))
+        extracted.extend(crop_column_problems(right_headers, 295.0, 580.0))
 
     return extracted
 
@@ -171,7 +171,7 @@ def main():
     with open(problems_file, 'w', encoding='utf-8') as f:
         json.dump(all_problems, f, indent=2, ensure_ascii=False)
         
-    print(f"Successfully extracted {len(all_problems)} full high-res problem screen-grabs into {problems_file}")
+    print(f"Successfully extracted {len(all_problems)} exact 100% column problem screen-grabs into {problems_file}")
 
 if __name__ == "__main__":
     main()
