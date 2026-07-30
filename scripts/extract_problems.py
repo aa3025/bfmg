@@ -36,8 +36,11 @@ def get_complexity_label(p_num):
 def clean_statement_text(statement):
     if not statement:
         return ""
-    # Remove trailing header/footer metadata
-    statement = re.sub(r'FOR PARTICIPANTS.*', '', statement, flags=re.DOTALL).strip()
+    # Remove trailing header/footer metadata and END/START instruction lines
+    statement = re.sub(r'(?:END|START)\s+for\s+[A-Za-z0-9,\s]+PARTICIPANTS.*', '', statement, flags=re.IGNORECASE | re.DOTALL)
+    statement = re.sub(r'FOR PARTICIPANTS.*', '', statement, flags=re.IGNORECASE | re.DOTALL)
+    statement = re.sub(r'\b(?:END|START)\s+for\s+[A-Za-z0-9,\s]+PARTICIPANTS\b.*', '', statement, flags=re.IGNORECASE)
+    statement = statement.strip()
     
     # Fix hyphenated word breaks at line ends (e.g., differ-\nent -> different)
     statement = re.sub(r'(\w+)-\s*\n\s*(\w+)', r'\1\2', statement)

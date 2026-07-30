@@ -16,7 +16,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "(coefficient 14) The number 23.24252525... where 25 is repeated infinitely, is the unlimited decimal expansion of an irreducible fraction. Which fraction?\n\nEND for C2 PARTICIPANTS",
+    "statement": "(coefficient 14) The number 23.24252525... where 25 is repeated infinitely, is the unlimited decimal expansion of an irreducible fraction. Which fraction?",
     "diagrams": [
       "/media/problem_diagrams/39_30_page3_Image52.jpg",
       "/media/problem_diagrams/39_30_page3_Image53.png"
@@ -44,7 +44,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "Alice, Bertrand and Camilla are lost in a huge forest. Thanks to their respective smartphones, they establish that their three positions form a triangle whose dimensions are all whole numbers of metres and such that one of the angles of the triangle measures exactly 5 times the measurement of another angle. Knowing that Bertrand and Camilla are less than 500 metres from each other, what is the distance between Alice and Camilla? END for L2, HC PARTICIPANTS",
+    "statement": "Alice, Bertrand and Camilla are lost in a huge forest. Thanks to their respective smartphones, they establish that their three positions form a triangle whose dimensions are all whole numbers of metres and such that one of the angles of the triangle measures exactly 5 times the measurement of another angle. Knowing that Bertrand and Camilla are less than 500 metres from each other, what is the distance between Alice and Camilla?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 18 (LOST IN THE FOREST)",
@@ -96,7 +96,7 @@
       "HC"
     ],
     "complexity_label": "Adults / General Public",
-    "statement": "Count Themall owns a parcel of land ABC in the shape of a right-angled triangle. A B D E CF I This land is divided into three plots: IDBE, IECF and IFAD, point I being located at the intersection of the bisectors of angles B and C. Each of the straight lines (ID), (IE) and (IF) is perpendicular to a side of the ABC triangle. The IDBE plot has an area of 676 m 2 and the IECF plot an area of 1014 m2. What is the area of the third plot? END for L1, GP PARTICIPANTS",
+    "statement": "Count Themall owns a parcel of land ABC in the shape of a right-angled triangle. A B D E CF I This land is divided into three plots: IDBE, IECF and IFAD, point I being located at the intersection of the bisectors of angles B and C. Each of the straight lines (ID), (IE) and (IF) is perpendicular to a side of the ABC triangle. The IDBE plot has an area of 676 m 2 and the IECF plot an area of 1014 m2. What is the area of the third plot?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 16 (COUNT THEMALL)",
@@ -151,7 +151,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "19 5 6 a The discs of this star must contain all the whole numbers from 1 to 19 (the numbers 5, 6 and 19 are already placed) so that: – the sum of the three numbers written on each of the spokes, starting from the central 6 (which will be counted) is always equal to 23; – the sum of the three numbers written on each side of the hexagon is also always equal to 23. What number will go in box a? END for C2 PARTICIPANTS",
+    "statement": "19 5 6 a The discs of this star must contain all the whole numbers from 1 to 19 (the numbers 5, 6 and 19 are already placed) so that: – the sum of the three numbers written on each of the spokes, starting from the central 6 (which will be counted) is always equal to 23; – the sum of the three numbers written on each side of the hexagon is also always equal to 23. What number will go in box a?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 14 (STAR OF THE YEAR)",
@@ -236,7 +236,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "Daniel enjoys doing exercises in arithmetic. He divides each three-digit number (all digits nonzero) by the product of its digits. For some of these numbers the result of the division is an integer. What surprised him was when for a certain number the quotient turned out to be whole and greater than 50. What is this three-digit number? END for C1 PARTICIPANTS",
+    "statement": "Daniel enjoys doing exercises in arithmetic. He divides each three-digit number (all digits nonzero) by the product of its digits. For some of these numbers the result of the division is an integer. What surprised him was when for a certain number the quotient turned out to be whole and greater than 50. What is this three-digit number?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 11 (A RELATIVELY LARGE NUMBER)",
@@ -324,7 +324,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "From a rectangle of 2 squares by 3, we create a new figure by adding a square on each side of the rectangle, this square having a side coinciding with a side of a square of the rectangle. How many different figures can we make? Figures that look identical after rotation or flipping only count as one! END for CM PARTICIPANTS Problems 9 to 18: beware! For a problem to be completely solved, you must give both the number of solutions, AND give the solution if there is only one, or give any two correct solutions if there are more than one. For all problems that may have more than one solution, there is space for two answers on the answer sheet (but there may still be just one solution).",
+    "statement": "From a rectangle of 2 squares by 3, we create a new figure by adding a square on each side of the rectangle, this square having a side coinciding with a side of a square of the rectangle. How many different figures can we make? Figures that look identical after rotation or flipping only count as one!",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 8 (COMPLETED RECTANGLE)",
@@ -564,7 +564,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "Caesar Myriad is a ghost materialising in a square room whose walls are mirrors except for two mirrorless halfwalls around the same corner (the bold line segments in the figure, drawn as viewed from above). If he stands as in the drawing, he sees an infinity of reflections of himself. He decides to move, without touching a wall, and notices that he only sees a finite number of reflections of himself. Looking around the room, he will see one of his reflections when he looks at one of a finite number of points on the mirrors. What will then be the minimum number of points where he will see one of his reflections? END for L2, HC PARTICIPANTS",
+    "statement": "Caesar Myriad is a ghost materialising in a square room whose walls are mirrors except for two mirrorless halfwalls around the same corner (the bold line segments in the figure, drawn as viewed from above). If he stands as in the drawing, he sees an infinity of reflections of himself. He decides to move, without touching a wall, and notices that he only sees a finite number of reflections of himself. Looking around the room, he will see one of his reflections when he looks at one of a finite number of points on the mirrors. What will then be the minimum number of points where he will see one of his reflections?",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 18 (CAESAR MYRIAD)",
@@ -616,7 +616,7 @@
       "HC"
     ],
     "complexity_label": "Adults / General Public",
-    "statement": "Nathalie cuts out the shaded parts of a square sheet to obtain a trapezium equal to half of a regular convex hexagon. The two bases of the trapezium are parallel to a diagonal of the square and all its vertices are placed on the sides of the square. The total area of the four rejected parts is 216 cm2. What is the length, in cm, of the longest side of the trapezium she cut out? Round the answer to tenths of a cm. If necessary, take √ 2 as 1.41 and√ 3 as 1.73. END for L1, GP PARTICIPANTS",
+    "statement": "Nathalie cuts out the shaded parts of a square sheet to obtain a trapezium equal to half of a regular convex hexagon. The two bases of the trapezium are parallel to a diagonal of the square and all its vertices are placed on the sides of the square. The total area of the four rejected parts is 216 cm2. What is the length, in cm, of the longest side of the trapezium she cut out? Round the answer to tenths of a cm. If necessary, take √ 2 as 1.41 and√ 3 as 1.73.",
     "diagrams": [],
     "solution": {
       "answer": "Solution for Problem 16 (NATHALIE’S CUTOUT)",
@@ -671,7 +671,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "Complete the empty discs of this diagram with the numbers from 2 to 9 (1 and 10 are already placed) so that: – the sum of the four numbers located at the vertices of each square is 23; – the sum of the five numbers in the top row is 23. END for C2 PARTICIPANTS",
+    "statement": "Complete the empty discs of this diagram with the numbers from 2 to 9 (1 and 10 are already placed) so that: – the sum of the four numbers located at the vertices of each square is 23; – the sum of the five numbers in the top row is 23.",
     "diagrams": [
       "/media/problem_diagrams/37_41_page3_Im8.jpg",
       "/media/problem_diagrams/37_41_page3_Im9.jpg",
@@ -768,7 +768,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "Matthew filled the nine boxes of a 3 × 3 square with the integers from 1 to 9 so that the six sums obtained for the rows and columns are all different. The largest of its six sums is 24. Matilda did the same thing, but the largest of her six sums is smaller than 24. What is this larger sum, at least? END for C1 PARTICIPANTS",
+    "statement": "Matthew filled the nine boxes of a 3 × 3 square with the integers from 1 to 9 so that the six sums obtained for the rows and columns are all different. The largest of its six sums is 24. Matilda did the same thing, but the largest of her six sums is smaller than 24. What is this larger sum, at least?",
     "diagrams": [
       "/media/problem_diagrams/37_41_page3_Im8.jpg",
       "/media/problem_diagrams/37_41_page3_Im9.jpg",
@@ -864,7 +864,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "A city would like to encourage carpooling and has decided to count the number of people who pass by car on a certain stretch of road. Of the 2550 cars counted, 1 in 25 contained 5 people, 1 in 10 contained 4, 1 in 17 contained 3 and 1 in 6 contained 2; all the others had only 1 person on board. How many people were counted in the 2550 cars? END for CM PARTICIPANTS Problems 9 to 18: beware! For a problem to be completely solved, you must give both the number of solutions, AND give the solution if there is only one, or give any two correct solutions if there are more than one. For all problems that may have more than one solution, there is space for two answers on the answer sheet (but there may still be just one solution).",
+    "statement": "A city would like to encourage carpooling and has decided to count the number of people who pass by car on a certain stretch of road. Of the 2550 cars counted, 1 in 25 contained 5 people, 1 in 10 contained 4, 1 in 17 contained 3 and 1 in 6 contained 2; all the others had only 1 person on board. How many people were counted in the 2550 cars?",
     "diagrams": [
       "/media/problem_diagrams/37_41_page2_Im5.jpg"
     ],
@@ -1200,7 +1200,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "(coefficient 14)\n\nEach of the three dimensions of Paula’s rectangular parallelepiped paver is a strictly positive integer. The total area, necessarily even, can not take certain values, such as 36. As example s: i t is equal to 100 if the dimensions are 1, 2 and 16, and to 200 if the dimensions are 2, 2 and 24.\n\nWhat even integer, between 100 and 200, cannot be the total area of the six faces?\n\nEND for C2 PARTICIPANTS",
+    "statement": "(coefficient 14)\n\nEach of the three dimensions of Paula’s rectangular parallelepiped paver is a strictly positive integer. The total area, necessarily even, can not take certain values, such as 36. As example s: i t is equal to 100 if the dimensions are 1, 2 and 16, and to 200 if the dimensions are 2, 2 and 24.\n\nWhat even integer, between 100 and 200, cannot be the total area of the six faces?",
     "diagrams": [
       "/media/problem_diagrams/36_41_page3_Image40.png",
       "/media/problem_diagrams/36_41_page3_Image41.png"
