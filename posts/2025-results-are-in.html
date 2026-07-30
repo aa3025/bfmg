@@ -357,6 +357,14 @@
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
+        /* Remove shadow specifically for problem card images in practice page */
+        #probCardImage img,
+        .prose-custom #probCardImage img {
+            box-shadow: none !important;
+            border: none !important;
+            margin: 0 !important;
+        }
+
         /* Small Logos & Badges: Centered at ~25% width */
         .prose-custom img[src*="logo"], .prose-custom img[src*="300x300"], .prose-custom img.logo-img {
             width: 25% !important;

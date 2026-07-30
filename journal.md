@@ -83,6 +83,7 @@
 | `37_42_CH_en_answers.pdf` | 37th Edition International Final Day 2 |
 | `38_41_CH_en_answers.pdf` | 38th Edition International Final Day 1 |
 | `38_42_CH_en_answers.pdf` | 38th Edition International Final Day 2 |
+| `40_30_CH_fr_answers.pdf` | 40th Edition Swiss Final |
 
 **FSJM Online Archive:** `https://fsjm.ch/static/archives/{ed}_{stage}_CH_fr_answers.pdf`
 (also try `_CH_fr_answers_2.pdf` or `_CH_en_answers.pdf`)
@@ -111,7 +112,30 @@ File: `data/solutions/{edition}_{stage}_p{num}.md`
 
 ---
 
-## 📋 Solutions Status (18 / 318 done)
+## 📋 Solutions Status (36 / 318 done)
+
+### 40_30 — 40th Edition UK National Final
+*✅ LOCAL ANSWERS: `media/past_papers/40_30_CH_fr_answers.pdf`.*
+| # | Title | Official Answer | Done |
+|---|-------|----------------|------|
+| 1 | Stickers | 5 circles, 4 triangles, 3 squares | ✅ |
+| 2 | Tokens | 2, 3, and 4 | ✅ |
+| 3 | Cecily’s Cards | 12 different numbers | ✅ |
+| 4 | Horseshoe | 28 | ✅ |
+| 5 | Light Year | 25 | ✅ |
+| 6 | Matilda’s Pictures | 24 pictures | ✅ |
+| 7 | Odd Addition | 99 | ✅ |
+| 8 | Shooting Star | a = 9, b = 6 | ✅ |
+| 9 | Only Nine Digits | 3 solutions: 627, 647, 657 | ✅ |
+| 10 | Chocolate Package | 4 solutions | ✅ |
+| 11 | Tetraminoes | 5 possible squares | ✅ |
+| 12 | Year 20 x 26 | 4 solutions: 2620, 4013, 5210, 6508 | ✅ |
+| 13 | Knights | 3 solutions | ✅ |
+| 14 | Car Trip | 2.7 litres | ✅ |
+| 15 | CCTV | 30 minutes | ✅ |
+| 16 | Lucien’s Paths | 50 paths | ✅ |
+| 17 | Collage | 57.54 cm² | ✅ |
+| 18 | Fair Shares | 50 dam | ✅ |
 
 ### 35_20 — 35th Edition Semi-Final 2020-2021
 *Answers: https://fsjm.ch/static/archives/35_20_CH_fr_answers_2.pdf*
@@ -280,7 +304,7 @@ Answers p1–p8: 7 | 17 | 4 | 1 | 15 | 98 | 1h40min | 11
    - Currently: left `x0=15`, right `x1=588` — close to natural margins
    - Still needs a full visual audit pass across all 318 crops
 
-3. **Write solutions for all 300 remaining problems**
+3. **Write solutions for all 282 remaining problems**
    - Priority 1: Papers with local answer PDFs (`36_30`, `37_41`, `37_42`, `38_41`, `38_42`)
    - Priority 2: Fetch FSJM archive PDFs for remaining papers
    - Suggest: tackle 1 full paper per session

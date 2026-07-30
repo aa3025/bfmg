@@ -516,8 +516,8 @@ def build_page_html(current_item, is_post=False, is_home=False):
                 let cardHtml = "";
                 if (p.crop_image) {{
                     let imgPath = p.crop_image.replace(/^\//, '../');
-                    cardHtml = '<div class="flex justify-center my-4 p-4 bg-white rounded-2xl shadow-2xl border border-white/20 hover:scale-[1.01] transition-transform">' +
-                        '<img src="' + imgPath + '" class="max-w-full h-auto rounded-lg object-contain shadow-md" alt="Problem Card Snapshot" />' +
+                    cardHtml = '<div class="flex justify-center my-4 p-4 bg-white rounded-2xl border border-white/20 hover:scale-[1.01] transition-transform">' +
+                        '<img src="' + imgPath + '" class="max-w-full h-auto rounded-lg object-contain shadow-none" alt="Problem Card Snapshot" />' +
                         '</div>';
                 }}
                 document.getElementById('probCardImage').innerHTML = cardHtml;
@@ -954,6 +954,14 @@ def build_page_html(current_item, is_post=False, is_home=False):
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
             transition: transform 0.3s ease, border-color 0.3s ease;
+        }}
+
+        /* Remove shadow specifically for problem card images in practice page */
+        #probCardImage img,
+        .prose-custom #probCardImage img {{
+            box-shadow: none !important;
+            border: none !important;
+            margin: 0 !important;
         }}
 
         /* Small Logos & Badges: Centered at ~25% width */
