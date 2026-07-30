@@ -1,6 +1,8 @@
 import os
 import re
+import json
 import glob
+import html
 from datetime import datetime
 from pathlib import Path
 
@@ -104,12 +106,78 @@ def wpautop(text):
     res = re.sub(r'(</?(?:ul|ol|li|h[1-6]|p|div|section|article)[^>]*>)\s*<br\s*/?>', r'\1', res)
     return res
 
+def solution_inline_markdown(text):
+    """Convert the small inline Markdown subset supported by solution files."""
+    text = html.escape(text.strip())
+    text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
+    return re.sub(r'(?<!\*)\*(?!\s)(.+?)(?<!\s)\*(?!\*)', r'<em>\1</em>', text)
+
+def solution_body_to_html(lines):
+    """Preserve Markdown tables in a solution step rather than flattening them."""
+    result = []
+    paragraph = []
+    index = 0
+
+    def flush_paragraph():
+        if paragraph:
+            result.append('<br>'.join(solution_inline_markdown(line) for line in paragraph))
+            paragraph.clear()
+
+    def table_cells(line):
+        return [cell.strip() for cell in line.strip().strip('|').split('|')]
+
+    while index < len(lines):
+        line = lines[index].strip()
+        is_table = (
+            '|' in line and index + 1 < len(lines)
+            and re.match(r'^\s*\|?\s*:?-{3,}:?\s*(?:\|\s*:?-{3,}:?\s*)+\|?\s*$', lines[index + 1])
+        )
+        if not is_table:
+            if line:
+                paragraph.append(line)
+            index += 1
+            continue
+
+        flush_paragraph()
+        headers = table_cells(line)
+        index += 2  # Skip the Markdown separator row.
+        rows = []
+        while index < len(lines) and '|' in lines[index]:
+            rows.append(table_cells(lines[index]))
+            index += 1
+
+        header_html = ''.join(
+            f'<th class="px-3 py-2 text-left font-semibold text-blue-200 whitespace-nowrap">{solution_inline_markdown(cell)}</th>'
+            for cell in headers
+        )
+        row_html = ''.join(
+            '<tr class="border-t border-white/10">' + ''.join(
+                f'<td class="px-3 py-2 align-top">{solution_inline_markdown(cell)}</td>'
+                for cell in row
+            ) + '</tr>'
+            for row in rows
+        )
+        result.append(
+            '<div class="my-3 overflow-x-auto rounded-lg border border-white/10">'
+            '<table class="min-w-full text-left text-xs text-slate-200">'
+            f'<thead class="bg-blue-500/15">{header_html}</thead><tbody>{row_html}</tbody></table></div>'
+        )
+
+    flush_paragraph()
+    return ''.join(result)
+
 # Build HTML template generator
 def build_page_html(current_item, is_post=False, is_home=False):
-    root_rel = "/"
-    pages_rel = "/pages/"
-    posts_rel = "/posts/"
-    media_rel = "/media/"
+    if is_home:
+        root_rel = "./index.html"
+        pages_rel = "./pages/"
+        posts_rel = "./posts/"
+        media_rel = "./media/"
+    else:
+        root_rel = "../index.html"
+        pages_rel = "../pages/"
+        posts_rel = "../posts/"
+        media_rel = "../media/"
     
     # Process media links in content
     item_content = current_item['content']
@@ -150,7 +218,7 @@ def build_page_html(current_item, is_post=False, is_home=False):
     pages_nav_html = ""
     for p in pages:
         is_p_home = (p['slug'] == 'home' or p['title'].lower() in ['home', 'about bfmg', 'about'])
-        p_link = "/index.html" if is_p_home else f"/pages/{p['slug']}.html"
+        p_link = root_rel if is_p_home else f"{pages_rel}{p['slug']}.html"
         active_cls = "active" if p['slug'] == current_item['slug'] else ""
         pages_nav_html += f'''
         <div class="button-wrap">
@@ -165,7 +233,7 @@ def build_page_html(current_item, is_post=False, is_home=False):
     if current_item['slug'] == 'posts':
         all_posts_grid = '<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">'
         for p in posts:
-            post_url = f"/posts/{p['slug']}.html"
+            post_url = f"{posts_rel}{p['slug']}.html"
             all_posts_grid += f'''
             <a href="{post_url}" class="glass-panel p-5 block hover:border-blue-400/50 hover:bg-white/10 transition-all text-decoration-none group rounded-2xl">
                 <div class="flex items-center gap-2 mb-2 text-xs text-blue-300 font-mono">
@@ -183,10 +251,54 @@ def build_page_html(current_item, is_post=False, is_home=False):
     # If on Practice & Learn page, append interactive Problem Bank App
     if current_item['slug'] == 'practice':
         problems_json_path = out_base / 'data' / 'problems.json'
+        solutions_dir = out_base / 'data' / 'solutions'
         problems_data = "[]"
         if problems_json_path.exists():
             with open(problems_json_path, 'r', encoding='utf-8') as f:
-                problems_data = f.read()
+                problems_list = json.load(f)
+            
+            # Merge Markdown solutions into problems list
+            if solutions_dir.exists():
+                # problems.json may contain generated placeholder solutions. Only
+                # Markdown files in data/solutions are published as real solutions.
+                for prob in problems_list:
+                    prob.pop('solution', None)
+
+                for sol_file in solutions_dir.glob('*.md'):
+                    prob_id = sol_file.stem  # e.g. '35_20_p1'
+                    sol_text = sol_file.read_text(encoding='utf-8')
+                    
+                    # Extract final answer from '**Answer: ...**' line
+                    answer_match = re.search(r'\*\*Answer:\s*(.+?)\*\*', sol_text)
+                    final_answer = answer_match.group(1).strip() if answer_match else ''
+                    
+                    # Parse steps: lines starting with '### Step' as step titles
+                    steps = []
+                    current_step_title = None
+                    current_step_body = []
+                    for line in sol_text.split('\n'):
+                        if line.startswith('### Step'):
+                            if current_step_title:
+                                body = solution_body_to_html(current_step_body)
+                                steps.append(f'<strong>{current_step_title}</strong>' + (f' — {body}' if body else ''))
+                            current_step_title = line.lstrip('#').strip()
+                            current_step_body = []
+                        elif current_step_title and line.strip() and not line.startswith('#') and not line.startswith('**Answer'):
+                            current_step_body.append(line.strip())
+                    if current_step_title:
+                        body = solution_body_to_html(current_step_body)
+                        steps.append(f'<strong>{current_step_title}</strong>' + (f' — {body}' if body else ''))
+                    
+                    # Merge into matching problem
+                    for prob in problems_list:
+                        if prob['id'] == prob_id:
+                            prob['solution'] = {
+                                'answer': final_answer,
+                                'steps': steps
+                            }
+                            break
+            
+            problems_data = json.dumps(problems_list, ensure_ascii=False)
                 
         practice_app_html = f'''
         <div id="practice-app" class="mt-8 space-y-6">
@@ -222,6 +334,24 @@ def build_page_html(current_item, is_post=False, is_home=False):
                             <option value="41">International Finals (Day 1)</option>
                             <option value="42">International Finals (Day 2)</option>
                         </select>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-white/10">
+                    <h4 class="text-sm font-semibold text-white mb-3">Go directly to a problem</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Paper</label>
+                            <select id="paperSelect" onchange="selectPaper()" class="w-full bg-slate-900/90 border border-white/20 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-blue-400">
+                                <option value="">Choose a paper…</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Question</label>
+                            <select id="questionSelect" onchange="selectQuestion()" disabled class="w-full bg-slate-900/90 border border-white/20 rounded-xl px-3.5 py-2.5 text-sm text-white disabled:opacity-50 focus:outline-none focus:border-blue-400">
+                                <option value="">Choose a paper first…</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 
@@ -270,6 +400,10 @@ def build_page_html(current_item, is_post=False, is_home=False):
                             <i data-lucide="lightbulb" class="w-5 h-5 text-amber-400"></i>
                             Step-by-Step Explanation & Solution
                         </h4>
+                        <div id="solAnswerBox" class="hidden rounded-xl bg-emerald-500/15 border border-emerald-400/40 px-5 py-3 flex items-center gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+                            <span class="text-emerald-200 font-semibold text-sm">Answer: <span id="solAnswerText" class="text-white font-bold"></span></span>
+                        </div>
                         <div id="solSteps" class="space-y-3 text-sm text-slate-200">
                             <!-- Steps dynamically populated -->
                         </div>
@@ -282,6 +416,65 @@ def build_page_html(current_item, is_post=False, is_home=False):
             const ALL_PROBLEMS = {problems_data};
             let filteredProblems = [];
             let currentProblem = null;
+
+            function paperKey(p) {{
+                return String(p.edition) + '_' + String(p.stage_code);
+            }}
+
+            function populatePaperSelect() {{
+                const paperSelect = document.getElementById('paperSelect');
+                const papers = new Map();
+                ALL_PROBLEMS.forEach(p => {{
+                    const key = paperKey(p);
+                    if (!papers.has(key)) papers.set(key, {{ year: p.year, stage: p.stage, edition: p.edition, stageCode: p.stage_code }});
+                }});
+
+                [...papers.entries()]
+                    .sort((a, b) => a[1].edition - b[1].edition || a[1].stageCode - b[1].stageCode)
+                    .forEach(([key, paper]) => {{
+                        const option = document.createElement('option');
+                        option.value = key;
+                        option.textContent = paper.year + ' — ' + paper.stage;
+                        paperSelect.appendChild(option);
+                    }});
+            }}
+
+            function selectPaper() {{
+                const selectedPaper = document.getElementById('paperSelect').value;
+                const questionSelect = document.getElementById('questionSelect');
+                questionSelect.innerHTML = '';
+
+                if (!selectedPaper) {{
+                    questionSelect.disabled = true;
+                    questionSelect.innerHTML = '<option value="">Choose a paper first…</option>';
+                    return;
+                }}
+
+                const placeholder = document.createElement('option');
+                placeholder.value = '';
+                placeholder.textContent = 'Choose a question…';
+                questionSelect.appendChild(placeholder);
+
+                ALL_PROBLEMS
+                    .filter(p => paperKey(p) === selectedPaper)
+                    .sort((a, b) => a.number - b.number)
+                    .forEach(p => {{
+                        const option = document.createElement('option');
+                        option.value = p.id;
+                        option.textContent = 'Question ' + p.number + ': ' + p.title;
+                        questionSelect.appendChild(option);
+                    }});
+                questionSelect.disabled = false;
+            }}
+
+            function selectQuestion() {{
+                const problemId = document.getElementById('questionSelect').value;
+                if (!problemId) return;
+                const problem = ALL_PROBLEMS.find(p => p.id === problemId);
+                if (!problem) return;
+                currentProblem = problem;
+                renderProblem(problem);
+            }}
 
             function filterProblems() {{
                 const cat = document.getElementById('catFilter').value;
@@ -322,8 +515,9 @@ def build_page_html(current_item, is_post=False, is_home=False):
                 // Render official high-res problem screen-grab image card
                 let cardHtml = "";
                 if (p.crop_image) {{
+                    let imgPath = p.crop_image.replace(/^\//, '../');
                     cardHtml = '<div class="flex justify-center my-4 p-4 bg-white rounded-2xl shadow-2xl border border-white/20 hover:scale-[1.01] transition-transform">' +
-                        '<img src="' + p.crop_image + '" class="max-w-full h-auto rounded-lg object-contain shadow-md" alt="Problem Card Snapshot" />' +
+                        '<img src="' + imgPath + '" class="max-w-full h-auto rounded-lg object-contain shadow-md" alt="Problem Card Snapshot" />' +
                         '</div>';
                 }}
                 document.getElementById('probCardImage').innerHTML = cardHtml;
@@ -333,12 +527,25 @@ def build_page_html(current_item, is_post=False, is_home=False):
                 solBox.classList.add('hidden');
                 document.getElementById('solBtnText').innerText = "Show Step-by-Step Solution";
 
+                // Render answer box
+                const solAnswerBox = document.getElementById('solAnswerBox');
+                const solAnswerText = document.getElementById('solAnswerText');
+                if (p.solution && p.solution.answer) {{
+                    solAnswerText.innerHTML = p.solution.answer;
+                    solAnswerBox.classList.remove('hidden');
+                }} else {{
+                    solAnswerBox.classList.add('hidden');
+                }}
+
+                // Render solution steps
                 const solSteps = document.getElementById('solSteps');
-                let html = "<ol class='list-decimal list-inside space-y-2'>";
-                if (p.solution && p.solution.steps) {{
+                let html = "<ol class='list-decimal list-inside space-y-3'>";
+                if (p.solution && p.solution.steps && p.solution.steps.length > 0) {{
                     p.solution.steps.forEach(step => {{
-                        html += "<li class='leading-relaxed'>" + step + "</li>";
+                        html += "<li class='leading-relaxed text-slate-200'>" + step + "</li>";
                     }});
+                }} else {{
+                    html += "<li class='leading-relaxed text-slate-400 italic'>Step-by-step solution coming soon for this problem.</li>";
                 }}
                 html += "</ol>";
                 solSteps.innerHTML = html;
@@ -360,6 +567,7 @@ def build_page_html(current_item, is_post=False, is_home=False):
 
             // Auto-initialize on page load
             document.addEventListener('DOMContentLoaded', () => {{
+                populatePaperSelect();
                 filterProblems();
                 if (ALL_PROBLEMS.length > 0) {{
                     drawRandomProblem();
@@ -373,7 +581,7 @@ def build_page_html(current_item, is_post=False, is_home=False):
     posts_nav_html = ""
     recent_posts = posts[:12]
     for p in recent_posts:
-        post_url = f"/posts/{p['slug']}.html"
+        post_url = f"{posts_rel}{p['slug']}.html"
         active_cls = "active" if p['slug'] == current_item['slug'] else ""
         date_badge = p['formatted_date']
         posts_nav_html += f'''
@@ -800,7 +1008,7 @@ def build_page_html(current_item, is_post=False, is_home=False):
     <!-- Header Navigation -->
     <header class="sticky top-0 z-50 px-4 py-4 backdrop-blur-md bg-slate-950/40 border-b border-white/10">
         <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
-            <a href="/index.html" class="flex items-center gap-3 group text-decoration-none">
+            <a href="{root_rel}" class="flex items-center gap-3 group text-decoration-none">
                 <div class="relative w-10 h-10 rounded-2xl bg-slate-900/80 flex items-center justify-center shadow-lg shadow-blue-500/20 border border-white/30 group-hover:scale-105 transition-transform overflow-hidden">
                     <canvas id="hexLogoCanvas" width="80" height="80" class="w-10 h-10"></canvas>
                 </div>

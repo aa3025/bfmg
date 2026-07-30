@@ -13,7 +13,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "18. Fair Shares (coefficient 18) A farmer is preparing his estate for inheritance between his two children. He wants to divide this rectangular field, with a square cut off (as shown in the figure), into two parts of equal area and perimeter, using a straight-line segment. All lengths are whole numbers of decametres, including the length of the cut segment. Given that this is the field with the",
+    "statement": "18. Fair Shares (coefficient 18) A farmer is preparing his estate for inheritance between his two children. He wants to divide this rectangular field, with a square cut off (as shown in the figure), into two parts of equal area and perimeter, using a straight-line segment. All lengths are whole numbers of decametres, including the length of the cut segment. Given that this is the field with the smallest possible area, what is its perimeter?",
     "crop_image": "/media/problem_crops/40_30_p18_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 18 (Fair Shares)",
@@ -120,7 +120,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "14. Car Trip (coefficient 14) Chloe's car's fuel gauge looks like this: The tank holds 30 litres in total, and when it's full, all eight bars are fully lit. Each of these bars represents a certain number of litres, either a whole number or half a whole number; the differences in the number of litres from one bar to the next are all equal. Chloe's car consumes an average of 6 litres per 100 km. She is 80 km from home, and her fuel gauge only shows the 3 small bars that are fully lit. Once she gets home, how many litres will be left in her tank? C2 PARTICIPANTS",
+    "statement": "14. Car Trip (coefficient 14) Chloe's car's fuel gauge looks like this: The tank holds 30 litres in total, and when it's full, all eight bars are fully lit. Each of these bars represents a certain number of litres, either a whole number or half a whole number; the differences in the number of litres from one bar to the next are all equal. Chloe's car consumes an average of 6 litres per 100 km. She is 80 km from home, and her fuel gauge only shows the 3 small bars that are fully lit. Once she gets home, how many litres will be left in her tank?",
     "crop_image": "/media/problem_crops/40_30_p14_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 14 (Car Trip)",
@@ -293,7 +293,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "8. Shooting Star (coefficient 8) Place the numbers 3, 4, 5, 6, 7, 8, 9, and 10 in the empty discs. The sum of the three numbers in the same line must always equal 14. Which numbers go in discs a and b? 2 1 a b",
+    "statement": "8. Shooting Star (coefficient 8) Place the numbers 3, 4, 5, 6, 7, 8, 9, and 10 in the empty discs. The sum of the three numbers in the same line must always equal 14. Which numbers go in discs a and b? 2 1 a b beware! For a problem to be completely solved, you must give both the number of solutions, and give the solution if there is only one, or give any two correct solutions if there are more than one. For all problems that may have more than one solution, there is space for two answers on the answer sheet (but there may still be just one solution).",
     "crop_image": "/media/problem_crops/40_30_p8_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 8 (Shooting Star)",
@@ -520,31 +520,6 @@
     }
   },
   {
-    "id": "40_20_p18",
-    "edition": 40,
-    "year": "2025-2026 (40th Edition)",
-    "stage": "Semi-Final",
-    "stage_code": 20,
-    "number": 18,
-    "title": "Hinged Quadrilateral",
-    "coefficient": 18,
-    "categories": [
-      "L2",
-      "HC"
-    ],
-    "complexity_label": "Top Competition / L2",
-    "statement": "18. Hinged Quadrilateral (coeff. 18) We have a hinged quadrilateral ABCD whose sides measure 1 dm, 2 dm, 4 dm, and 3 dm respectively. What is its maximum area? Answer in dm² rounded to the nearest hundredth, and take √2 as 1.414 and √3 as 1.732 if necessary. L2, HC PARTICIPANTS ematical Games warmly thanks p in organizing this event A 1 dm 4 dm 3 dm 2 dm B C D",
-    "crop_image": "/media/problem_crops/40_20_p18_full_crop.png",
-    "solution": {
-      "answer": "Solution for Problem 18 (Hinged Quadrilateral)",
-      "steps": [
-        "Read and analyze the official problem card for Hinged Quadrilateral.",
-        "Apply logical deduction for category Top Competition / L2.",
-        "Calculate and verify final result."
-      ]
-    }
-  },
-  {
     "id": "40_20_p17",
     "edition": 40,
     "year": "2025-2026 (40th Edition)",
@@ -558,7 +533,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "17. Square Share (coefficient 17) We want to divide a square with sides of 1 dm into four equal areas using three line segments of equal length. These three segments must pass completely through the square and not intersect, except possibly at their endpoints. What is the maximum length of any one of these three segments? Answer in dm, rounded to the nearest thousandth, and if necessary, take √2 as 1.414, √3 as 1.732, and √5 as 2.236. of Mathe its sponsors for their hel",
+    "statement": "17. Square Share (coefficient 17) We want to divide a square with sides of 1 dm into four equal areas using three line segments of equal length. These three segments must pass completely through the square and not intersect, except possibly at their endpoints. What is the maximum length of any one of these three segments? Answer in dm, rounded to the nearest thousandth, and if necessary, take √2 as 1.414, √3 as 1.732, and √5 as 2.236.",
     "crop_image": "/media/problem_crops/40_20_p17_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 17 (Square Share)",
@@ -585,7 +560,7 @@
       "HC"
     ],
     "complexity_label": "Adults / General Public",
-    "statement": "16. Pianable Quadrilateral (coefficient 16) A polygon is said to be pianable if at least one point within it lies at distances to the lines containing the sides that are proportional to the lengths of the sides, each distance from the point in question to the line containing a side of the polygon being proportional to the length of that side. All triangles are pianable, but few polygons with more than three sides are. In an orthonormal coordinate system, the coordinates of the 4 vertices of a quadrilateral are as follows: A(0, 0) B(7, 3) C(4, 0) D(7, -3). In this quadrilateral, give the xcoordinate of such a point P. If necessary, round to the nearest thousandth. L1, GP PARTICIPANTS",
+    "statement": "16. Pianable Quadrilateral (coefficient 16) A polygon is said to be pianable if at least one point within it lies at distances to the lines containing the sides that are proportional to the lengths of the sides, each distance from the point in question to the line containing a side of the polygon being proportional to the length of that side. All triangles are pianable, but few polygons with more than three sides are. In an orthonormal coordinate system, the coordinates of the 4 vertices of a quadrilateral are as follows: A(0, 0) B(7, 3) C(4, 0) D(7, -3). In this quadrilateral, give the xcoordinate of such a point P. If necessary, round to the nearest thousandth.",
     "crop_image": "/media/problem_crops/40_20_p16_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 16 (Pianable Quadrilateral)",
@@ -725,7 +700,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "11. Clumsy Cashier (coefficient 11) Matilda has just bought a game whose price, marked in euros, is a two-digit whole number. When entering the price, the cashier made a mistake and typed the sum of",
+    "statement": "11. Clumsy Cashier (coefficient 11) Matilda has just bought a game whose price, marked in euros, is a two-digit whole number. When entering the price, the cashier made a mistake and typed the sum of the square of the first digit and the square of the second digit. Upon examining the receipt, Matilda sees that the price she paid is the marked price minus 1 euro. How much did Matilda pay for her game?",
     "crop_image": "/media/problem_crops/40_20_p11_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 11 (Clumsy Cashier)",
@@ -783,7 +758,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "9. Le Corbusier (coefficient 9) The architect Le Corbusier created a table with various ways to divide a square with straight line segments. Draw a diagram of a possible division",
+    "statement": "9. Le Corbusier (coefficient 9) The architect Le Corbusier created a table with various ways to divide a square with straight line segments. Draw a diagram of a possible division on the square with the following conditions: y g length equal to the side of the square. • The segments are drawn on grid lines. • The square is divided into 6 parts, each with a different area. What are the areas of the different parts, in ascending order? The area of a small square on the grid will be used as the unit of area.",
     "crop_image": "/media/problem_crops/40_20_p9_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 9 (Le Corbusier)",
@@ -1046,19 +1021,19 @@
     "stage": "International Final (Day 2)",
     "stage_code": 42,
     "number": 18,
-    "title": "QUARTER-REGULAR",
+    "title": "QUARTER-REGULAR POLYHEDRON",
     "coefficient": 18,
     "categories": [
       "L2",
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "18. QUARTER-REGULAR POLYHEDRON (coefficient 18) A polygon is said to be quarter-regular if all its vertices are identical, in the sense that for any pair of vertices, there exists an isometry (not necessarily direct) that",
+    "statement": "18. QUARTER-REGULAR POLYHEDRON (coefficient 18) A polygon is said to be quarter-regular if all its vertices are identical, in the sense that for any pair of vertices, there exists an isometry (not necessarily direct) that maps the vertices onto one another and maps the polygon onto itself. A polyhedron is said to be quarter-regular if each of its faces is a quarter-regular polygon and if all its vertices are identical in the previous sense. Paul has a quarterregular polyhedron that is not a right prism and that has edges of three different lengths. How many vertices, edges, and faces does the polyhedron have?",
     "crop_image": "/media/problem_crops/39_42_p18_full_crop.png",
     "solution": {
-      "answer": "Solution for Problem 18 (QUARTER-REGULAR)",
+      "answer": "Solution for Problem 18 (QUARTER-REGULAR POLYHEDRON)",
       "steps": [
-        "Read and analyze the official problem card for QUARTER-REGULAR.",
+        "Read and analyze the official problem card for QUARTER-REGULAR POLYHEDRON.",
         "Apply logical deduction for category Top Competition / L2.",
         "Calculate and verify final result."
       ]
@@ -1363,7 +1338,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "7. MATTHEW’S BIRTHDAY (coef. 7) On a certain day in the year 2025, Matthew said: \"The day before yesterday, I was only 9 years old. But in 2026, I will turn 12.\"",
+    "statement": "7. MATTHEW’S BIRTHDAY (coef. 7) On a certain day in the year 2025, Matthew said: \"The day before yesterday, I was only 9 years old. But in 2026, I will turn 12.\" What is Matthew's date of birth?",
     "crop_image": "/media/problem_crops/39_42_p7_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 7 (MATTHEW’S BIRTHDAY)",
@@ -1573,7 +1548,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "18. SIMILAR TRIANGLES (coef.18) All triangles are right-angled and similar. The two triangles at the ends are equal. Give the values of a and c rounded to the nearest metre, given that b is 100 m. L2, HC PARTICIPANTS a c c a b b",
+    "statement": "18. SIMILAR TRIANGLES (coef.18) All triangles are right-angled and similar. The two triangles at the ends are equal. Give the values of a and c rounded to the nearest metre, given that b is 100 m. a c c a b b",
     "crop_image": "/media/problem_crops/39_41_p18_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 18 (SIMILAR TRIANGLES)",
@@ -1591,7 +1566,7 @@
     "stage": "International Final (Day 1)",
     "stage_code": 41,
     "number": 17,
-    "title": "FRACTIONS THAT HAVE",
+    "title": "FRACTIONS THAT HAVE SOMETHING NEW",
     "coefficient": 17,
     "categories": [
       "L2",
@@ -1601,9 +1576,9 @@
     "statement": "17. FRACTIONS THAT HAVE SOMETHING NEW (coef. 17) Matthew begins writing the fractions 3/2, 5/4, 17/16, where each denominator is the square of the previous denominator, and each numerator is one more than the denominator. He multiplies them together and finds the decimal 1.9921875, which is written with two 9s immediately after the decimal point. He then decides to continue writing his sequence of fractions and calculating the product of all the fractions he has written. He stops as soon as the decimal notation of the product has at least 2025 9s immediately after the decimal point. How many fractions has he written in total? If necessary, take the logarithm of 2 in base 10 as 0.301.",
     "crop_image": "/media/problem_crops/39_41_p17_full_crop.png",
     "solution": {
-      "answer": "Solution for Problem 17 (FRACTIONS THAT HAVE)",
+      "answer": "Solution for Problem 17 (FRACTIONS THAT HAVE SOMETHING NEW)",
       "steps": [
-        "Read and analyze the official problem card for FRACTIONS THAT HAVE.",
+        "Read and analyze the official problem card for FRACTIONS THAT HAVE SOMETHING NEW.",
         "Apply logical deduction for category Top Competition / L2.",
         "Calculate and verify final result."
       ]
@@ -1708,7 +1683,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "13. CHEFISSIMA (coef. 13) A talented lady chef has invented a new egg cooking method. She must cook it for exactly seven minutes. A customer in a hurry orders one. But the lady chef has forgotten her egg timer. Luckily, in her cupboard, she finds three hourglass timers: of 6, 10, & 15 minutes. How soon can she serve this customer a perfectly cooked egg?",
+    "statement": "13. CHEFISSIMA (coef. 13) A talented lady chef has invented a new egg cooking method. She must cook it for exactly seven minutes. A customer in a hurry orders one. But the lady chef has forgotten her egg timer. Luckily, in her cupboard, she finds three hourglass timers: of 6, 10, & 15 minutes. How soon can she serve this customer a perfectly cooked egg? Note: when she turns over an hourglass, she must let it empty completely.",
     "crop_image": "/media/problem_crops/39_41_p13_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 13 (CHEFISSIMA)",
@@ -1823,7 +1798,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "9. DOMINO BOX (coefficient 9) Tom's domino set consists of 15 dominoes with spots ranging from double zero to double four. He put them in their box in the following arrangement: T th tli f ll d bl",
+    "statement": "9. DOMINO BOX (coefficient 9) Tom's domino set consists of 15 dominoes with spots ranging from double zero to double four. He put them in their box in the following arrangement:",
     "crop_image": "/media/problem_crops/39_41_p9_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 9 (DOMINO BOX)",
@@ -2018,37 +1993,6 @@
     }
   },
   {
-    "id": "39_41_p2",
-    "edition": 39,
-    "year": "2024-2025 (39th Edition)",
-    "stage": "International Final (Day 1)",
-    "stage_code": 41,
-    "number": 2,
-    "title": "NON-SQUARE RECTANGLES",
-    "coefficient": 2,
-    "categories": [
-      "CE",
-      "CM",
-      "C1",
-      "C2",
-      "L1",
-      "GP",
-      "L2",
-      "HC"
-    ],
-    "complexity_label": "Primary (Year 5)",
-    "statement": "2. NON-SQUARE RECTANGLES (coef 2) In this figure, we can count eight squares: six small and two larger. But how many fully drawn rectangles can we count that are not squares?",
-    "crop_image": "/media/problem_crops/39_41_p2_full_crop.png",
-    "solution": {
-      "answer": "Solution for Problem 2 (NON-SQUARE RECTANGLES)",
-      "steps": [
-        "Read and analyze the official problem card for NON-SQUARE RECTANGLES.",
-        "Apply logical deduction for category Primary (Year 5).",
-        "Calculate and verify final result."
-      ]
-    }
-  },
-  {
     "id": "39_41_p1",
     "edition": 39,
     "year": "2024-2025 (39th Edition)",
@@ -2068,7 +2012,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "1. ANTHONY’S FRIENDS (coefficient 1) Antoine has many friends. 15 of his friends like solving Sudoku puzzles, and 18 like decoding puzzles. If we know that 3 of his friends like both types of games, how many friends does Anthony have who like games (Sudoku or decoding)?",
+    "statement": "1. ANTHONY’S FRIENDS (coefficient 1) Antoine has many friends. 15 of his friends like solving Sudoku puzzles, and 18 like decoding puzzles. If we know that 3 of his friends like both types of games, how many friends does Anthony have who like games (Sudoku or decoding)? 2. NON-SQUARE RECTANGLES (coef 2) In this figure, we can count eight squares: six small and two larger. But how many fully drawn rectangles can we count that are not squares?",
     "crop_image": "/media/problem_crops/39_41_p1_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 1 (ANTHONY’S FRIENDS)",
@@ -2093,7 +2037,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "18. Matthew’s Polygon (coef. 18) On a sheet of paper, in an orthonormal coordinate system, Matthew placed the following four points with integer coordinates: O (0,0), P (2,0), Q (2,1) and R (1,2). He then drew a regular polygon passing exactly through these four points. Two of these points are on the same side of the polygon, and none of these points is a vertex of the polygon. What is the side length of this polygon? L2, HC PARTICIPANTS",
+    "statement": "18. Matthew’s Polygon (coef. 18) On a sheet of paper, in an orthonormal coordinate system, Matthew placed the following four points with integer coordinates: O (0,0), P (2,0), Q (2,1) and R (1,2). He then drew a regular polygon passing exactly through these four points. Two of these points are on the same side of the polygon, and none of these points is a vertex of the polygon. What is the side length of this polygon?",
     "crop_image": "/media/problem_crops/39_30_p18_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 18 (Matthew’s Polygon)",
@@ -2228,7 +2172,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "13. A New Sport (coefficient 13) In this equation, each letter always replaces the same digit, and two different letters always replace two different digits. No letter replaces a 0 or a 9. What is the value of GOLF given that",
+    "statement": "13. A New Sport (coefficient 13)",
     "crop_image": "/media/problem_crops/39_30_p13_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 13 (A New Sport)",
@@ -2495,7 +2439,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "4. It’s Not Fair! (coefficient 4) Ally, Bobby, and Charly are playing in the playground. They have 87 marbles in total. Charly has twice as many marbles as Bobby. Ally has 7 more marbles than Bobby. How many marbles does each child",
+    "statement": "4. It’s Not Fair! (coefficient 4) Ally, Bobby, and Charly are playing in the playground. They have 87 marbles in total. Charly has twice as many marbles as Bobby. Ally has 7 more marbles than Bobby. How many marbles does each child have?",
     "crop_image": "/media/problem_crops/39_30_p4_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 4 (It’s Not Fair!)",
@@ -2613,7 +2557,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "18. Brahmagupta’s Triangles (coefficient 18) Th t i l ith id f l th 3 4 d",
+    "statement": "18. Brahmagupta’s Triangles (coefficient 18) The triangle with sides of length 3, 4 and 5 is remarkable. The lengths of its sides are consecutive integers, and its area is also an integer. The mathematician Brahmagupta found another triangle with these properties. What is its perimeter, knowing that it is less than 2025?",
     "crop_image": "/media/problem_crops/39_20_p18_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 18 (Brahmagupta’s Triangles)",
@@ -2656,7 +2600,7 @@
     "stage": "Semi-Final",
     "stage_code": 20,
     "number": 16,
-    "title": "Properties",
+    "title": "Properties of my Triangle",
     "coefficient": 16,
     "categories": [
       "L1",
@@ -2668,9 +2612,9 @@
     "statement": "16. Properties of my Triangle (coefficient 16) The sides BA, AC and BC of a triangle are, in this order, in strictly increasing arithmetic progression with a common difference of \"r\". Moreover: BA × BC² = AC3 + 11r3. Calculate BC in cm knowing that the area of the triangle is 600 cm². Give the answer to the nearest 0.01 cm.",
     "crop_image": "/media/problem_crops/39_20_p16_full_crop.png",
     "solution": {
-      "answer": "Solution for Problem 16 (Properties)",
+      "answer": "Solution for Problem 16 (Properties of my Triangle)",
       "steps": [
-        "Read and analyze the official problem card for Properties.",
+        "Read and analyze the official problem card for Properties of my Triangle.",
         "Apply logical deduction for category Adults / General Public.",
         "Calculate and verify final result."
       ]
@@ -2732,34 +2676,6 @@
     }
   },
   {
-    "id": "39_20_p13",
-    "edition": 39,
-    "year": "2024-2025 (39th Edition)",
-    "stage": "Semi-Final",
-    "stage_code": 20,
-    "number": 13,
-    "title": "Strange Sum of Squares",
-    "coefficient": 13,
-    "categories": [
-      "C2",
-      "L1",
-      "GP",
-      "L2",
-      "HC"
-    ],
-    "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "13. Strange Sum of Squares (cf. 13) 102 +12 = 101 Find two two-digit positive integers A and B such that: A2 + B2 = 100A + B. Give the value of 100A + B.",
-    "crop_image": "/media/problem_crops/39_20_p13_full_crop.png",
-    "solution": {
-      "answer": "Solution for Problem 13 (Strange Sum of Squares)",
-      "steps": [
-        "Read and analyze the official problem card for Strange Sum of Squares.",
-        "Apply logical deduction for category Upper Sec (Year 10-11).",
-        "Calculate and verify final result."
-      ]
-    }
-  },
-  {
     "id": "39_20_p12",
     "edition": 39,
     "year": "2024-2025 (39th Edition)",
@@ -2776,7 +2692,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "12. Square and Trapeziums (coef. 12) On the extension [AB] of one of the sides of a square ABCD of side 74 cm, we place the point M such that BM = 13 cm. A line is drawn through M that divides the square into two trapeziums of the same area, cutting [BC] at point E. What is the length of BE in cm? Give the answer to the nearest 0.01 cm.",
+    "statement": "12. Square and Trapeziums (coef. 12) On the extension [AB] of one of the sides of a square ABCD of side 74 cm, we place the point M such that BM = 13 cm. A line is drawn through M that divides the square into two trapeziums of the same area, cutting [BC] at point E. What is the length of BE in cm? Give the answer to the nearest 0.01 cm. 13. Strange Sum of Squares (cf. 13) 102 +12 = 101 Find two two-digit positive integers A and B such that: A2 + B2 = 100A + B. Give the value of 100A + B.",
     "crop_image": "/media/problem_crops/39_20_p12_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 12 (Square and Trapeziums)",
@@ -2881,8 +2797,8 @@
     "stage": "Semi-Final",
     "stage_code": 20,
     "number": 8,
-    "title": "END for CE PARTICIPANTS",
-    "coefficient": 8,
+    "title": "END for CE PARTICIPANTS B C",
+    "coefficient": 6,
     "categories": [
       "CM",
       "C1",
@@ -2893,12 +2809,42 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "Note: the even numbers are 0, 2, 4, 6 and 8. CE PARTICIPANTS",
+    "statement": "and 8. CE PARTICIPANTS",
     "crop_image": "/media/problem_crops/39_20_p8_full_crop.png",
     "solution": {
-      "answer": "Solution for Problem 8 (END for CE PARTICIPANTS)",
+      "answer": "Solution for Problem 8 (END for CE PARTICIPANTS B C)",
       "steps": [
-        "Read and analyze the official problem card for END for CE PARTICIPANTS.",
+        "Read and analyze the official problem card for END for CE PARTICIPANTS B C.",
+        "Apply logical deduction for category Middle School (Year 6-7).",
+        "Calculate and verify final result."
+      ]
+    }
+  },
+  {
+    "id": "39_20_p7",
+    "edition": 39,
+    "year": "2024-2025 (39th Edition)",
+    "stage": "Semi-Final",
+    "stage_code": 20,
+    "number": 7,
+    "title": "Stirring Subtraction",
+    "coefficient": 7,
+    "categories": [
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Middle School (Year 6-7)",
+    "statement": "7. Stirring Subtraction (coefficient 7) In this subtraction, the same letter always replaces the same digit, and two different letters always replace two different digits. No letter replaces a 0. What is DAME worth? DAME – E DAM = 2 0 2 5",
+    "crop_image": "/media/problem_crops/39_20_p7_full_crop.png",
+    "solution": {
+      "answer": "Solution for Problem 7 (Stirring Subtraction)",
+      "steps": [
+        "Read and analyze the official problem card for Stirring Subtraction.",
         "Apply logical deduction for category Middle School (Year 6-7).",
         "Calculate and verify final result."
       ]
@@ -2923,7 +2869,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "6. A B C (coefficient 6) Clara must practise her clarinet to improve her fingering. She must play the three notes A, B, C in groups of 4, (such as A-B-C-B) with the following three conditions: - in each group of 4, there are the 3 notes, - two notes that follow each other must be different, - the first and the last must not be the same. H diff t h",
+    "statement": "6. A B C (coefficient 6) Clara must practise her clarinet to improve her fingering. She must play the three notes A, B, C in groups of 4, (such as A-B-C-B) with the following three conditions: - in each group of 4, there are the 3 notes, - two notes that follow each other must be different, - the first and the last must not be the same. How many different groups can she form?",
     "crop_image": "/media/problem_crops/39_20_p6_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 6 (A B C)",
@@ -3103,7 +3049,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "18. Matthew’s Numbers (coef. 18) On his calculator, Mathias adds the natural whole numbers in order: 0 + 1 + 2 + 3 + 4 … Before typing each number starting from the second, the calculator displays a provisional result: 0, 1, 3, 6, 10, 15, ... Matthew notes all the provisional results which can be split into two numbers such that the first is twice the second, such as 21, 105, 2211, 9045, ... Matthew then chooses a six-digit number from those he has noted. What is this number? Note: The split cannot be made just before a digit 0. L2, HC PARTICIPANTS matical Games their help MATH",
+    "statement": "18. Matthew’s Numbers (coef. 18) On his calculator, Mathias adds the natural whole numbers in order: 0 + 1 + 2 + 3 + 4 … Before typing each number starting from the second, the calculator displays a provisional result: 0, 1, 3, 6, 10, 15, ... Matthew notes all the provisional results which can be split into two numbers such that the first is twice the second, such as 21, 105, 2211, 9045, ... Matthew then chooses a six-digit number from those he has noted. What is this number? Note: The split cannot be made just before a digit 0.",
     "crop_image": "/media/problem_crops/38_30_p18_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 18 (Matthew’s Numbers)",
@@ -3128,7 +3074,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "17. Paving Stone (coefficient 17) Here is the diagram of one of the types of pentagonal paving stones that can pave a design plan. If BC = AE = 1 dm and AB = 2 dm, what is the area of the paving stone? Give the answer in cm2, rounded to the nearest cm2. Use √2≈1.414 and √3≈1.732 if you need to calculate with these values. of Mathem warmly thanks its sponsors for t in organizing this event. SMA M 150° A B C D E 135° 60°",
+    "statement": "17. Paving Stone (coefficient 17) Here is the diagram of one of the types of pentagonal paving stones that can pave a design plan. If BC = AE = 1 dm and AB = 2 dm, what is the area of the paving stone? Give the answer in cm2, rounded to the nearest cm2. Use √2≈1.414 and √3≈1.732 if you need to calculate with these values. 150° A B C D E 135° 60°",
     "crop_image": "/media/problem_crops/38_30_p17_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 17 (Paving Stone)",
@@ -3155,7 +3101,7 @@
       "HC"
     ],
     "complexity_label": "Adults / General Public",
-    "statement": "16. Swirl (coefficient 16) Place the integers from 1 to 21 (except 1, 2, 3, 15, 19, 20 and 21 which are already placed) in the empty boxes of this diagram such that: 1 15 2 3 20 21 19 b a",
+    "statement": "16. Swirl (coefficient 16) Place the integers from 1 to 21 (except 1, 2, 3, 15, 19, 20 and 21 which are already placed) in the empty boxes of this diagram such that: • the sum of the five numbers located around the perimeter of each curvilinear triangle equals 48; • the sum of the seven numbers located around the perimeter of the central curvilinear heptagon equals 28. Which numbers will go in boxes a and b? 1 15 2 3 20 21 19 b a",
     "crop_image": "/media/problem_crops/38_30_p16_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 16 (Swirl)",
@@ -3266,7 +3212,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "12. Hello, Hello, Hello! (coefficient 12) At every session in this mathematical",
+    "statement": "12. Hello, Hello, Hello! (coefficient 12) At every session in this mathematical games club, when they arrive, everyone says “Hello!” to each of the other members of the club. This week, there is at least one absentee. By counting the number of “Hello!”s, the facilitator finds 24 fewer than when the club is full. How many members does the club have when it is full? Note: When two club members say hello to each other, there are two “Hello!”s",
     "crop_image": "/media/problem_crops/38_30_p12_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 12 (Hello, Hello, Hello!)",
@@ -3431,7 +3377,7 @@
     "stage": "UK National Final",
     "stage_code": 30,
     "number": 6,
-    "title": "the",
+    "title": "Multiplication",
     "coefficient": 6,
     "categories": [
       "CM",
@@ -3443,12 +3389,12 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "of the two tokens on the left so that the first is read as a 9 and the second as a 6. She will underline the numbers of the other three and she can then divide the five tokens into two piles of the same total. What will be the value of this total?",
+    "statement": "6. Multiplication (coefficient 6) These drawings represent assemblies of six cubes Matthew has built. The same assembly is represented several times. Write, in alphabetical order, the letters of all the drawings corresponding to this assembly. A B C D E F G",
     "crop_image": "/media/problem_crops/38_30_p6_full_crop.png",
     "solution": {
-      "answer": "Solution for Problem 6 (the)",
+      "answer": "Solution for Problem 6 (Multiplication)",
       "steps": [
-        "Read and analyze the official problem card for the.",
+        "Read and analyze the official problem card for Multiplication.",
         "Apply logical deduction for category Middle School (Year 6-7).",
         "Calculate and verify final result."
       ]
@@ -3474,7 +3420,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "5. A Big S (coefficient 5) Fill each square of this figure with a number chosen from the integers 1 to 9 in such a way that: • the six numbers are all different; • the sum of the six numbers is 24; •two consecutive numbers are never placed in boxes directly connected to each other; •the five sums of the two numbers in boxes directly connected to each other are all different. CE PARTICIPANTS 6. Multiplication (coefficient 6) These drawings represent assemblies of six cubes Matthew has built. The same assembly is represented several times. Write, in alphabetical order, the letters of all the drawings corresponding to this assembly. 2 7 A B C D E F G",
+    "statement": "5. A Big S (coefficient 5) Fill each square of this figure with a number chosen from the integers 1 to 9 in such a way that: • the six numbers are all different; • the sum of the six numbers is 24; •two consecutive numbers are never placed in boxes directly connected to each other; •the five sums of the two numbers in boxes directly connected to each other are all different. CE PARTICIPANTS 2 7",
     "crop_image": "/media/problem_crops/38_30_p5_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 5 (A Big S)",
@@ -3598,7 +3544,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "1. Matilda’s Tokens (coefficient 1) These five tokens can be seen as 6s or as 9s. Matilda has underlined the numbers of the two tokens on the left so that the 9 6 9 9 9",
+    "statement": "1. Matilda’s Tokens (coefficient 1) These five tokens can be seen as 6s or as 9s. Matilda has underlined the numbers of the two tokens on the left so that the first is read as a 9 and the second as a 6. She will underline the numbers of the other three and she can then divide the five tokens into two piles of the same total. What will be the value of this total? 9 6 9 9 9",
     "crop_image": "/media/problem_crops/38_30_p1_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 1 (Matilda’s Tokens)",
@@ -3623,7 +3569,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "18. Cavalier numbering (coef. 18) Matilda moves a knight on a chessboard without landing on the same square twice. She numbers the squares on which the knight has been: 1 for the starting square, 2 for the next one, etc. At one point, the knight has landed on the eight squares of the first row of the chessboard. Reading the large number formed by all the digits written in this row (reading across all the squares), she realizes that this number could not have been smaller. What is this number? Remember that a chess knight moves diagonally across a rectangle of two squares by three, in any direction. L2, HC PARTICIPANTS",
+    "statement": "18. Cavalier numbering (coef. 18) Matilda moves a knight on a chessboard without landing on the same square twice. She numbers the squares on which the knight has been: 1 for the starting square, 2 for the next one, etc. At one point, the knight has landed on the eight squares of the first row of the chessboard. Reading the large number formed by all the digits written in this row (reading across all the squares), she realizes that this number could not have been smaller. What is this number? Remember that a chess knight moves diagonally across a rectangle of two squares by three, in any direction.",
     "crop_image": "/media/problem_crops/38_20_p18_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 18 (Cavalier numbering)",
@@ -3742,34 +3688,6 @@
     }
   },
   {
-    "id": "38_20_p13",
-    "edition": 38,
-    "year": "2023-2024 (38th Edition)",
-    "stage": "Semi-Final",
-    "stage_code": 20,
-    "number": 13,
-    "title": "Bravo to Future Winners",
-    "coefficient": 13,
-    "categories": [
-      "C2",
-      "L1",
-      "GP",
-      "L2",
-      "HC"
-    ],
-    "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "13. Bravo to Future Winners (cf. 13) As in any cryptarithm, each letter always represents the same digit, two different letters represent two different digits and no number begins with 0. What is the largest possible value of GRAND? G R A N D + B R A V O = X X X X X",
-    "crop_image": "/media/problem_crops/38_20_p13_full_crop.png",
-    "solution": {
-      "answer": "Solution for Problem 13 (Bravo to Future Winners)",
-      "steps": [
-        "Read and analyze the official problem card for Bravo to Future Winners.",
-        "Apply logical deduction for category Upper Sec (Year 10-11).",
-        "Calculate and verify final result."
-      ]
-    }
-  },
-  {
     "id": "38_20_p12",
     "edition": 38,
     "year": "2023-2024 (38th Edition)",
@@ -3786,7 +3704,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "12. Santa’s House (coefficient 12) Place the numbers 1 to 13 in the discs so that the numbers located on each straight-line segment sum to 24. Which numbers will go into discs a and b? 1 7 a b",
+    "statement": "12. Santa’s House (coefficient 12) Place the numbers 1 to 13 in the discs so that the numbers located on each straight-line segment sum to 24. Which numbers will go into discs a and b? 13. Bravo to Future Winners (cf. 13) As in any cryptarithm, each letter always represents the same digit, two different letters represent two different digits and no number begins with 0. What is the largest possible value of GRAND? G R A N D + B R A V O = X X X X X 1 7 a b",
     "crop_image": "/media/problem_crops/38_20_p12_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 12 (Santa’s House)",
@@ -3933,7 +3851,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "7. Squares Series (coefficient 7) On Monday, Julia draws a square on a piece of paper. On Tuesday, she divided her square into 4 squares. She colours the new square at the top right black. On Wednesday, she does the same for each white square, as shown in the figure. On Thursday, she does the same for each of the remaining white squares. On Friday, she does the same for each of the remaining white squares. How many black squares does Julia have in total on her sheet at the end",
+    "statement": "7. Squares Series (coefficient 7) On Monday, Julia draws a square on a piece of paper. On Tuesday, she divided her square into 4 squares. She colours the new square at the top right black. On Wednesday, she does the same for each white square, as shown in the figure. On Thursday, she does the same for each of the remaining white squares. On Friday, she does the same for each of the remaining white squares. How many black squares does Julia have in total on her sheet at the end of Friday?",
     "crop_image": "/media/problem_crops/38_20_p7_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 7 (Squares Series)",
@@ -4025,7 +3943,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "4. Birthday Cakes (coefficient 4) Tomorrow is Nelly’s birthday. Marina buys these two boxes of cakes:",
+    "statement": "4. Birthday Cakes (coefficient 4) Tomorrow is Nelly’s birthday. Marina buys these two boxes of cakes: AL16 MARCH 2024 s at www.fsjm.ch/ Then she buys this last box: How much does this box cost?",
     "crop_image": "/media/problem_crops/38_20_p4_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 4 (Birthday Cakes)",
@@ -4143,7 +4061,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "18. LOST IN THE FOREST (coefficient 18) Alice, Bertrand and Camilla are lost in a huge forest. Thanks to their respective smartphones, they establish that their three positions form a triangle whose dimensions are all whole numbers of metres and such that one of the angles of the triangle measures exactly 5 times the measurement of another angle. Knowing that Bertrand and Camilla are less than 500 metres from each other, what is the distance between Alice and Camilla? L2, HC PARTICIPANTS",
+    "statement": "18. LOST IN THE FOREST (coefficient 18) Alice, Bertrand and Camilla are lost in a huge forest. Thanks to their respective smartphones, they establish that their three positions form a triangle whose dimensions are all whole numbers of metres and such that one of the angles of the triangle measures exactly 5 times the measurement of another angle. Knowing that Bertrand and Camilla are less than 500 metres from each other, what is the distance between Alice and Camilla?",
     "crop_image": "/media/problem_crops/37_42_p18_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 18 (LOST IN THE FOREST)",
@@ -4213,7 +4131,7 @@
     "stage": "International Final (Day 2)",
     "stage_code": 42,
     "number": 15,
-    "title": "INCREASING",
+    "title": "INCREASING SEQUENCE",
     "coefficient": 15,
     "categories": [
       "L1",
@@ -4225,9 +4143,9 @@
     "statement": "15. INCREASING SEQUENCE (coefficient 15) Zbyszek builds an increasing sequence made up of all the whole numbers that are written only with the digits 3 and 7. The start of his sequence is 3, 7, 33, 37, 73, . . . What number will be the 2023rd in Zbyszek’s sequence?",
     "crop_image": "/media/problem_crops/37_42_p15_full_crop.png",
     "solution": {
-      "answer": "Solution for Problem 15 (INCREASING)",
+      "answer": "Solution for Problem 15 (INCREASING SEQUENCE)",
       "steps": [
-        "Read and analyze the official problem card for INCREASING.",
+        "Read and analyze the official problem card for INCREASING SEQUENCE.",
         "Apply logical deduction for category Adults / General Public.",
         "Calculate and verify final result."
       ]
@@ -4278,7 +4196,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "13. CONSTELLATION (coefficient 13)",
+    "statement": "13. CONSTELLATION (coefficient 13) The numbers from 1 to 7 are placed in the seven stars of the constellation. Each of the larger stars contains a number greater than those in its two or three neighbours. We then calculate the differences, taken in absolute values, between numbers in two stars connected by a segment, and we add these differences. What is this sum, at most?",
     "crop_image": "/media/problem_crops/37_42_p13_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 13 (CONSTELLATION)",
@@ -4324,7 +4242,7 @@
     "stage": "International Final (Day 2)",
     "stage_code": 42,
     "number": 11,
-    "title": "A",
+    "title": "A RELATIVELY LARGE NUMBER",
     "coefficient": 11,
     "categories": [
       "C1",
@@ -4338,9 +4256,9 @@
     "statement": "11. A RELATIVELY LARGE NUMBER (coefficient 11) Daniel enjoys doing exercises in arithmetic. He divides each three-digit number (all digits nonzero) by the product of its digits. For some of these numbers the result of the division is an integer. What surprised him was when for a certain number the quotient turned out to be whole and greater than 50. What is this three-digit number? C1 PARTICIPANTS",
     "crop_image": "/media/problem_crops/37_42_p11_full_crop.png",
     "solution": {
-      "answer": "Solution for Problem 11 (A)",
+      "answer": "Solution for Problem 11 (A RELATIVELY LARGE NUMBER)",
       "steps": [
-        "Read and analyze the official problem card for A.",
+        "Read and analyze the official problem card for A RELATIVELY LARGE NUMBER.",
         "Apply logical deduction for category Lower Sec (Year 8-9).",
         "Calculate and verify final result."
       ]
@@ -4483,7 +4401,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "6. SOME SUMS OF SUMS (coefficient 6) In the square boxes of a diagram of 3 boxes by 3, place all the numbers from 1 to 9. The four circles will contain the sums of the numbers in the 4 squares that they each partially cover. Finally, take the sum of the four numbers in the circles.",
+    "statement": "6. SOME SUMS OF SUMS (coefficient 6) In the square boxes of a diagram of 3 boxes by 3, place all the numbers from 1 to 9. The four circles will contain the sums of the numbers in the 4 squares that they each partially cover. Finally, take the sum of the four numbers in the circles. What is the maximum value of this last sum?",
     "crop_image": "/media/problem_crops/37_42_p6_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 6 (SOME SUMS OF SUMS)",
@@ -4663,7 +4581,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "18. CAESAR MYRIAD (coefficient 18) Caesar Myriad is a ghost materialising in a square room whose walls are mirrors except for two mirrorless halfwalls around the same corner (the bold line segments in the figure, drawn as viewed from above). If he stands as in the drawing, he sees an infinity of reflections of himself. He decides to move, without touching a wall, and notices that he only sees a finite number of reflections of himself. Looking around the room, he will see one of his reflections when he looks at one of a finite number of points on the mirrors. What will then be the minimum number of points where he will see one of his reflections? L2, HC PARTICIPANTS",
+    "statement": "18. CAESAR MYRIAD (coefficient 18) Caesar Myriad is a ghost materialising in a square room whose walls are mirrors except for two mirrorless halfwalls around the same corner (the bold line segments in the figure, drawn as viewed from above). If he stands as in the drawing, he sees an infinity of reflections of himself. He decides to move, without touching a wall, and notices that he only sees a finite number of reflections of himself. Looking around the room, he will see one of his reflections when he looks at one of a finite number of points on the mirrors. What will then be the minimum number of points where he will see one of his reflections?",
     "crop_image": "/media/problem_crops/37_41_p18_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 18 (CAESAR MYRIAD)",
@@ -4798,7 +4716,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "13. MAGIC RECTANGLE (coefficient 13) 6 9 8 13 7 10 Complete this rectangle which must contain 15 consecutive integers. The central value, 13, must be the average of the numbers of each column, of each line, of the 4 corners, of the 4 middles of the four sides, and also the average",
+    "statement": "13. MAGIC RECTANGLE (coefficient 13) 6 9 8 13 7 10 Complete this rectangle which must contain 15 consecutive integers. The central value, 13, must be the average of the numbers of each column, of each line, of the 4 corners, of the 4 middles of the four sides, and also the average of the numbers of the 4 shaded boxes and that of the numbers of the four hatched boxes.",
     "crop_image": "/media/problem_crops/37_41_p13_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 13 (MAGIC RECTANGLE)",
@@ -5183,37 +5101,12 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "18. 23 Points (coefficient 18) 23 points are drawn in a plane, and all the pairs of points are connected by a line segment. How many triangles are created at most? We count all non-flat triangles, even those whose vertices are not amongst the 23 starting points, and even if segments cross them Be careful, we draw segments and not straight lines! L2, HC PARTICIPANTS",
+    "statement": "18. 23 Points (coefficient 18) 23 points are drawn in a plane, and all the pairs of points are connected by a line segment. How many triangles are created at most? We count all non-flat triangles, even those whose vertices are not amongst the 23 starting points, and even if segments cross them Be careful, we draw segments and not straight lines!",
     "crop_image": "/media/problem_crops/37_30_p18_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 18 (23 Points)",
       "steps": [
         "Read and analyze the official problem card for 23 Points.",
-        "Apply logical deduction for category Top Competition / L2.",
-        "Calculate and verify final result."
-      ]
-    }
-  },
-  {
-    "id": "37_30_p17",
-    "edition": 37,
-    "year": "2022-2023 (37th Edition)",
-    "stage": "UK National Final",
-    "stage_code": 30,
-    "number": 17,
-    "title": "Old Father Thyme’s Plot",
-    "coefficient": 17,
-    "categories": [
-      "L2",
-      "HC"
-    ],
-    "complexity_label": "Top Competition / L2",
-    "statement": "17. Old Father Thyme’s Plot (cf. 17) Father Justin Thyme owns a herb garden in the shape of a quadrilateral, two opposite angles of which are right and the sides of which all measure whole numbers of metres less than 150 m. Also, AM = 23 m and the MH side is exactly 1 metre longer than the AT side. What is the area of Justin's plot in m2? Note: the drawing is not in proportion. 23 m M A T H",
-    "crop_image": "/media/problem_crops/37_30_p17_full_crop.png",
-    "solution": {
-      "answer": "Solution for Problem 17 (Old Father Thyme’s Plot)",
-      "steps": [
-        "Read and analyze the official problem card for Old Father Thyme’s Plot.",
         "Apply logical deduction for category Top Competition / L2.",
         "Calculate and verify final result."
       ]
@@ -5235,7 +5128,7 @@
       "HC"
     ],
     "complexity_label": "Adults / General Public",
-    "statement": "16. Rosette (coefficient 16) Mathilde designed this pretty rosette. The larger circle is 21 cm in diameter, and the smaller circle passes through the points of intersection of two equilateral triangles that form a regular sixpointed star.",
+    "statement": "16. Rosette (coefficient 16) Mathilde designed this pretty rosette. The larger circle is 21 cm in diameter, and the smaller circle passes through the points of intersection of two equilateral triangles that form a regular sixpointed star. What is the total area of the white zones? If necessary, we will take pi as 22/7 and √3 as 1.732. Give the answer in cm2, rounded to tenths. L1, GP PARTICIPANTS 17. Old Father Thyme’s Plot (cf. 17) Father Justin Thyme owns a herb garden in the shape of a quadrilateral, two opposite angles of which are right and the sides of which all measure whole numbers of metres less than 150 m. Also, AM = 23 m and the MH side is exactly 1 metre longer than the AT side. What is the area of Justin's plot in m2? Note: the drawing is not in proportion. 23 m M A T H",
     "crop_image": "/media/problem_crops/37_30_p16_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 16 (Rosette)",
@@ -5318,7 +5211,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "13. Crayon Box (coefficient 13) Matilda has 60 coloured pencils. She wants to store them in the box shown in the figure, placing at least one pencil per 23 9 ? 8 23 23 23",
+    "statement": "13. Crayon Box (coefficient 13) Matilda has 60 coloured pencils. She wants to store them in the box shown in the figure, placing at least one pencil per compartment. The eight compartments 23 9 ? 8 23 23 23 must contain all different numbers of pencils. The arrows indicate the sums of the numbers of pencils placed in the compartments of the corresponding rows, all equal to 23. Two compartments have already been filled with nine and eight pencils. Indicate the number of pencils that Matilda places in the compartment that is marked with a question mark.",
     "crop_image": "/media/problem_crops/37_30_p13_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 13 (Crayon Box)",
@@ -5404,7 +5297,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "10. Divide to Succeed (coefficient 10) In a class of fewer than 30 students, 52.4% of them (value rounded to the nearest tenth percent) obtained the average mark on the last assignment.",
+    "statement": "10. Divide to Succeed (coefficient 10) In a class of fewer than 30 students, 52.4% of them (value rounded to the nearest tenth percent) obtained the average mark on the last assignment. How many students are in the class?",
     "crop_image": "/media/problem_crops/37_30_p10_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 10 (Divide to Succeed)",
@@ -5616,7 +5509,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "3. At the Restaurant (coefficient 3) At the restaurant, there are only five desserts left: one strawberry ice cream, one lemon ice cream, one strawberry mousse, one lemon mousse and one lemon pie. Cleo: I would like a strawberry dessert”. Dennis: “I would like a mousse or an ice cream”. Billy: “I would like a lemon dessert”. Alex: “Cleo and I only like mousses”. Elias: \"I don't want ice cream\". Connect the first names to the desserts with arrows so that",
+    "statement": "3. At the Restaurant (coefficient 3) At the restaurant, there are only five desserts left: one strawberry ice cream, one lemon ice cream, one strawberry mousse, one lemon mousse and one lemon pie. Cleo: I would like a strawberry dessert”. Dennis: “I would like a mousse or an ice cream”. Billy: “I would like a lemon dessert”. Alex: “Cleo and I only like mousses”. Elias: \"I don't want ice cream\". Connect the first names to the desserts with arrows so that everyone is happy.",
     "crop_image": "/media/problem_crops/37_30_p3_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 3 (At the Restaurant)",
@@ -5703,7 +5596,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "18. Archie’s Halls (coefficient 18) Archie Tekte builds exhibition halls all over the world in the shape of rectangular parallelepipeds and of different sizes. Passionate about numerology, he imposes the following constraints on himself: - one of the dimensions of the hall must be 15 metres; - the other two dimensions are whole numbers of metres; - The length of the longest diagonal of the hall, expressed in metres, must be equal to the square root of the volume of the hall expressed in cubic metres. What is the volume of Archie’s hall if this volume does not exceed 10,000 m3? L2, HC PARTICIPANTS",
+    "statement": "18. Archie’s Halls (coefficient 18) Archie Tekte builds exhibition halls all over the world in the shape of rectangular parallelepipeds and of different sizes. Passionate about numerology, he imposes the following constraints on himself: - one of the dimensions of the hall must be 15 metres; - the other two dimensions are whole numbers of metres; - The length of the longest diagonal of the hall, expressed in metres, must be equal to the square root of the volume of the hall expressed in cubic metres. What is the volume of Archie’s hall if this volume does not exceed 10,000 m3?",
     "crop_image": "/media/problem_crops/37_20_p18_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 18 (Archie’s Halls)",
@@ -5810,7 +5703,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "14. Mirror-culous Multiplication (coefficient 14) ABCD × 23 = 32 x DCBA In this equation, the numbers ABCD and DCBA are written with four digits, all different, the same digit being always replaced by the same letter. What is the number ABCD? C2 PARTICIPANTS",
+    "statement": "14. Mirror-culous Multiplication (coefficient 14) ABCD × 23 = 32 x DCBA In this equation, the numbers ABCD and DCBA are written with four digits, all different, the same digit being always replaced by the same letter. What is the number ABCD?",
     "crop_image": "/media/problem_crops/37_20_p14_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 14 (Mirror-culous Multiplication)",
@@ -5983,7 +5876,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "8. Mirror Numbers (coefficient 8) Max types on his calculator, a 4-digit number: Malia, seated opposite, can read the same number. Counting the example, how many four-digit numbers between 1000 and 2023 can Max type for Malia to read the same number? On Max's calculator, the numbers are written as follows. CM PARTICIPANTS",
+    "statement": "8. Mirror Numbers (coefficient 8) Max types on his calculator, a 4-digit number: Malia, seated opposite, can read the same number. Counting the example, how many four-digit numbers between 1000 and 2023 can Max type for Malia to read the same number? On Max's calculator, the numbers are written as follows. beware! For a problem to be completely solved, you must give both the number of solutions, and give the solution if there is only one, or give any two correct solutions if there are more than one. For all problems that may have more than one solution, there is space for two answers on the answer sheet (but there may still be just one solution).",
     "crop_image": "/media/problem_crops/37_20_p8_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 8 (Mirror Numbers)",
@@ -6074,7 +5967,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "5. Stickers (coefficient 5) Alex, Bob and Carla share these nine stickers: everyone takes three. Alex: I have all three shapes and my triangle is black. Bob: I have all three colours. Carla: I have no triangle and no grey",
+    "statement": "5. Stickers (coefficient 5) Alex, Bob and Carla share these nine stickers: everyone takes three. Alex: I have all three shapes and my triangle is black. Bob: I have all three colours. Carla: I have no triangle and no grey sticker. AL18 MARCH 2022 s at www.fsjm.ch/ Each has a square sticker. What are the numbers of Carla's stickers? CE PARTICIPANTS",
     "crop_image": "/media/problem_crops/37_20_p5_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 5 (Stickers)",
@@ -6223,7 +6116,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "18. PHIL McCAN’s GARDEN (coef. 18) Phil McCan’s vegetable patch has the shape of a triangle divided into six plots by three paths, which each connect a vertex to the middle of the opposite side. They converge at a point where he has installed a watering tap. The paths are 13, 14 and 15 m long. What is the area of the patch in m2 rounded to the nearest m2? L2, HC PARTICIPANTS",
+    "statement": "18. PHIL McCAN’s GARDEN (coef. 18) Phil McCan’s vegetable patch has the shape of a triangle divided into six plots by three paths, which each connect a vertex to the middle of the opposite side. They converge at a point where he has installed a watering tap. The paths are 13, 14 and 15 m long. What is the area of the patch in m2 rounded to the nearest m2?",
     "crop_image": "/media/problem_crops/36_42_p18_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 18 (PHIL McCAN’s GARDEN)",
@@ -6275,7 +6168,7 @@
       "HC"
     ],
     "complexity_label": "Adults / General Public",
-    "statement": "16. A FRACTION OF A YEAR (coef. 16) We express the fraction 36 2022 as the sum of three different fractions. The numerator of each fraction is equal to 1 and its denominator is a strictly positive integer. No other expression of this fraction as the sum of three different fractions uses a denominator strictly less than the smallest of the three denominators In other words ours is as",
+    "statement": "16. A FRACTION OF A YEAR (coef. 16) We express the fraction 36 2022 as the sum of three different fractions. The numerator of each fraction is equal to 1 and its denominator is a strictly positive integer. No other expression of this fraction as the sum of three different fractions uses a denominator strictly less than the smallest of the three denominators. In other words, ours is as small as possible. What is the smaller of the other two denominators?",
     "crop_image": "/media/problem_crops/36_42_p16_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 16 (A FRACTION OF A YEAR)",
@@ -6302,7 +6195,7 @@
       "HC"
     ],
     "complexity_label": "Adults / General Public",
-    "statement": "15. MARYNA’S CUCKOOS (coef. 15) Maryna packs identical Swiss cuckoo clocks in rectangular parallelepiped cartons in two different ways, as seen from the side in the drawing.",
+    "statement": "15. MARYNA’S CUCKOOS (coef. 15) Maryna packs identical Swiss cuckoo clocks in rectangular parallelepiped cartons in two different ways, as seen from the side in the drawing. , shape of a pentagon obtained by joining a square and an equilateral triangle with the same side length. The cuckoo clocks are packed and any contacts between them are flush: when two cuckoo clocks touch one another, they never do so at single, isolated points. Beware! There are empty spaces, shown in grey. Both cartons have the same vertical dimension as seen in the drawing. Although the carton on the left contains one fewer clock, the horizontal dimension seen of the carton on the left is greater than that of the carton on the right, by 12 mm exactly. What is, in mm rounded to the nearest mm, the vertical dimension of the two rectangles as seen in the drawing? Note: take √3 as 1.732. Information: representing a chalet, the cuckoo clock is a pendulum clock that hangs on the wall. Its clockwork internals open to reveal a small wooden bird which opens its beak emitting a song at each passing hour, the famous \"cuckoo\".",
     "crop_image": "/media/problem_crops/36_42_p15_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 15 (MARYNA’S CUCKOOS)",
@@ -6370,34 +6263,6 @@
     }
   },
   {
-    "id": "36_42_p12",
-    "edition": 36,
-    "year": "2021-2022 (36th Edition)",
-    "stage": "International Final (Day 2)",
-    "stage_code": 42,
-    "number": 12,
-    "title": "THE LIBRARY IS PACKED",
-    "coefficient": 12,
-    "categories": [
-      "C2",
-      "L1",
-      "GP",
-      "L2",
-      "HC"
-    ],
-    "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "12. THE LIBRARY IS PACKED (coef 12) A campus library is composed of six cubes face-to-face, each with side 5 m. Hristo, a famous artist, has wrapped the building in plastic film. What volume of air, in m3 rounded to the nearest m3, is trapped between the building and the stretched film? Note: if we connect the vertices of a polygon to a point, we obtain a pyramid whose volume is calculated by multiplying the area of the polygon by the distance between the point and the plane that contains the polygon, then dividing by 3.",
-    "crop_image": "/media/problem_crops/36_42_p12_full_crop.png",
-    "solution": {
-      "answer": "Solution for Problem 12 (THE LIBRARY IS PACKED)",
-      "steps": [
-        "Read and analyze the official problem card for THE LIBRARY IS PACKED.",
-        "Apply logical deduction for category Upper Sec (Year 10-11).",
-        "Calculate and verify final result."
-      ]
-    }
-  },
-  {
     "id": "36_42_p11",
     "edition": 36,
     "year": "2021-2022 (36th Edition)",
@@ -6415,7 +6280,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "11. FUNERARY MASK (coefficient 11) The drawing represents the funerary mask of Tutangent. The length of the sides of the six squares is equal to that of the sides of the four equilateral triangles. The assembly is exact. Each circle represents a vertex, two or four vertices combined. In the centre, a fifth equilateral triangle is already formed. How many equilateral triangles not already drawn can have three of the seventeen circles as vertices? C1 PARTICIPANTS",
+    "statement": "11. FUNERARY MASK (coefficient 11) The drawing represents the funerary mask of Tutangent. The length of the sides of the six squares is equal to that of the sides of the four equilateral triangles. The assembly is exact. Each circle represents a vertex, two or four vertices combined. In the centre, a fifth equilateral triangle is already formed. How many equilateral triangles not already drawn can have three of the seventeen circles as vertices?",
     "crop_image": "/media/problem_crops/36_42_p11_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 11 (FUNERARY MASK)",
@@ -6444,7 +6309,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "10. PRIORITY ORDERS (coefficient 10) A, B and C are strictly positive integers. Lucas wants to calculate (A + B) / C. He types A + B / C on his calculator and reads the result 25. He tries again as a check. He types B + A / C and reads the result 35. Lucas then understands that his calculator gives priority to division over addition. In the first case, it divided B by C then added A. In the second case, it",
+    "statement": "10. PRIORITY ORDERS (coefficient 10) A, B and C are strictly positive integers. Lucas wants to calculate (A + B) / C. He types A + B / C on his calculator and reads the result 25. He tries again as a check. He types B + A / C and reads the result 35. Lucas then understands that his calculator gives priority to division over addition. In the first case, it divided B by C then added A. In the second case, it divided A by C then added B.",
     "crop_image": "/media/problem_crops/36_42_p10_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 10 (PRIORITY ORDERS)",
@@ -6625,7 +6490,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "4. EXAM ROOM (coefficient 4) In the exam room holding the championship final, all the seats are occupied. There are the same number of participants in each row. Before settling",
+    "statement": "4. EXAM ROOM (coefficient 4) In the exam room holding the championship final, all the seats are occupied. There are the same number of participants in each row. Before settling down, Sandra counted there was one row behind her seat, and five rows in front of her seat. From her place, she has two participants on her left and three on her right. How many participants are there in the room?",
     "crop_image": "/media/problem_crops/36_42_p4_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 4 (EXAM ROOM)",
@@ -6736,20 +6601,72 @@
     "stage": "International Final (Day 1)",
     "stage_code": 41,
     "number": 18,
-    "title": "s are possible if the",
+    "title": "STAMPS",
     "coefficient": 18,
     "categories": [
       "L2",
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "tables respectively if this total sum is equal to 12, 15 and 18. How many tables are possible if the sum of all the numbers is equal to 21?",
+    "statement": "18. STAMPS (coefficient 18) Expressed in the official currency, the prices of the 4 stamps issued by the postal service of Mathsland are 4 strictly positive integers, all different, whose sum is equal to 33. On an envelope, one can affix several stamps, including those of identical price. By using no more than 4 stamps on an envelope, one can pay any postage from 1 to 44 inclusive. What are, in ascending order, the prices of the 4 stamps issued by the postal service?",
     "crop_image": "/media/problem_crops/36_41_p18_full_crop.png",
     "solution": {
-      "answer": "Solution for Problem 18 (s are possible if the)",
+      "answer": "Solution for Problem 18 (STAMPS)",
       "steps": [
-        "Read and analyze the official problem card for s are possible if the.",
+        "Read and analyze the official problem card for STAMPS.",
         "Apply logical deduction for category Top Competition / L2.",
+        "Calculate and verify final result."
+      ]
+    }
+  },
+  {
+    "id": "36_41_p17",
+    "edition": 36,
+    "year": "2021-2022 (36th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 17,
+    "title": "MEDIEVAL HELMET",
+    "coefficient": 17,
+    "categories": [
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Top Competition / L2",
+    "statement": "17. MEDIEVAL HELMET (coefficient 17) The drawing represents the cross-section of a medieval helmet from the 14th century. The quadrilateral PABI, in white, corresponds to a visor which pivots around P. Its area is 182 cm2. The interior angle IBA measures 150°. The quadrilateral PICD, in grey, corresponds to a protective shell. The interior angle DCI measures 90°. I and P are respectively the midpoints of the segments [BC] and [DA]. The lengths AB, BC and CD are equal. What is, in cm2 rounded to the nearest cm2, the area of the quadrilateral PICD? Note: take √3 as 1.732.",
+    "crop_image": "/media/problem_crops/36_41_p17_full_crop.png",
+    "solution": {
+      "answer": "Solution for Problem 17 (MEDIEVAL HELMET)",
+      "steps": [
+        "Read and analyze the official problem card for MEDIEVAL HELMET.",
+        "Apply logical deduction for category Top Competition / L2.",
+        "Calculate and verify final result."
+      ]
+    }
+  },
+  {
+    "id": "36_41_p16",
+    "edition": 36,
+    "year": "2021-2022 (36th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 16,
+    "title": "ONE TO THIRTEEN",
+    "coefficient": 16,
+    "categories": [
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Adults / General Public",
+    "statement": "16. ONE TO THIRTEEN (coefficient 16) Write all the integers from 1 to 13 to the discs, one number per disc. The sum of the four numbers written in the discs at the vertices of each of the six small squares must be equal to 25. The numbers 3 and 6 are already written. L1, GP PARTICIPANTS",
+    "crop_image": "/media/problem_crops/36_41_p16_full_crop.png",
+    "solution": {
+      "answer": "Solution for Problem 16 (ONE TO THIRTEEN)",
+      "steps": [
+        "Read and analyze the official problem card for ONE TO THIRTEEN.",
+        "Apply logical deduction for category Adults / General Public.",
         "Calculate and verify final result."
       ]
     }
@@ -6826,7 +6743,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "13. SQUARE TABLES (coefficient 13) Strictly positive integers are written in the cells of a square table, one number per cell, with at minimum four cells in total. The same number can appear several times in a row or column. The sum of the",
+    "statement": "13. SQUARE TABLES (coefficient 13) Strictly positive integers are written in the cells of a square table, one number per cell, with at minimum four cells in total. The same number can appear several times in a row or column. The sum of the numbers in each row or column is always the same. While programming, Daniel all the numbers in the table equals 28. By hand, Jean-Louis counts 11, 21 and 63 tables respectively if this total sum is equal to 12, 15 and 18. How many tables are possible if the sum of all the numbers is equal to 21?",
     "crop_image": "/media/problem_crops/36_41_p13_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 13 (SQUARE TABLES)",
@@ -6912,7 +6829,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "10. NINE LETTERS, EIGHT “WORDS” (coefficient 10) This is a two-player game, with nine cards bearing the letters A, D, E, G, I, N, O, S and T, one letter per card. At the start of a game, the nine cards are placed, letter face up, on the table and each player's display is empty. In turn, each player chooses a letter from the table and places it on their display. A player wins when the letter they has just drawn and two letters that were already on their display allow them to form one of the eight combinations (“words”) ADO, AGE, AIT, DIS, EST, GIN, OIE or ONT. A game can",
+    "statement": "10. NINE LETTERS, EIGHT “WORDS” (coefficient 10) This is a two-player game, with nine cards bearing the letters A, D, E, G, I, N, O, S and T, one letter per card. At the start of a game, the nine cards are placed, letter face up, on the table and each player's display is empty. In turn, each player chooses a letter from the table and places it on their display. A player wins when the letter they has just drawn and two letters that were already on their display allow them to form one of the eight combinations (“words”) ADO, AGE, AIT, DIS, EST, GIN, OIE or ONT. A game can be drawn, that is to say end in the ninth round without a winner or loser. Caroline p y Sebastian chooses the letter D in the second round. Caroline chooses the letter O in the third round. Which letter must Sebastian choose in the fourth round so that Caroline cannot win in the seventh round?",
     "crop_image": "/media/problem_crops/36_41_p10_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 10 (NINE LETTERS, EIGHT “WORDS”)",
@@ -6930,8 +6847,8 @@
     "stage": "International Final (Day 1)",
     "stage_code": 41,
     "number": 9,
-    "title": "SQUARES",
-    "coefficient": 9,
+    "title": "ritten in place EPFL acronym on the board? 5. LOGO",
+    "coefficient": 5,
     "categories": [
       "C1",
       "C2",
@@ -6941,12 +6858,12 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "9. SQUARES (coefficient 9) Four strictly positive integers, all different, must be written at the vertices of a square, one number per vertex. If two numbers are on the same side, one must be a multiple of the other. If two numbers are on the same diagonal, dotted on the drawing, neither can be a multiple of the other. In the drawing, the sum of the four numbers is 77 and the largest number is 50 (each number is written inside a disc). For another square, what is the sum of the four numbers if the largest number is 36?",
+    "statement": "vertical column must equal 9. What number will be written in place of the question mark?",
     "crop_image": "/media/problem_crops/36_41_p9_full_crop.png",
     "solution": {
-      "answer": "Solution for Problem 9 (SQUARES)",
+      "answer": "Solution for Problem 9 (ritten in place EPFL acronym on the board? 5. LOGO)",
       "steps": [
-        "Read and analyze the official problem card for SQUARES.",
+        "Read and analyze the official problem card for ritten in place EPFL acronym on the board? 5. LOGO.",
         "Apply logical deduction for category Lower Sec (Year 8-9).",
         "Calculate and verify final result."
       ]
@@ -6971,7 +6888,7 @@
       "HC"
     ],
     "complexity_label": "Middle School (Year 6-7)",
-    "statement": "8. THE PIRATES (coefficient 8) The crew of a pirate ship shares 36 gold coins and 84 silver coins. The crew is comprised of different ranks: commanders, masters, sailors and gunners. Each commander receives four gold coins and six silver coins. Each master receives two gold coins and four silver coins. Each sailor receives one gold coin and three silver coins. Similarly, each gunner receives one gold coin and three",
+    "statement": "8. THE PIRATES (coefficient 8) The crew of a pirate ship shares 36 gold coins and 84 silver coins. The crew is comprised of different ranks: commanders, masters, sailors and gunners. Each commander receives four gold coins and six silver coins. Each master receives two gold coins and four silver coins. Each sailor receives one gold coin and three silver coins. Similarly, each gunner receives one gold coin and three silver coins. y p p crew of the ship? CM PARTICIPANTS beware! For a problem to be completely solved, you must give both the number of solutions, AND give the solution if there is only one, or give any two correct solutions if there are more than one. For all problems that may have more than one solution, there is space for two answers on the answer sheet (but there may still be just one solution).",
     "crop_image": "/media/problem_crops/36_41_p8_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 8 (THE PIRATES)",
@@ -7062,7 +6979,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "5. LOGO (coefficient 5) For the final of the championship, Valerie would like to make a banner in honour of EPFL. She wants to cut the four letters out of a rigid rectangular plate divided into a 6 x 7 grid. Unfortunately, the four squares in black in the drawing are damaged. As the plate is painted on only one face, the face visible in the drawing, Valerie can turn but not turn over any letter template. Indeed, the correct face of each letter, the one that is readable, must be in colour on the banner. She must place each letter template on the plate so that it does not cover any damaged squares and, of course, so that it does not overlap any other letter template. Trace the outline of the four letters on the plate. CE PARTICIPANTS",
+    "statement": "5. LOGO (coefficient 5) For the final of the championship, Valerie would like to make a banner in honour of EPFL. She wants to cut the four letters out of a rigid rectangular plate divided into a 6 x 7 grid. Unfortunately, the four squares in black in the drawing are damaged. As the plate is painted on only one face, the face visible in the drawing, Valerie can turn but not turn over any letter template. Indeed, the correct face of each letter, the one that is readable, must be in colour on the banner. She must place each letter template on the plate so that it does not cover any damaged squares and, of course, so that it does not overlap any other letter template. Trace the outline of the four letters on the plate.",
     "crop_image": "/media/problem_crops/36_41_p5_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 5 (LOGO)",
@@ -7186,7 +7103,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "1. SETSQUARE (coefficient 1) Write all the whole numbers from 1 to 5 in the boxes, one number per box. The sum of the three numbers in the horizontal row and the sum of the three numbers in the vertical column must equal 9. What number will be written in place of the question mark?",
+    "statement": "1. SETSQUARE (coefficient 1) Write all the whole numbers from 1 to 5 in the boxes, one number per box. The sum of the three numbers in the horizontal row and the sum of the three numbers in the",
     "crop_image": "/media/problem_crops/36_41_p1_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 1 (SETSQUARE)",
@@ -7211,7 +7128,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "18. Equiangular Hexagons (coef. 18) By sticking identical equilateral triangles on a sheet of paper, Matthew has fun building convex hexagons, without holes, whose angles all measure 120°. He has 322 triangles. Using them all, Mathias constructs a convex hexagon, his paper support allowing him to glue no more than 20 f t i l i f th th",
+    "statement": "18. Equiangular Hexagons (coef. 18) By sticking identical equilateral triangles on a sheet of paper, Matthew has fun building convex hexagons, without holes, whose angles all measure 120°. He has 322 triangles. Using them all, Mathias constructs a convex hexagon, his paper support allowing him to glue no more than 20 rows of triangles in any of the three directions indicated by arrows in the right-hand figure. What are the lengths of the six sides of this hexagon, the unit of length being that of the side of a small triangle? Give the six lengths arranged in ascending order.",
     "crop_image": "/media/problem_crops/36_30_p18_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 18 (Equiangular Hexagons)",
@@ -7461,7 +7378,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "9. The Year Grid (coefficient 9) In the boxes of the left grid are digits from 0 to 9, except 3, together with the sums of the three-digit numbers read in two directions: 541 + 720 + 986 = 2247 and 106 + 428 +579=1113. We want to arrange the same digits in the boxes of the right grid (0 and 2 are already placed) to obtain 2022 by adding the three-digit numbers in the same way. 1 a b 0 2 2 5 1 1 1 3 0 2 2 2 6 9 0 8 4 7 2 2 4 7 2 0 2 2",
+    "statement": "9. The Year Grid (coefficient 9) In the boxes of the left grid are digits from 0 to 9, except 3, together with the sums of the three-digit numbers read in two directions: 541 + 720 + 986 = 2247 and 106 + 428 +579=1113. We want to arrange the same digits in the boxes of the right grid (0 and 2 are already placed) to obtain 2022 by adding the three-digit numbers in the same way. Which digits will be in boxes a and b? 1 a b 0 2 2 5 1 1 1 3 0 2 2 2 6 9 0 8 4 7 2 2 4 7 2 0 2 2",
     "crop_image": "/media/problem_crops/36_30_p9_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 9 (The Year Grid)",
@@ -7731,7 +7648,7 @@
       "HC"
     ],
     "complexity_label": "Top Competition / L2",
-    "statement": "18. Integral Triangle (coefficient 18) The three sides of a triangular plot are whole numbers of decametres such that the perimeter of the plot expressed in decametres is a number equal to that of its area expressed in square decametres. What is the perimeter of this land? Give the answer in decametres. L2, HC PARTICIPANTS",
+    "statement": "18. Integral Triangle (coefficient 18) The three sides of a triangular plot are whole numbers of decametres such that the perimeter of the plot expressed in decametres is a number equal to that of its area expressed in square decametres. What is the perimeter of this land? Give the answer in decametres.",
     "crop_image": "/media/problem_crops/36_20_p18_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 18 (Integral Triangle)",
@@ -7894,7 +7811,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "12. Lottery Tickets (coefficient 12) Matilda and Matthew have each bought a",
+    "statement": "12. Lottery Tickets (coefficient 12) Matilda and Matthew have each bought a lottery ticket. Each ticket bears a five-digit number. The first two digits of Matthew's ticket are 09. By comparing their tickets, they note that the ten digits from 0 to 9 all appear on these tickets and that doubling the number on Matthew's ticket (without taking into account the initial 0) gives Matilda's ticket number. What is Matilda's ticket number?",
     "crop_image": "/media/problem_crops/36_20_p12_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 12 (Lottery Tickets)",
@@ -7981,7 +7898,7 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "9. Posts and Enclosures (coefficient 9) Sylvie owns a circular plot of land of radius 20 m. She decides to form triangular enclosures of side 10 m for her horses. She places a post at each vertex of the triangles, one of these posts being at the centre of the field. How many posts can she place, at",
+    "statement": "9. Posts and Enclosures (coefficient 9) Sylvie owns a circular plot of land of radius 20 m. She decides to form triangular enclosures of side 10 m for her horses. She places a post at each vertex of the triangles, one of these posts being at the centre of the field. How many posts can she place, at most?",
     "crop_image": "/media/problem_crops/36_20_p9_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 9 (Posts and Enclosures)",
@@ -8164,7 +8081,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "3. From 1 to 7 (coefficient 3) Place the numbers 2, 4, 5, 6 and 7 in the empty discs (1 and 3 are already placed) so that: • the sum of three aligned numbers (thick lines) is always equal to 12; • the sum of the five numbers placed around each small rectangle is equal to 20. What number should be written in 1 3",
+    "statement": "3. From 1 to 7 (coefficient 3) Place the numbers 2, 4, 5, 6 and 7 in the empty discs (1 and 3 are already placed) so that: • the sum of three aligned numbers (thick lines) is always equal to 12; • the sum of the five numbers placed around each small rectangle is equal to 20. What number should be written in the grey disc? 1 3",
     "crop_image": "/media/problem_crops/36_20_p3_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 3 (From 1 to 7)",
@@ -8288,6 +8205,33 @@
     }
   },
   {
+    "id": "35_30_p16",
+    "edition": 35,
+    "year": "2020-2021 (35th Edition)",
+    "stage": "UK National Final",
+    "stage_code": 30,
+    "number": 16,
+    "title": "Signed Pyramid",
+    "coefficient": 16,
+    "categories": [
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Adults / General Public",
+    "statement": "16. Signed Pyramid (coefficient 16) – + – – – + + – + + – – + + + This pyramid was built as follows: • write five + or - signs on the lowest row • above any two signs (in the middle), write the sign + or the sign - according to the \"rule of signs\" for the multiplication: + by + gives +, etc ... If the bottom row contains 21 + or - signs, how many - signs can the entire pyramid contain, at most?",
+    "crop_image": "/media/problem_crops/35_30_p16_full_crop.png",
+    "solution": {
+      "answer": "Solution for Problem 16 (Signed Pyramid)",
+      "steps": [
+        "Read and analyze the official problem card for Signed Pyramid.",
+        "Apply logical deduction for category Adults / General Public.",
+        "Calculate and verify final result."
+      ]
+    }
+  },
+  {
     "id": "35_30_p15",
     "edition": 35,
     "year": "2020-2021 (35th Edition)",
@@ -8303,7 +8247,7 @@
       "HC"
     ],
     "complexity_label": "Adults / General Public",
-    "statement": "15. Attic (coefficient 15) The drawing represents the cross-section of the roof of Matilda's house. Her parents arranged a bedroom under the roof so that the height of this room was equal to its cross-sectional width, corresponding to the white square on the drawing. What is this height or width? Give the answer in metres, rounded to the nearest cm. 16. Signed Pyramid (coefficient 16) – + – – – + + – + + – – + + + This pyramid was built as follows: • write five + or - signs on the lowest row • above any two signs (in the middle), write the i th i di t th \" l f 7 m 7,5 m 6,5m",
+    "statement": "15. Attic (coefficient 15) The drawing represents the cross-section of the roof of Matilda's house. Her parents arranged a bedroom under the roof so that the height of this room was equal to its cross-sectional width, corresponding to the white square on the drawing. What is this height or width? Give the answer in metres, rounded to the nearest cm. 7 m 7,5 m 6,5m",
     "crop_image": "/media/problem_crops/35_30_p15_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 15 (Attic)",
@@ -8387,7 +8331,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "12. A Remarkable Year (coefficient 12) A given year has a year number written ABCD, the letters representing in order each digit in the year number. This year number is such that ABCD + ABC + AB = 2021",
+    "statement": "12. A Remarkable Year (coefficient 12) A given year has a year number written ABCD, the letters representing in order each digit in the year number. This year number is such that ABCD + ABC + AB = 2021 What is the year number?",
     "crop_image": "/media/problem_crops/35_30_p12_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 12 (A Remarkable Year)",
@@ -8657,7 +8601,7 @@
       "HC"
     ],
     "complexity_label": "Primary (Year 5)",
-    "statement": "3. Assemblies (coefficient 3) The two small squares at the top have a transparent part (in white) and a black part on the visible side and on the other side. We assemble these two squares to form a 2 × 1 rectangle as in the examples. You can turn these squares, and place them right side up or upside down. The black parts of the assembled rectangle must form one piece as in example 1; we will not allow the assemblies where the black parts touch at a single point as in example 2. How many different rectangles can we get? Note: if two rectangles are identical by turning one of them or placing one of them on the other side they will only be counted for one figure exemple 1 exemple 2 example 2 example 1",
+    "statement": "3. Assemblies (coefficient 3) The two small squares at the top have a transparent part (in white) and a black part on the visible side and on the other side. We assemble these two squares to form a 2 × 1 rectangle as in the examples. You can turn these squares, and place them right side up or upside down. The black parts of the assembled rectangle must form one piece as in example 1; we will not allow the assemblies where the black parts touch at a single point as in example 2. How many different rectangles can we get? Note: if two rectangles are identical by turning one of them or placing one of them on the other side, they will only be counted for one figure. exemple 1 exemple 2 example 2 example 1",
     "crop_image": "/media/problem_crops/35_30_p3_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 3 (Assemblies)",
@@ -8796,7 +8740,7 @@
       "HC"
     ],
     "complexity_label": "Adults / General Public",
-    "statement": "16. Kryptonian Square (coeff. 16) A magic square has just reached us from the planet Krypton. This square contains nine integers all different written in a positional numbering system similar to ours",
+    "statement": "16. Kryptonian Square (coeff. 16) A magic square has just reached us from the planet Krypton. This square contains nine integers all different written in a positional numbering system similar to ours (numbers written from left to right) but whose base is not necessarily decimal. The sum of the numbers written in each row, each column and each of the large diagonals is always the same. By comparison with other Kryptonian texts, it is established that ° corresponds to our digit 0, that = 9 and that represent three consecutive whole numbers written in ascending order. What is the sum of the nine numbers written in this square? This sum to be given in base 10. L1, GP PARTICIPANTS",
     "crop_image": "/media/problem_crops/35_20_p16_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 16 (Kryptonian Square)",
@@ -8907,7 +8851,7 @@
       "HC"
     ],
     "complexity_label": "Upper Sec (Year 10-11)",
-    "statement": "12. Diagonals (coefficient 12)",
+    "statement": "12. Diagonals (coefficient 12) John draws a regular pentagon and all its diagonals. These delimit eleven regions within the pentagon. How many regions will he get if he draws a regular heptagon and all of its diagonals? A heptagon is a 7-sided polygon. 1 2 3 4 5 6 7 8 9 10 11",
     "crop_image": "/media/problem_crops/35_20_p12_full_crop.png",
     "solution": {
       "answer": "Solution for Problem 12 (Diagonals)",
@@ -8983,7 +8927,7 @@
     "stage": "Semi-Final",
     "stage_code": 20,
     "number": 9,
-    "title": "Even",
+    "title": "Even Smaller",
     "coefficient": 9,
     "categories": [
       "C1",
@@ -8994,12 +8938,12 @@
       "HC"
     ],
     "complexity_label": "Lower Sec (Year 8-9)",
-    "statement": "9. Even Smaller (coefficient 9) Matilda wants to create a mosaic that gives an idea of infinity. She draws a rectangle of 8m by 4m on the ground and inscribes a diamond whose vertices are the midpoints of the sides of the rectangle, then she inscribes in this diamond a second rectangle whose vertices are the midpoints of the sides of the diamond and so on",
+    "statement": "9. Even Smaller (coefficient 9) Matilda wants to create a mosaic that gives an idea of infinity. She draws a rectangle of 8m by 4m on the ground and inscribes a diamond whose vertices are the midpoints of the sides of the rectangle, then she inscribes in this diamond a second rectangle whose vertices are the midpoints of the sides of the diamond, and so on, alternating diamonds and rectangles. She",
     "crop_image": "/media/problem_crops/35_20_p9_full_crop.png",
     "solution": {
-      "answer": "Solution for Problem 9 (Even)",
+      "answer": "Solution for Problem 9 (Even Smaller)",
       "steps": [
-        "Read and analyze the official problem card for Even.",
+        "Read and analyze the official problem card for Even Smaller.",
         "Apply logical deduction for category Lower Sec (Year 8-9).",
         "Calculate and verify final result."
       ]
