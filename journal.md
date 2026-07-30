@@ -112,7 +112,13 @@ File: `data/solutions/{edition}_{stage}_p{num}.md`
 
 ---
 
-## 📋 Solutions Status (36 / 318 done)
+## 📋 Solutions Status (72 / 318 done)
+
+### 36_30 — 36th Edition UK National Final
+*✅ COMPLETE: solutions `36_30_p1.md` through `36_30_p18.md`; answers verified against local `media/past_papers/36_30_CH_en_answers.pdf`.*
+
+### 36_20 — 36th Edition Semi-Final
+*✅ COMPLETE: solutions `36_20_p1.md` through `36_20_p18.md`; answers verified against the FSJM archive answer key: `https://www.fsjm.ch/static/archives/36_20_CH_fr_answers.pdf`.*
 
 ### 40_30 — 40th Edition UK National Final
 *✅ LOCAL ANSWERS: `media/past_papers/40_30_CH_fr_answers.pdf`.*
