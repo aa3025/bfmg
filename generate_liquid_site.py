@@ -255,6 +255,7 @@ def build_page_html(current_item, is_post=False, is_home=False):
                     <div id="probStatement" class="text-slate-200 text-base leading-relaxed whitespace-pre-line bg-slate-900/50 p-6 rounded-2xl border border-white/10 font-sans">
                         Select your category and click "Draw Random Problem" to begin!
                     </div>
+                    <div id="probDiagrams" class="flex flex-wrap items-center justify-center gap-4 mt-4"></div>
                 </div>
 
                 <!-- Solution & Explanation Accordion -->
@@ -317,6 +318,15 @@ def build_page_html(current_item, is_post=False, is_home=False):
                 document.getElementById('probNum').innerText = "Problem #" + p.number + " (" + (p.complexity_label || '') + ")";
                 document.getElementById('probTitle').innerText = "Problem " + p.number + ": " + p.title;
                 document.getElementById('probStatement').innerText = p.statement || "No statement text extracted.";
+
+                // Render diagrams/figures if available
+                let diagHtml = "";
+                if (p.diagrams && p.diagrams.length > 0) {{
+                    p.diagrams.forEach(function(imgUrl) {{
+                        diagHtml += '<img src="' + imgUrl + '" class="rounded-xl border border-white/20 max-h-64 object-contain bg-white/10 p-2 my-2 shadow-lg hover:scale-105 transition-transform" alt="Problem Diagram" />';
+                    }});
+                }}
+                document.getElementById('probDiagrams').innerHTML = diagHtml;
 
                 // Reset Solution Box
                 const solBox = document.getElementById('solBox');
