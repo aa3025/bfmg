@@ -188,9 +188,12 @@ def build_page_html(current_item, is_post=False, is_home=False):
         active_cls = "active" if p['slug'] == current_item['slug'] else ""
         date_badge = p['formatted_date']
         posts_nav_html += f'''
-        <a href="{post_url}" class="glass-post-item {active_cls}">
-            <div class="font-medium text-slate-100 text-sm leading-snug group-hover:text-blue-300 transition-colors">{p['title']}</div>
-            <div class="text-xs text-blue-200/60 mt-1 flex items-center gap-1.5 font-mono">
+        <a href="{post_url}" class="glass-post-item {active_cls} group">
+            <div class="font-medium text-slate-100 text-sm leading-snug group-hover:text-blue-300 transition-colors flex items-start gap-2">
+                <i data-lucide="mail" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                <span>{p['title']}</span>
+            </div>
+            <div class="text-xs text-blue-200/60 mt-1 flex items-center gap-1.5 font-mono pl-6">
                 <i data-lucide="calendar" class="w-3 h-3 opacity-70"></i>
                 {date_badge}
             </div>
