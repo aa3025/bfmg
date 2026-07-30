@@ -249,13 +249,13 @@ def build_page_html(current_item, is_post=False, is_home=False):
                     <span id="probNum" class="text-xs font-mono text-slate-400">—</span>
                 </div>
 
-                <!-- Problem Statement -->
+                <!-- Problem Statement & Official Screen-Grab Card -->
                 <div>
                     <h2 id="probTitle" class="text-2xl font-bold text-white font-['Outfit'] mb-3">Loading Problem...</h2>
-                    <div id="probStatement" class="text-slate-200 text-base leading-relaxed whitespace-pre-line bg-slate-900/50 p-6 rounded-2xl border border-white/10 font-sans">
+                    <div id="probCardImage" class="my-4"></div>
+                    <div id="probStatement" class="hidden text-slate-200 text-base leading-relaxed whitespace-pre-line bg-slate-900/50 p-6 rounded-2xl border border-white/10 font-sans">
                         Select your category and click "Draw Random Problem" to begin!
                     </div>
-                    <div id="probDiagrams" class="flex flex-wrap items-center justify-center gap-4 mt-4"></div>
                 </div>
 
                 <!-- Solution & Explanation Accordion -->
@@ -319,14 +319,14 @@ def build_page_html(current_item, is_post=False, is_home=False):
                 document.getElementById('probTitle').innerText = "Problem " + p.number + ": " + p.title;
                 document.getElementById('probStatement').innerText = p.statement || "No statement text extracted.";
 
-                // Render diagrams/figures if available
-                let diagHtml = "";
-                if (p.diagrams && p.diagrams.length > 0) {{
-                    p.diagrams.forEach(function(imgUrl) {{
-                        diagHtml += '<img src="' + imgUrl + '" class="rounded-xl border border-white/20 max-h-64 object-contain bg-white/10 p-2 my-2 shadow-lg hover:scale-105 transition-transform" alt="Problem Diagram" />';
-                    }});
+                // Render official high-res problem screen-grab image card
+                let cardHtml = "";
+                if (p.crop_image) {{
+                    cardHtml = '<div class="flex justify-center my-4 p-4 bg-white rounded-2xl shadow-2xl border border-white/20 hover:scale-[1.01] transition-transform">' +
+                        '<img src="' + p.crop_image + '" class="max-w-full h-auto rounded-lg object-contain shadow-md" alt="Problem Card Snapshot" />' +
+                        '</div>';
                 }}
-                document.getElementById('probDiagrams').innerHTML = diagHtml;
+                document.getElementById('probCardImage').innerHTML = cardHtml;
 
                 // Reset Solution Box
                 const solBox = document.getElementById('solBox');
