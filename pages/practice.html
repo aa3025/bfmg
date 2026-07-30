@@ -1,0 +1,2145 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice & Learn - British Federation of Mathematical Games</title>
+    <meta name="description" content="Practice & Learn - British Federation of Mathematical Games">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --glass-highlight: rgba(255, 255, 255, 0.7);
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #080c14;
+            color: #f1f5f9;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Fluid Background Orbs */
+        .ambient-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+            background: radial-gradient(circle at 50% 0%, #0f172a 0%, #07090e 100%);
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.45;
+            animation: float 20s ease-in-out infinite alternate;
+        }
+
+        .orb-1 {
+            top: -10%;
+            left: 15%;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        }
+
+        .orb-2 {
+            top: 40%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            animation-delay: -7s;
+        }
+
+        .orb-3 {
+            bottom: -15%;
+            left: 20%;
+            width: 550px;
+            height: 550px;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            animation-delay: -14s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(40px, 60px) scale(1.08); }
+            100% { transform: translate(-30px, 30px) scale(0.95); }
+        }
+
+        /* Petr Knoll Liquid Glass Button Defs & Styles */
+        @property --angle-1 {
+          syntax: "<angle>";
+          inherits: false;
+          initial-value: -75deg;
+        }
+
+        @property --angle-2 {
+          syntax: "<angle>";
+          inherits: false;
+          initial-value: -45deg;
+        }
+
+        .button-wrap {
+          position: relative;
+          z-index: 2;
+          border-radius: 999vw;
+          background: transparent;
+          pointer-events: none;
+          transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+          display: inline-block;
+        }
+
+        .button-shadow {
+          --shadow-cuttoff-fix: 2em;
+          position: absolute;
+          width: calc(100% + var(--shadow-cuttoff-fix));
+          height: calc(100% + var(--shadow-cuttoff-fix));
+          top: calc(0% - var(--shadow-cuttoff-fix) / 2);
+          left: calc(0% - var(--shadow-cuttoff-fix) / 2);
+          filter: blur(clamp(2px, 0.125em, 12px));
+          -webkit-filter: blur(clamp(2px, 0.125em, 12px));
+          overflow: visible;
+          pointer-events: none;
+        }
+
+        .button-shadow::after {
+          content: "";
+          position: absolute;
+          z-index: 0;
+          inset: 0;
+          border-radius: 999vw;
+          background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.15));
+          width: calc(100% - var(--shadow-cuttoff-fix) - 0.25em);
+          height: calc(100% - var(--shadow-cuttoff-fix) - 0.25em);
+          top: calc(var(--shadow-cuttoff-fix) - 0.5em);
+          left: calc(var(--shadow-cuttoff-fix) - 0.875em);
+          padding: 0.125em;
+          box-sizing: border-box;
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask-composite: exclude;
+          transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+          overflow: visible;
+          opacity: 1;
+        }
+
+        .knoll-btn {
+          --border-width: clamp(1px, 0.0625em, 3px);
+          all: unset;
+          cursor: pointer;
+          position: relative;
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+          pointer-events: auto;
+          z-index: 3;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          background: linear-gradient(
+            -75deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.25),
+            rgba(255, 255, 255, 0.08)
+          );
+          border-radius: 999vw;
+          box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.1),
+            inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.6),
+            0 0.25em 0.125em -0.125em rgba(0, 0, 0, 0.3),
+            0 0 0.1em 0.25em inset rgba(255, 255, 255, 0.25);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .knoll-btn.active {
+          background: linear-gradient(
+            -75deg,
+            rgba(59, 130, 246, 0.4),
+            rgba(147, 197, 253, 0.6),
+            rgba(139, 92, 246, 0.4)
+          );
+        }
+
+        .knoll-btn:hover {
+          transform: scale(0.975);
+          backdrop-filter: blur(0.01em);
+          -webkit-backdrop-filter: blur(0.01em);
+          box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.1),
+            inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.7),
+            0 0.15em 0.05em -0.1em rgba(0, 0, 0, 0.3),
+            0 0 0.05em 0.1em inset rgba(255, 255, 255, 0.6);
+        }
+
+        .knoll-btn span {
+          position: relative;
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+          user-select: none;
+          font-family: "Plus Jakarta Sans", sans-serif;
+          letter-spacing: -0.02em;
+          font-weight: 600;
+          font-size: 0.875rem;
+          color: #ffffff;
+          text-shadow: 0em 0.15em 0.1em rgba(0, 0, 0, 0.4);
+          transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+          padding-inline: 1.15em;
+          padding-block: 0.6em;
+        }
+
+        .knoll-btn span::after {
+          content: "";
+          display: block;
+          position: absolute;
+          z-index: 1;
+          width: calc(100% - var(--border-width));
+          height: calc(100% - var(--border-width));
+          top: calc(0% + var(--border-width) / 2);
+          left: calc(0% + var(--border-width) / 2);
+          box-sizing: border-box;
+          border-radius: 999vw;
+          overflow: clip;
+          background: linear-gradient(
+            var(--angle-2),
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.55) 40% 50%,
+            rgba(255, 255, 255, 0) 55%
+          );
+          z-index: 3;
+          mix-blend-mode: screen;
+          pointer-events: none;
+          background-size: 200% 200%;
+          background-position: 0% 50%;
+          background-repeat: no-repeat;
+          transition: background-position 500ms cubic-bezier(0.25, 1, 0.5, 1),
+            --angle-2 500ms cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .knoll-btn:hover span::after {
+          background-position: 25% 50%;
+        }
+
+        .knoll-btn::after {
+          content: "";
+          position: absolute;
+          z-index: 1;
+          inset: 0;
+          border-radius: 999vw;
+          width: calc(100% + var(--border-width));
+          height: calc(100% + var(--border-width));
+          top: calc(0% - var(--border-width) / 2);
+          left: calc(0% - var(--border-width) / 2);
+          padding: var(--border-width);
+          box-sizing: border-box;
+          background: conic-gradient(
+              from var(--angle-1) at 50% 50%,
+              rgba(0, 0, 0, 0.5),
+              rgba(0, 0, 0, 0) 5% 40%,
+              rgba(0, 0, 0, 0.5) 50%,
+              rgba(0, 0, 0, 0) 60% 95%,
+              rgba(0, 0, 0, 0.5)
+            ),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6));
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask-composite: exclude;
+          transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1),
+            --angle-1 500ms ease;
+          box-shadow: inset 0 0 0 calc(var(--border-width) / 2) rgba(255, 255, 255, 0.5);
+        }
+
+        .knoll-btn:hover::after {
+          --angle-1: -125deg;
+        }
+
+        .button-wrap:has(.knoll-btn:hover) .button-shadow {
+          filter: blur(clamp(2px, 0.0625em, 6px));
+          -webkit-filter: blur(clamp(2px, 0.0625em, 6px));
+        }
+
+        .button-wrap:has(.knoll-btn:hover) .button-shadow::after {
+          top: calc(var(--shadow-cuttoff-fix) - 0.875em);
+          opacity: 1;
+        }
+
+        /* Liquid Glass Cards */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.55);
+            backdrop-filter: blur(24px) saturate(190%);
+            -webkit-backdrop-filter: blur(24px) saturate(190%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            box-shadow: 
+                inset 0 1.5px 1px rgba(255, 255, 255, 0.35),
+                inset 0 -1.5px 2px rgba(0, 0, 0, 0.4),
+                0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Post Sidebar Item */
+        .glass-post-item {
+            display: block;
+            padding: 0.85rem 1.1rem;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            margin: 0;
+        }
+
+        .glass-post-item:hover {
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateX(4px);
+        }
+
+        .glass-post-item.active {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.15));
+            border-color: rgba(96, 165, 250, 0.4);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Typography & Post Content Styling */
+        .prose-custom h1, .prose-custom h2, .prose-custom h3, .prose-custom h4 {
+            font-family: 'Outfit', sans-serif;
+            color: #f8fafc !important;
+            font-weight: 700 !important;
+            letter-spacing: -0.02em;
+            margin-top: 2rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .prose-custom h1 { font-size: 2.25rem; line-height: 1.25; }
+        .prose-custom h2 { font-size: 1.65rem; line-height: 1.3; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 0.5rem; color: #93c5fd !important; }
+        .prose-custom h3 { font-size: 1.35rem; color: #e0e7ff !important; }
+
+        .prose-custom p {
+            line-height: 1.8;
+            color: #cbd5e1;
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+        }
+
+        .prose-custom strong {
+            color: #ffffff !important;
+            font-weight: 700;
+        }
+
+        .prose-custom a {
+            color: #60a5fa;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.2s;
+        }
+
+        .prose-custom a:hover {
+            color: #93c5fd;
+        }
+
+        /* Force ALL content photos to identical full-container width */
+        .prose-custom img {
+            border-radius: 18px;
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            display: block !important;
+            margin: 2rem 0 !important;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Small Logos & Badges: Centered at ~25% width */
+        .prose-custom img[src*="logo"], .prose-custom img[src*="300x300"], .prose-custom img.logo-img {
+            width: 25% !important;
+            min-width: 150px !important;
+            max-width: 250px !important;
+            height: auto !important;
+            margin: 2.5rem auto !important;
+            display: block !important;
+        }
+
+        .prose-custom img:hover {
+            transform: scale(1.01);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Explicit List & Bullet Point Styling */
+        .prose-custom ul {
+            list-style-type: disc !important;
+            padding-left: 2rem !important;
+            margin-top: 1rem !important;
+            margin-bottom: 1.5rem !important;
+            display: block !important;
+        }
+
+        .prose-custom ol {
+            list-style-type: decimal !important;
+            padding-left: 2rem !important;
+            margin-top: 1rem !important;
+            margin-bottom: 1.5rem !important;
+            display: block !important;
+        }
+
+        .prose-custom li {
+            margin-bottom: 0.6rem !important;
+            color: #cbd5e1 !important;
+            display: list-item !important;
+            line-height: 1.6 !important;
+        }
+    </style>
+</head>
+<body class="antialiased text-slate-100 min-h-screen flex flex-col justify-between">
+
+    <!-- Ambient Fluid Background Orbs -->
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 px-4 py-4 backdrop-blur-md bg-slate-950/40 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+            <a href="/index.html" class="flex items-center gap-3 group text-decoration-none">
+                <div class="relative w-10 h-10 rounded-2xl bg-slate-900/80 flex items-center justify-center shadow-lg shadow-blue-500/20 border border-white/30 group-hover:scale-105 transition-transform overflow-hidden">
+                    <canvas id="hexLogoCanvas" width="80" height="80" class="w-10 h-10"></canvas>
+                </div>
+                <div>
+                    <div class="font-bold text-lg leading-none tracking-tight text-white font-['Outfit']">BFMG</div>
+                    <div class="text-xs text-blue-200/70 font-medium tracking-wide">British Federation of Mathematical Games</div>
+                </div>
+            </a>
+
+            <!-- Liquid Glass Top Nav Buttons -->
+            <nav class="flex flex-wrap items-center gap-2">
+                
+        <div class="button-wrap">
+            <a href="/index.html" class="knoll-btn ">
+                <span class="flex items-center gap-1.5"><i data-lucide="file-text" class="w-4 h-4"></i> About BFMG</span>
+            </a>
+            <div class="button-shadow"></div>
+        </div>
+        
+        <div class="button-wrap">
+            <a href="/pages/posts.html" class="knoll-btn ">
+                <span class="flex items-center gap-1.5"><i data-lucide="file-text" class="w-4 h-4"></i> Posts</span>
+            </a>
+            <div class="button-shadow"></div>
+        </div>
+        
+        <div class="button-wrap">
+            <a href="/pages/results-of-the-2023-final.html" class="knoll-btn ">
+                <span class="flex items-center gap-1.5"><i data-lucide="file-text" class="w-4 h-4"></i> 2023 Results</span>
+            </a>
+            <div class="button-shadow"></div>
+        </div>
+        
+        <div class="button-wrap">
+            <a href="/pages/results-of-the-2024-final.html" class="knoll-btn ">
+                <span class="flex items-center gap-1.5"><i data-lucide="file-text" class="w-4 h-4"></i> 2024 Results</span>
+            </a>
+            <div class="button-shadow"></div>
+        </div>
+        
+        <div class="button-wrap">
+            <a href="/pages/results-of-2025-uk-final.html" class="knoll-btn ">
+                <span class="flex items-center gap-1.5"><i data-lucide="file-text" class="w-4 h-4"></i> 2025 Results</span>
+            </a>
+            <div class="button-shadow"></div>
+        </div>
+        
+        <div class="button-wrap">
+            <a href="/pages/2026-results.html" class="knoll-btn ">
+                <span class="flex items-center gap-1.5"><i data-lucide="file-text" class="w-4 h-4"></i> 2026 Results</span>
+            </a>
+            <div class="button-shadow"></div>
+        </div>
+        
+        <div class="button-wrap">
+            <a href="/pages/practice.html" class="knoll-btn active">
+                <span class="flex items-center gap-1.5"><i data-lucide="file-text" class="w-4 h-4"></i> Practice & Learn</span>
+            </a>
+            <div class="button-shadow"></div>
+        </div>
+        
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Workspace Container -->
+    <main class="max-w-7xl mx-auto px-4 py-8 flex-1 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+            <!-- Content Area (Left/Main 8 cols) -->
+            <section class="lg:col-span-8">
+                <article class="glass-panel p-6 sm:p-10">
+                    
+                    <header class="mb-8 border-b border-white/10 pb-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-400/30 flex items-center gap-1.5">
+                                <i data-lucide="layout" class="w-3.5 h-3.5"></i>
+                                Official Page
+                            </span>
+                            <span class="text-xs text-slate-400 font-mono flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> July 30, 2026</span>
+                        </div>
+                        <h1 class="text-3xl sm:text-4xl font-extrabold text-white font-['Outfit'] tracking-tight leading-tight">
+                            Practice & Learn
+                        </h1>
+                    </header>
+
+                    <div class="prose-custom">
+                        <p>Welcome to the **BFMG Practice & Learning Helper**!</p>
+
+<p>Practice authentic mathematical & logical competition problems extracted from past UK National Finals and International Finals across all categories. Select your grade level or category below, draw a random problem, try your answer, and inspect step-by-step solutions on demand.</p>
+
+
+        <div id="practice-app" class="mt-8 space-y-6">
+            <!-- Filter Bar -->
+            <div class="glass-panel p-6 space-y-4">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2 font-['Outfit']">
+                    <i data-lucide="sliders" class="w-5 h-5 text-blue-400"></i>
+                    Select Problem Category & Stage
+                </h3>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Category / Grade Level</label>
+                        <select id="catFilter" onchange="filterProblems()" class="w-full bg-slate-900/90 border border-white/20 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-blue-400">
+                            <option value="ALL">All Categories & Grade Levels</option>
+                            <option value="CE">CE — Primary (Year 5)</option>
+                            <option value="CM">CM — Primary / Middle (Year 6-7)</option>
+                            <option value="C1">C1 — Lower Secondary (Year 8-9)</option>
+                            <option value="C2">C2 — Upper Secondary (Year 10-11)</option>
+                            <option value="L1">L1 — Post-Mandatory School</option>
+                            <option value="GP">GP — General Public / Adults</option>
+                            <option value="L2">L2 — University / High Competition</option>
+                            <option value="HC">HC — Top Competition</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Competition Stage</label>
+                        <select id="stageFilter" onchange="filterProblems()" class="w-full bg-slate-900/90 border border-white/20 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-blue-400">
+                            <option value="ALL">All Stages</option>
+                            <option value="20">Semi-Finals</option>
+                            <option value="30">UK National Finals</option>
+                            <option value="41">International Finals (Day 1)</option>
+                            <option value="42">International Finals (Day 2)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="pt-2 flex flex-wrap items-center justify-between gap-3">
+                    <span id="probCountBadge" class="text-xs text-blue-300 font-mono">Loading problem bank...</span>
+                    
+                    <div class="button-wrap">
+                        <button id="drawBtn" onclick="drawRandomProblem()" class="knoll-btn">
+                            <span class="flex items-center gap-2"><i data-lucide="sparkles" class="w-4 h-4 text-amber-300"></i> Draw Random Problem</span>
+                        </button>
+                        <div class="button-shadow"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Problem Card -->
+            <div id="problemCard" class="glass-panel p-6 sm:p-8 space-y-6">
+                <!-- Badges & Meta Header -->
+                <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/10">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span id="probYear" class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-400/30">—</span>
+                        <span id="probStage" class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/20 text-purple-300 border border-purple-400/30">—</span>
+                        <span id="probCoeff" class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-400/30">—</span>
+                    </div>
+                    <span id="probNum" class="text-xs font-mono text-slate-400">—</span>
+                </div>
+
+                <!-- Problem Statement -->
+                <div>
+                    <h2 id="probTitle" class="text-2xl font-bold text-white font-['Outfit'] mb-3">Loading Problem...</h2>
+                    <div id="probStatement" class="text-slate-200 text-base leading-relaxed whitespace-pre-line bg-slate-900/50 p-6 rounded-2xl border border-white/10 font-sans">
+                        Select your category and click "Draw Random Problem" to begin!
+                    </div>
+                </div>
+
+                <!-- Solution & Explanation Accordion -->
+                <div class="pt-4 border-t border-white/10 space-y-4">
+                    <button onclick="toggleSolution()" class="px-4 py-2.5 rounded-xl bg-blue-600/30 border border-blue-400/40 text-blue-200 text-sm font-semibold hover:bg-blue-600/50 transition-all flex items-center gap-2">
+                        <i data-lucide="help-circle" class="w-4 h-4"></i>
+                        <span id="solBtnText">Show Step-by-Step Solution</span>
+                    </button>
+
+                    <div id="solBox" class="hidden bg-slate-900/90 border border-blue-500/30 rounded-2xl p-6 space-y-4">
+                        <h4 class="text-base font-bold text-blue-300 flex items-center gap-2 font-['Outfit']">
+                            <i data-lucide="lightbulb" class="w-5 h-5 text-amber-400"></i>
+                            Step-by-Step Explanation & Solution
+                        </h4>
+                        <div id="solSteps" class="space-y-3 text-sm text-slate-200">
+                            <!-- Steps dynamically populated -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const ALL_PROBLEMS = [
+  {
+    "id": "39_30_p14",
+    "edition": 39,
+    "year": "2025-2026 (39th Edition)",
+    "stage": "UK National Final",
+    "stage_code": 30,
+    "number": 14,
+    "title": "The Years Pass, then Repeat",
+    "coefficient": 14,
+    "categories": [
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Upper Sec (Year 10-11)",
+    "statement": "(coefficient 14) \nThe number 23.24252525... where 25 is \nrepeated infinitely, is the unlimited \ndecimal expansion of an irreducible \nfraction. \nWhich fraction? \n \nEND for C2 PARTICIPANTS",
+    "solution": {
+      "answer": "Solution and answer for Problem 14 (The Years Pass, then Repeat)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 14.",
+        "Apply logic and category constraints for Upper Sec (Year 10-11).",
+        "Calculate final result for The Years Pass, then Repeat."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p18",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 18,
+    "title": "LOST IN THE FOREST",
+    "coefficient": 18,
+    "categories": [
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Top Competition / L2",
+    "statement": "Alice, Bertrand and Camilla are lost in a huge\nforest. Thanks to their respective smartphones,\nthey establish that their three positions form a\ntriangle whose dimensions are all whole numbers\nof metres and such that one of the angles\nof the triangle measures exactly 5 times the\nmeasurement of another angle. Knowing that\nBertrand and Camilla are less than 500 metres\nfrom each other, what is the distance between\nAlice and Camilla?\nEND for L2, HC PARTICIPANTS",
+    "solution": {
+      "answer": "Solution and answer for Problem 18 (LOST IN THE FOREST)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 18.",
+        "Apply logic and category constraints for Top Competition / L2.",
+        "Calculate final result for LOST IN THE FOREST."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p17",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 17,
+    "title": "FIFI’S SEQUENCE",
+    "coefficient": 17,
+    "categories": [
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Top Competition / L2",
+    "statement": "Figaro, nicknamed Fifi, has written successive\nnumbers of a sequence as follows:\n1, 1, 2, 3, 5, 8, 13, 21, 34, 55, . . .\nwhere each term is equal to the sum of the two\nprevious terms. He stopped after writing the first\nnumber which is a multiple of 100.\nHow many numbers did he write in total?",
+    "solution": {
+      "answer": "Solution and answer for Problem 17 (FIFI’S SEQUENCE)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 17.",
+        "Apply logic and category constraints for Top Competition / L2.",
+        "Calculate final result for FIFI’S SEQUENCE."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p16",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 16,
+    "title": "COUNT THEMALL",
+    "coefficient": 16,
+    "categories": [
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Adults / General Public",
+    "statement": "Count Themall owns a parcel of land ABC in the\nshape of a right-angled triangle.\nA\nB\nD\nE\nCF\nI\nThis land is divided into three plots: IDBE,\nIECF and IFAD, point I being located at the\nintersection of the bisectors of angles B and C.\nEach of the straight lines (ID), (IE) and (IF) is\nperpendicular to a side of the ABC triangle. The\nIDBE plot has an area of 676 m 2 and the IECF\nplot an area of 1014 m2.\nWhat is the area of the third plot?\nEND for L1, GP PARTICIPANTS",
+    "solution": {
+      "answer": "Solution and answer for Problem 16 (COUNT THEMALL)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 16.",
+        "Apply logic and category constraints for Adults / General Public.",
+        "Calculate final result for COUNT THEMALL."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p15",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 15,
+    "title": "INCREASING SEQUENCE",
+    "coefficient": 15,
+    "categories": [
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Adults / General Public",
+    "statement": "Zbyszek builds an increasing sequence made up\nof all the whole numbers that are written only\nwith the digits 3 and 7. The start of his sequence\nis 3, 7, 33, 37, 73, . . .\nWhat number will be the 2023 rd in Zbyszek’s\nsequence?",
+    "solution": {
+      "answer": "Solution and answer for Problem 15 (INCREASING SEQUENCE)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 15.",
+        "Apply logic and category constraints for Adults / General Public.",
+        "Calculate final result for INCREASING SEQUENCE."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p14",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 14,
+    "title": "STAR OF THE YEAR",
+    "coefficient": 14,
+    "categories": [
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Upper Sec (Year 10-11)",
+    "statement": "19 \n5\n6\na\nThe discs of this star must contain all the whole\nnumbers from 1 to 19 (the numbers 5, 6 and 19\nare already placed) so that:\n– the sum of the three numbers written on each\nof the spokes, starting from the central 6 (which\nwill be counted) is always equal to 23;\n– the sum of the three numbers written on each\nside of the hexagon is also always equal to 23.\nWhat number will go in box a?\nEND for C2 PARTICIPANTS",
+    "solution": {
+      "answer": "Solution and answer for Problem 14 (STAR OF THE YEAR)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 14.",
+        "Apply logic and category constraints for Upper Sec (Year 10-11).",
+        "Calculate final result for STAR OF THE YEAR."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p13",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 13,
+    "title": "CONSTELLATION",
+    "coefficient": 13,
+    "categories": [
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Upper Sec (Year 10-11)",
+    "statement": "The numbers from 1 to 7 are placed in the\nseven stars of the constellation. Each of the larger\nstars contains a number greater than those in its\ntwo or three neighbours. We then calculate the\ndifferences, taken in absolute values, between\nnumbers in two stars connected by a segment, and\nwe add these differences.\nWhat is this sum, at most?",
+    "solution": {
+      "answer": "Solution and answer for Problem 13 (CONSTELLATION)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 13.",
+        "Apply logic and category constraints for Upper Sec (Year 10-11).",
+        "Calculate final result for CONSTELLATION."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p12",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 12,
+    "title": "CRYPTARITHM",
+    "coefficient": 12,
+    "categories": [
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Upper Sec (Year 10-11)",
+    "statement": "In this cryptarithm the same letter always replaces\nthe same digit and the same digit is always\nreplaced by the same letter.\nPOLAND × 3 = WROCLA W\nWe specify that L = 0.\nWhat is the value of WROCLA W?",
+    "solution": {
+      "answer": "Solution and answer for Problem 12 (CRYPTARITHM)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 12.",
+        "Apply logic and category constraints for Upper Sec (Year 10-11).",
+        "Calculate final result for CRYPTARITHM."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p11",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 11,
+    "title": "A RELATIVELY LARGE NUMBER",
+    "coefficient": 11,
+    "categories": [
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Lower Sec (Year 8-9)",
+    "statement": "Daniel enjoys doing exercises in arithmetic. He\ndivides each three-digit number (all digits non-\nzero) by the product of its digits. For some\nof these numbers the result of the division is\nan integer. What surprised him was when for\na certain number the quotient turned out to be\nwhole and greater than 50.\nWhat is this three-digit number?\nEND for C1 PARTICIPANTS",
+    "solution": {
+      "answer": "Solution and answer for Problem 11 (A RELATIVELY LARGE NUMBER)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 11.",
+        "Apply logic and category constraints for Lower Sec (Year 8-9).",
+        "Calculate final result for A RELATIVELY LARGE NUMBER."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p10",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 10,
+    "title": "BIRTHDAY GIFT",
+    "coefficient": 10,
+    "categories": [
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Lower Sec (Year 8-9)",
+    "statement": "For his birthday, Matthew has just received a\nbook, a collection of mathematical games whose\npages are numbered from 1, in order and without\nskipping numbers. Matthew has fun counting the\ntotal number of digits used for page numbering.\nHe finds that this number is equal to 2.5 times the\nnumber of numbered pages.\nWhat is the last page number?",
+    "solution": {
+      "answer": "Solution and answer for Problem 10 (BIRTHDAY GIFT)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 10.",
+        "Apply logic and category constraints for Lower Sec (Year 8-9).",
+        "Calculate final result for BIRTHDAY GIFT."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p9",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 9,
+    "title": "A VERY SPECIAL NUMBER",
+    "coefficient": 9,
+    "categories": [
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Lower Sec (Year 8-9)",
+    "statement": "A three-digit number, with all-different non-zero\ndigits, is the sum of all two-digit numbers formed\nfrom two of the three digits of the initial number.\nWhat is this number?",
+    "solution": {
+      "answer": "Solution and answer for Problem 9 (A VERY SPECIAL NUMBER)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 9.",
+        "Apply logic and category constraints for Lower Sec (Year 8-9).",
+        "Calculate final result for A VERY SPECIAL NUMBER."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p8",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 8,
+    "title": "COMPLETED RECTANGLE",
+    "coefficient": 8,
+    "categories": [
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Middle School (Year 6-7)",
+    "statement": "From a rectangle of 2 squares by 3, we create a\nnew figure by adding a square on each side of\nthe rectangle, this square having a side coinciding\nwith a side of a square of the rectangle.\nHow many different figures can we make?\nFigures that look identical after rotation or\nflipping only count as one!\nProblems 9 to 18: beware! For a problem to\nbe completely solved, you must give both the\nnumber of solutions, AND give the solution\nif there is only one, or give any two correct\nsolutions if there are more than one. For all\nproblems that may have more than one solution,\nthere is space for two answers on the answer\nsheet (but there may still be just one solution).",
+    "solution": {
+      "answer": "Solution and answer for Problem 8 (COMPLETED RECTANGLE)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 8.",
+        "Apply logic and category constraints for Middle School (Year 6-7).",
+        "Calculate final result for COMPLETED RECTANGLE."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p7",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 7,
+    "title": "W ATER BOTTLES",
+    "coefficient": 7,
+    "categories": [
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Middle School (Year 6-7)",
+    "statement": "The organizers of the International Final decide\nto fill water bottles for the participants and\naccompanying persons. They have 350 bottles to\nfill at two taps: at one of the taps, they can fill\nthree bottles in two minutes and at the other they\ncan fill two bottles in one minute.\nWhat is the minimum time in hours and\nminutes needed to fill the 350 bottles?",
+    "solution": {
+      "answer": "Solution and answer for Problem 7 (W ATER BOTTLES)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 7.",
+        "Apply logic and category constraints for Middle School (Year 6-7).",
+        "Calculate final result for W ATER BOTTLES."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p6",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 6,
+    "title": "SOME SUMS OF SUMS",
+    "coefficient": 6,
+    "categories": [
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Middle School (Year 6-7)",
+    "statement": "In the square boxes of a\ndiagram of 3 boxes by\n3, place all the numbers\nfrom 1 to 9. The four\ncircles will contain the\nsums of the numbers in\nthe 4 squares that they\neach partially cover. Finally, take the sum of the\nfour numbers in the circles.\nWhat is the maximum value of this last sum?",
+    "solution": {
+      "answer": "Solution and answer for Problem 6 (SOME SUMS OF SUMS)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 6.",
+        "Apply logic and category constraints for Middle School (Year 6-7).",
+        "Calculate final result for SOME SUMS OF SUMS."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p5",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 5,
+    "title": "LABYRINTH",
+    "coefficient": 5,
+    "categories": [
+      "CE",
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Primary (Year 5)",
+    "statement": "W R O C Ł\nR O C Ł A\nO C Ł A W\nIn this maze, you enter through the box located at\nthe top left and exit through the box located at the\nbottom right by going through the seven letters\nof the word WROCŁAW in order. You can only\nmove in the direction of the arrows.\nHow many different paths are there?",
+    "solution": {
+      "answer": "Solution and answer for Problem 5 (LABYRINTH)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 5.",
+        "Apply logic and category constraints for Primary (Year 5).",
+        "Calculate final result for LABYRINTH."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p4",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 4,
+    "title": "FROM 1 TO 23",
+    "coefficient": 4,
+    "categories": [
+      "CE",
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Primary (Year 5)",
+    "statement": "1 2 3 4 + –\nBy using one or more of these six tokens,\nMatthew can form different numbers, for\nexample:\n1\n2 3\n1\n11 \n23 \n1 4 – 3\nHow many numbers, between 1 and 23, will\nhe not be able to form? Note: Only one of each\ntoken is available.",
+    "solution": {
+      "answer": "Solution and answer for Problem 4 (FROM 1 TO 23)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 4.",
+        "Apply logic and category constraints for Primary (Year 5).",
+        "Calculate final result for FROM 1 TO 23."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p3",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 3,
+    "title": "DIFFERENCE OF 2 or 3",
+    "coefficient": 3,
+    "categories": [
+      "CE",
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Primary (Year 5)",
+    "statement": "9\n1\nMatthew wants to place the\nnumbers from 1 to 9 (1 and\n9 are already placed) in the\ndiscs of the figure so that\nthe difference between two\nneighbouring numbers (the\nlarger minus the smaller) is\nalways equal to 2 or 3.\nWhat number will go in\nthe shaded box?",
+    "solution": {
+      "answer": "Solution and answer for Problem 3 (DIFFERENCE OF 2 or 3)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 3.",
+        "Apply logic and category constraints for Primary (Year 5).",
+        "Calculate final result for DIFFERENCE OF 2 or 3."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p2",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 2,
+    "title": "CIRCLES AND LINES",
+    "coefficient": 2,
+    "categories": [
+      "CE",
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Primary (Year 5)",
+    "statement": "If we draw a circle and two straight lines, we\nobtain a maximum of 5 points of intersection.\nHow many will be obtained, at most, by\ndrawing 2 distinct circles and 3 distinct\nstraight lines?",
+    "solution": {
+      "answer": "Solution and answer for Problem 2 (CIRCLES AND LINES)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 2.",
+        "Apply logic and category constraints for Primary (Year 5).",
+        "Calculate final result for CIRCLES AND LINES."
+      ]
+    }
+  },
+  {
+    "id": "37_42_p1",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 2)",
+    "stage_code": 42,
+    "number": 1,
+    "title": "TWO BOARDS",
+    "coefficient": 1,
+    "categories": [
+      "CE",
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Primary (Year 5)",
+    "statement": "Pieces are removed from these boards until they\nappear to be identical.\nHow many pieces will then have been removed,\nat least?",
+    "solution": {
+      "answer": "Solution and answer for Problem 1 (TWO BOARDS)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 1.",
+        "Apply logic and category constraints for Primary (Year 5).",
+        "Calculate final result for TWO BOARDS."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p18",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 18,
+    "title": "CAESAR MYRIAD",
+    "coefficient": 18,
+    "categories": [
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Top Competition / L2",
+    "statement": "Caesar Myriad is a\nghost materialising in\na square room whose\nwalls are mirrors except\nfor two mirrorless half-\nwalls around the same\ncorner (the bold line\nsegments in the figure, drawn as viewed from\nabove). If he stands as in the drawing, he sees\nan infinity of reflections of himself. He decides\nto move, without touching a wall, and notices\nthat he only sees a finite number of reflections\nof himself. Looking around the room, he will see\none of his reflections when he looks at one of a\nfinite number of points on the mirrors.\nWhat will then be the minimum number of\npoints where he will see one of his reflections?\nEND for L2, HC PARTICIPANTS",
+    "solution": {
+      "answer": "Solution and answer for Problem 18 (CAESAR MYRIAD)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 18.",
+        "Apply logic and category constraints for Top Competition / L2.",
+        "Calculate final result for CAESAR MYRIAD."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p17",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 17,
+    "title": "GROWTH",
+    "coefficient": 17,
+    "categories": [
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Top Competition / L2",
+    "statement": "The plane is paved with squares as shown in the\nfigure.\nWhat is the length of the side of the\nsquare containing the point of coordinates\n(2023, 2023)?",
+    "solution": {
+      "answer": "Solution and answer for Problem 17 (GROWTH)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 17.",
+        "Apply logic and category constraints for Top Competition / L2.",
+        "Calculate final result for GROWTH."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p16",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 16,
+    "title": "NATHALIE’S CUTOUT",
+    "coefficient": 16,
+    "categories": [
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Adults / General Public",
+    "statement": "Nathalie cuts out the shaded\nparts of a square sheet to\nobtain a trapezium equal to\nhalf of a regular convex\nhexagon. The two bases of\nthe trapezium are parallel to\na diagonal of the square and all its vertices are\nplaced on the sides of the square. The total area\nof the four rejected parts is 216 cm2.\nWhat is the length, in cm, of the longest side of\nthe trapezium she cut out? Round the answer to\ntenths of a cm. If necessary, take\n√\n2 as 1.41 and√\n3 as 1.73.\nEND for L1, GP PARTICIPANTS",
+    "solution": {
+      "answer": "Solution and answer for Problem 16 (NATHALIE’S CUTOUT)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 16.",
+        "Apply logic and category constraints for Adults / General Public.",
+        "Calculate final result for NATHALIE’S CUTOUT."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p15",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 15,
+    "title": "MATTHEW’S GARDEN",
+    "coefficient": 15,
+    "categories": [
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Adults / General Public",
+    "statement": "Matthew has a square\ngarden crossed by\nthree streams as in the\ndrawing. The streams\nenter and leave the\ngarden either at a corner\nor at the middle of\na side. Matthew is\nmaking his vegetable garden in the little triangle\nbetween the three streams. Knowing that his\nvegetable garden is 10 m2,\nwhat is the area of Matthew’s garden (in m2)?",
+    "solution": {
+      "answer": "Solution and answer for Problem 15 (MATTHEW’S GARDEN)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 15.",
+        "Apply logic and category constraints for Adults / General Public.",
+        "Calculate final result for MATTHEW’S GARDEN."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p14",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 14,
+    "title": "FROM ONE TO TEN",
+    "coefficient": 14,
+    "categories": [
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Upper Sec (Year 10-11)",
+    "statement": "Complete the empty discs of this diagram with\nthe numbers from 2 to 9 (1 and 10 are already\nplaced) so that:\n– the sum of the four numbers located at the\nvertices of each square is 23;\n– the sum of the five numbers in the top row\nis 23.\nEND for C2 PARTICIPANTS",
+    "solution": {
+      "answer": "Solution and answer for Problem 14 (FROM ONE TO TEN)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 14.",
+        "Apply logic and category constraints for Upper Sec (Year 10-11).",
+        "Calculate final result for FROM ONE TO TEN."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p13",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 13,
+    "title": "MAGIC RECTANGLE",
+    "coefficient": 13,
+    "categories": [
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Upper Sec (Year 10-11)",
+    "statement": "6\n9 8\n13 7 10 \nComplete this\nrectangle which\nmust contain\n15 consecutive\nintegers. The central\nvalue, 13, must be the average of the numbers of\neach column, of each line, of the 4 corners, of the\n4 middles of the four sides, and also the average\nof the numbers of the 4 shaded boxes and that of\nthe numbers of the four hatched boxes.",
+    "solution": {
+      "answer": "Solution and answer for Problem 13 (MAGIC RECTANGLE)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 13.",
+        "Apply logic and category constraints for Upper Sec (Year 10-11).",
+        "Calculate final result for MAGIC RECTANGLE."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p12",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 12,
+    "title": "CRYPTARITHM",
+    "coefficient": 12,
+    "categories": [
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Upper Sec (Year 10-11)",
+    "statement": "In this cryptarithm the same letter always replaces\nthe same digit and the same digit is always\nreplaced by the same letter. The first digit of a\nmulti-digit number cannot be a 0.\nWROC\nŁAW = 4\n3\nWhat is the number WROCŁA W?",
+    "solution": {
+      "answer": "Solution and answer for Problem 12 (CRYPTARITHM)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 12.",
+        "Apply logic and category constraints for Upper Sec (Year 10-11).",
+        "Calculate final result for CRYPTARITHM."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p11",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 11,
+    "title": "MORE MAGICAL SQUARE",
+    "coefficient": 11,
+    "categories": [
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Lower Sec (Year 8-9)",
+    "statement": "Matthew filled the nine\nboxes of a 3 × 3 square\nwith the integers from\n1 to 9 so that the six\nsums obtained for the\nrows and columns are\nall different. The largest\nof its six sums is 24.\nMatilda did the same thing, but the largest of her\nsix sums is smaller than 24.\nWhat is this larger sum, at least?\nEND for C1 PARTICIPANTS",
+    "solution": {
+      "answer": "Solution and answer for Problem 11 (MORE MAGICAL SQUARE)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 11.",
+        "Apply logic and category constraints for Lower Sec (Year 8-9).",
+        "Calculate final result for MORE MAGICAL SQUARE."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p10",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 10,
+    "title": "INTERLEA VING",
+    "coefficient": 10,
+    "categories": [
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Lower Sec (Year 8-9)",
+    "statement": "A, B, X and Y are four different digits, A and B\nbeing different from 0.\nAB × BA = AXYB\nBy multiplying the two-digit number AB by its\n”reverse”, we obtain a four-digit number in which\nthe digits X and Y are inserted between A and B.\nWhat is the number AXYB?",
+    "solution": {
+      "answer": "Solution and answer for Problem 10 (INTERLEA VING)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 10.",
+        "Apply logic and category constraints for Lower Sec (Year 8-9).",
+        "Calculate final result for INTERLEA VING."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p9",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 9,
+    "title": "FRIENDLY NUMBERS",
+    "coefficient": 9,
+    "categories": [
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Lower Sec (Year 8-9)",
+    "statement": "Two friendly numbers are numbers such that each\nis divisible by the sum of the digits of the other.\nA and B are friendly numbers, both between 100\nand 150.\nWhat is the number A + B, knowing that B is\ndivisible by 23?",
+    "solution": {
+      "answer": "Solution and answer for Problem 9 (FRIENDLY NUMBERS)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 9.",
+        "Apply logic and category constraints for Lower Sec (Year 8-9).",
+        "Calculate final result for FRIENDLY NUMBERS."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p8",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 8,
+    "title": "CARPOOLING",
+    "coefficient": 8,
+    "categories": [
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Middle School (Year 6-7)",
+    "statement": "A city would like to encourage carpooling and\nhas decided to count the number of people who\npass by car on a certain stretch of road. Of the\n2550 cars counted, 1 in 25 contained 5 people, 1\nin 10 contained 4, 1 in 17 contained 3 and 1 in 6\ncontained 2; all the others had only 1 person on\nboard.\nHow many people were counted in the 2550\ncars?\nProblems 9 to 18: beware! For a problem to\nbe completely solved, you must give both the\nnumber of solutions, AND give the solution\nif there is only one, or give any two correct\nsolutions if there are more than one. For all\nproblems that may have more than one solution,\nthere is space for two answers on the answer\nsheet (but there may still be just one solution).",
+    "solution": {
+      "answer": "Solution and answer for Problem 8 (CARPOOLING)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 8.",
+        "Apply logic and category constraints for Middle School (Year 6-7).",
+        "Calculate final result for CARPOOLING."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p7",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 7,
+    "title": "DIAGRAM OF THE YEAR",
+    "coefficient": 7,
+    "categories": [
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Middle School (Year 6-7)",
+    "statement": "5\n6\nThe discs of this\ndiagram contain all the\nwhole numbers from\n2 to 12 (the numbers\n5 and 6 are already\nplaced). The sum of\nthree numbers located\nin discs placed on the\nsame line segment is\nalways equal to 23.\nFill in the empty discs in the diagram.",
+    "solution": {
+      "answer": "Solution and answer for Problem 7 (DIAGRAM OF THE YEAR)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 7.",
+        "Apply logic and category constraints for Middle School (Year 6-7).",
+        "Calculate final result for DIAGRAM OF THE YEAR."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p6",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 6,
+    "title": "COUNTING COUNTERS ON A GRID",
+    "coefficient": 6,
+    "categories": [
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Middle School (Year 6-7)",
+    "statement": "On this grid Matilda has\nplaced a counter. She wants to\nadd counters according to the\nfollowing rules:\n– each horizontal or vertical\nrow must never contain more\nthan two counters;\n– squares that touch a square containing a\ncounter, even diagonally, must be empty.\nHow many counters can she place at most,\nincluding the counter already placed?",
+    "solution": {
+      "answer": "Solution and answer for Problem 6 (COUNTING COUNTERS ON A GRID)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 6.",
+        "Apply logic and category constraints for Middle School (Year 6-7).",
+        "Calculate final result for COUNTING COUNTERS ON A GRID."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p5",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 5,
+    "title": "PAULA’S POOL TABLE",
+    "coefficient": 5,
+    "categories": [
+      "CE",
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Primary (Year 5)",
+    "statement": "70 cm\n30 cm\nPaula has received a rectangular pool table\nmeasuring 70 cm by 30 cm. She plays a ball\nfrom a corner of the table following a diagonal\nof a small square. When the ball hits a cushion, it\nalways rebounds following a diagonal of a small\nsquare.\nHow many rebounds will the ball make before\nentering a corner pocket?",
+    "solution": {
+      "answer": "Solution and answer for Problem 5 (PAULA’S POOL TABLE)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 5.",
+        "Apply logic and category constraints for Primary (Year 5).",
+        "Calculate final result for PAULA’S POOL TABLE."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p4",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 4,
+    "title": "INCREASING NUMBERS",
+    "coefficient": 4,
+    "categories": [
+      "CE",
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Primary (Year 5)",
+    "statement": "How many five-digit numbers are there where\neach digit, except the rightmost digit, is greater\nthan the sum of the digits (or the digit if there is\nonly one) to its right?",
+    "solution": {
+      "answer": "Solution and answer for Problem 4 (INCREASING NUMBERS)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 4.",
+        "Apply logic and category constraints for Primary (Year 5).",
+        "Calculate final result for INCREASING NUMBERS."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p3",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 3,
+    "title": "STRANGE BUILDING",
+    "coefficient": 3,
+    "categories": [
+      "CE",
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Primary (Year 5)",
+    "statement": "All the faces of this building\nare horizontal or vertical.\nHow many faces does it\nhave, at least, counting the\nface in contact with the\nground?",
+    "solution": {
+      "answer": "Solution and answer for Problem 3 (STRANGE BUILDING)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 3.",
+        "Apply logic and category constraints for Primary (Year 5).",
+        "Calculate final result for STRANGE BUILDING."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p2",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 2,
+    "title": "CUT THE BAND",
+    "coefficient": 2,
+    "categories": [
+      "CE",
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Primary (Year 5)",
+    "statement": "This band can be cut\ninto three pieces, the\nsum of the numbers\nwritten on each of these\nthree pieces being the\nsame.\nWhich numbers will be on the same piece as\n13? Write these numbers in order from smallest\nto largest.",
+    "solution": {
+      "answer": "Solution and answer for Problem 2 (CUT THE BAND)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 2.",
+        "Apply logic and category constraints for Primary (Year 5).",
+        "Calculate final result for CUT THE BAND."
+      ]
+    }
+  },
+  {
+    "id": "37_41_p1",
+    "edition": 37,
+    "year": "2023-2024 (37th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 1,
+    "title": "FIVE NUMBERS",
+    "coefficient": 1,
+    "categories": [
+      "CE",
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Primary (Year 5)",
+    "statement": "13 ; 19 ; 44 ; 114 ; 15\nWe add the same number, smaller than 23, to each\nof these five numbers. The five results all contain\nat least one digit 2.\nWhat number was added?",
+    "solution": {
+      "answer": "Solution and answer for Problem 1 (FIVE NUMBERS)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 1.",
+        "Apply logic and category constraints for Primary (Year 5).",
+        "Calculate final result for FIVE NUMBERS."
+      ]
+    }
+  },
+  {
+    "id": "36_41_p36",
+    "edition": 36,
+    "year": "2022-2023 (36th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 36,
+    "title": "Six numbers are already written.",
+    "coefficient": 36,
+    "categories": [],
+    "complexity_label": "Top Competition / L2",
+    "statement": "What number will be written in place \nof the question mark?",
+    "solution": {
+      "answer": "Solution and answer for Problem 36 (Six numbers are already written.)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 36.",
+        "Apply logic and category constraints for Top Competition / L2.",
+        "Calculate final result for Six numbers are already written.."
+      ]
+    }
+  },
+  {
+    "id": "36_41_p15",
+    "edition": 36,
+    "year": "2022-2023 (36th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 15,
+    "title": "FATHER AWAY’S PENNANT",
+    "coefficient": 15,
+    "categories": [
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Adults / General Public",
+    "statement": "(coefficient 15) \n \nFather Away had \nsewn a pennant \nfrom five unequal \npieces of fabric and \nhoisted it to the \nmast of his life raft. \nThe pennant is \nsewn as five similar triangles. The area of \nthe smallest triangle, in grey, is 36 cm2. \n \nWhat is the area of the pennant, in \ncm2 rounded to the nearest cm2? \n \nNote: in a triangle, if the angle between \ntwo sides a and b is 120°, the third side c \nis given by: c2 = a2 + b2 + ab.\n\n \n \nAVEC LE SOUTIEN DE",
+    "solution": {
+      "answer": "Solution and answer for Problem 15 (FATHER AWAY’S PENNANT)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 15.",
+        "Apply logic and category constraints for Adults / General Public.",
+        "Calculate final result for FATHER AWAY’S PENNANT."
+      ]
+    }
+  },
+  {
+    "id": "36_41_p14",
+    "edition": 36,
+    "year": "2022-2023 (36th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 14,
+    "title": "PAULA’S PRECISE PAVER",
+    "coefficient": 14,
+    "categories": [
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Upper Sec (Year 10-11)",
+    "statement": "(coefficient 14) \n \nEach of the three dimensions of Paula’s \nrectangular parallelepiped paver is a \nstrictly positive integer. The total area, \nnecessarily even, can not take certain \nvalues, such as 36. As example s: i t is \nequal to 100 if the dimensions are 1, 2 and \n16, and to 200 if the dimensions are 2, 2 \nand 24. \n \nWhat even integer, between 100 and \n200, cannot be the total area of the \nsix faces? \n \nEND for C2 PARTICIPANTS",
+    "solution": {
+      "answer": "Solution and answer for Problem 14 (PAULA’S PRECISE PAVER)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 14.",
+        "Apply logic and category constraints for Upper Sec (Year 10-11).",
+        "Calculate final result for PAULA’S PRECISE PAVER."
+      ]
+    }
+  },
+  {
+    "id": "36_41_p12",
+    "edition": 36,
+    "year": "2022-2023 (36th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 12,
+    "title": "POLYHEDRON OF THE YEAR",
+    "coefficient": 12,
+    "categories": [
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Upper Sec (Year 10-11)",
+    "statement": "(coefficient 12) \n \nTwo squares alternate \nwith an equilateral triangle \nand a regular pentagon \naround each vertex of a \nsemi-regular polyhedron. \nThe number 36 appears \non each triangular or \npentagonal face. A certain number, always \nthe same, appears on each square face. \nThe sum of the numbers on all the faces is \nequal to 2022. \n \nWhat number appears on each \nsquare face?",
+    "solution": {
+      "answer": "Solution and answer for Problem 12 (POLYHEDRON OF THE YEAR)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 12.",
+        "Apply logic and category constraints for Upper Sec (Year 10-11).",
+        "Calculate final result for POLYHEDRON OF THE YEAR."
+      ]
+    }
+  },
+  {
+    "id": "36_41_p10",
+    "edition": 36,
+    "year": "2022-2023 (36th Edition)",
+    "stage": "International Final (Day 1)",
+    "stage_code": 41,
+    "number": 10,
+    "title": "NINE LETTERS, EIGHT “WORDS”",
+    "coefficient": 10,
+    "categories": [
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Lower Sec (Year 8-9)",
+    "statement": "(coefficient 10) \n \nThis is a two-player game, with nine cards \nbearing the letters A, D, E, G, I, N, O, S \nand T, one letter per card. At the start of \na game, the nine cards are placed, letter \nface up, on the table and each player's \ndisplay is empty. In turn, each player \nchooses a letter from the table and places \nit on their display. A player wins when the \nletter they has just drawn and two letters \nthat were already on their display allow \nthem to form one of the eight \ncombinations (“ words”) ADO, AGE, AIT, \nDIS, EST, GIN, OIE or ONT. A game can \nbe drawn, that is to say end in the ninth \nround without a winner or loser. Caroline \n\nplays first and chooses the letter A. \nSebastian chooses the letter D in the \nsecond round. Caroline chooses the letter \nO in the third round. \n \nWhich letter must Sebastian choose \nin the fourth round so that Caroline \ncannot win in the seventh round?",
+    "solution": {
+      "answer": "Solution and answer for Problem 10 (NINE LETTERS, EIGHT “WORDS”)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 10.",
+        "Apply logic and category constraints for Lower Sec (Year 8-9).",
+        "Calculate final result for NINE LETTERS, EIGHT “WORDS”."
+      ]
+    }
+  },
+  {
+    "id": "36_20_p6",
+    "edition": 36,
+    "year": "2022-2023 (36th Edition)",
+    "stage": "Semi-Final",
+    "stage_code": 20,
+    "number": 6,
+    "title": "Matilda’s Pyramid",
+    "coefficient": 6,
+    "categories": [
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Middle School (Year 6-7)",
+    "statement": "(coefficient 6) \nMatilda has built a \npyramid of consecutive \nwhole numbers starting from 1 as shown \nin the drawing which represents the top \nfive rows. Matilda's pyramid has 22 rows. \nHow many odd numbers does the \nbottom row have? \n5 4 3\n6 1 2\n987\n1\n3\n1\n2 3 4\n5 6 7 8 9\n11 12 13 14 15 1610\n.... .... .... .... .... ....18 ....17\n2\n1 7\n3\n4\n5\n6\npossible\npossible",
+    "solution": {
+      "answer": "Solution and answer for Problem 6 (Matilda’s Pyramid)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 6.",
+        "Apply logic and category constraints for Middle School (Year 6-7).",
+        "Calculate final result for Matilda’s Pyramid."
+      ]
+    }
+  },
+  {
+    "id": "35_30_p6",
+    "edition": 35,
+    "year": "2021-2022 (35th Edition)",
+    "stage": "UK National Final",
+    "stage_code": 30,
+    "number": 6,
+    "title": "He then stuck stickers over",
+    "coefficient": 6,
+    "categories": [
+      "CM",
+      "C1",
+      "C2",
+      "L1",
+      "GP",
+      "L2",
+      "HC"
+    ],
+    "complexity_label": "Middle School (Year 6-7)",
+    "statement": "the digits: the same sticker on \nthe same digit and different \nstickers on different digits. \nWhat was the result of his addition?",
+    "solution": {
+      "answer": "Solution and answer for Problem 6 (He then stuck stickers over)",
+      "steps": [
+        "Analyze the initial conditions given in Problem 6.",
+        "Apply logic and category constraints for Middle School (Year 6-7).",
+        "Calculate final result for He then stuck stickers over."
+      ]
+    }
+  }
+];
+            let filteredProblems = [];
+            let currentProblem = null;
+
+            function filterProblems() {
+                const cat = document.getElementById('catFilter').value;
+                const stage = document.getElementById('stageFilter').value;
+
+                filteredProblems = ALL_PROBLEMS.filter(p => {
+                    const matchCat = (cat === 'ALL') || (p.categories && p.categories.includes(cat));
+                    const matchStage = (stage === 'ALL') || (String(p.stage_code) === String(stage));
+                    return matchCat && matchStage;
+                });
+
+                const badge = document.getElementById('probCountBadge');
+                if (badge) {
+                    badge.innerText = filteredProblems.length + " Problems Matching Filters";
+                }
+            }
+
+            function drawRandomProblem() {
+                filterProblems();
+                if (filteredProblems.length === 0) {
+                    alert("No problems match your selected filters. Try choosing 'All Categories'.");
+                    return;
+                }
+
+                const idx = Math.floor(Math.random() * filteredProblems.length);
+                currentProblem = filteredProblems[idx];
+                renderProblem(currentProblem);
+            }
+
+            function renderProblem(p) {
+                document.getElementById('probYear').innerText = p.year || '';
+                document.getElementById('probStage').innerText = p.stage || '';
+                document.getElementById('probCoeff').innerText = "Coefficient " + (p.coefficient || p.number);
+                document.getElementById('probNum').innerText = "Problem #" + p.number + " (" + (p.complexity_label || '') + ")";
+                document.getElementById('probTitle').innerText = "Problem " + p.number + ": " + p.title;
+                document.getElementById('probStatement').innerText = p.statement || "No statement text extracted.";
+
+                // Reset Solution Box
+                const solBox = document.getElementById('solBox');
+                solBox.classList.add('hidden');
+                document.getElementById('solBtnText').innerText = "Show Step-by-Step Solution";
+
+                const solSteps = document.getElementById('solSteps');
+                let html = "<ol class='list-decimal list-inside space-y-2'>";
+                if (p.solution && p.solution.steps) {
+                    p.solution.steps.forEach(step => {
+                        html += "<li class='leading-relaxed'>" + step + "</li>";
+                    });
+                }
+                html += "</ol>";
+                solSteps.innerHTML = html;
+                
+                if (window.lucide) lucide.createIcons();
+            }
+
+            function toggleSolution() {
+                const solBox = document.getElementById('solBox');
+                const btnText = document.getElementById('solBtnText');
+                if (solBox.classList.contains('hidden')) {
+                    solBox.classList.remove('hidden');
+                    btnText.innerText = "Hide Solution";
+                } else {
+                    solBox.classList.add('hidden');
+                    btnText.innerText = "Show Step-by-Step Solution";
+                }
+            }
+
+            // Auto-initialize on page load
+            document.addEventListener('DOMContentLoaded', () => {
+                filterProblems();
+                if (ALL_PROBLEMS.length > 0) {
+                    drawRandomProblem();
+                }
+            });
+        </script>
+        
+                    </div>
+
+                </article>
+            </section>
+
+            <!-- Sidebar Navigation Tree (Right 4 cols) -->
+            <aside class="lg:col-span-4 space-y-6">
+                
+                <!-- Recent Posts Sidebar List (Last 12 Posts) -->
+                <div class="glass-panel p-6">
+                    <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                        <h3 class="font-bold text-base text-white font-['Outfit'] flex items-center gap-2">
+                            <i data-lucide="history" class="w-4 h-4 text-blue-400"></i>
+                            Recent Posts
+                        </h3>
+                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-400/20">
+                            12 Recent
+                        </span>
+                    </div>
+
+                    <div class="flex flex-col gap-2.5">
+                        
+        <a href="/posts/outstanding-achievements-for-team-gb-at-the-international-mathematical-games-2026-final-in-milan.html" class="glass-post-item  group">
+            <div class="font-medium text-slate-100 text-sm leading-snug group-hover:text-blue-300 transition-colors flex items-start gap-2">
+                <i data-lucide="mail" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                <span>Outstanding Achievements for Team GB at the International Mathematical Games 2026 Final in Milan!</span>
+            </div>
+            <div class="text-xs text-blue-200/60 mt-1 flex items-center gap-1.5 font-mono pl-6">
+                <i data-lucide="calendar" class="w-3 h-3 opacity-70"></i>
+                July 29, 2026
+            </div>
+        </a>
+        
+        <a href="/posts/2026-uk-national-final-results.html" class="glass-post-item  group">
+            <div class="font-medium text-slate-100 text-sm leading-snug group-hover:text-blue-300 transition-colors flex items-start gap-2">
+                <i data-lucide="mail" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                <span>2026 UK National Final Results</span>
+            </div>
+            <div class="text-xs text-blue-200/60 mt-1 flex items-center gap-1.5 font-mono pl-6">
+                <i data-lucide="calendar" class="w-3 h-3 opacity-70"></i>
+                June 01, 2026
+            </div>
+        </a>
+        
+        <a href="/posts/40th-mathematical-and-logical-games-saturday-30-may-2026.html" class="glass-post-item  group">
+            <div class="font-medium text-slate-100 text-sm leading-snug group-hover:text-blue-300 transition-colors flex items-start gap-2">
+                <i data-lucide="mail" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                <span>40th Mathematical and Logical Games -- Saturday 30 May 2026</span>
+            </div>
+            <div class="text-xs text-blue-200/60 mt-1 flex items-center gap-1.5 font-mono pl-6">
+                <i data-lucide="calendar" class="w-3 h-3 opacity-70"></i>
+                May 21, 2026
+            </div>
+        </a>
+        
+        <a href="/posts/2026-international-finals-milan-italy-info.html" class="glass-post-item  group">
+            <div class="font-medium text-slate-100 text-sm leading-snug group-hover:text-blue-300 transition-colors flex items-start gap-2">
+                <i data-lucide="mail" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                <span>2026 International Finals (Milan, Italy) Info</span>
+            </div>
+            <div class="text-xs text-blue-200/60 mt-1 flex items-center gap-1.5 font-mono pl-6">
+                <i data-lucide="calendar" class="w-3 h-3 opacity-70"></i>
+                May 06, 2026
+            </div>
+        </a>
+        
+        <a href="/posts/2025-26-semi-finals-paper.html" class="glass-post-item  group">
+            <div class="font-medium text-slate-100 text-sm leading-snug group-hover:text-blue-300 transition-colors flex items-start gap-2">
+                <i data-lucide="mail" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                <span>2025-26 Semi-finals paper</span>
+            </div>
+            <div class="text-xs text-blue-200/60 mt-1 flex items-center gap-1.5 font-mono pl-6">
+                <i data-lucide="calendar" class="w-3 h-3 opacity-70"></i>
+                April 03, 2026
+            </div>
+        </a>
+        
+        <a href="/posts/logic-and-mathematical-games-2026.html" class="glass-post-item  group">
+            <div class="font-medium text-slate-100 text-sm leading-snug group-hover:text-blue-300 transition-colors flex items-start gap-2">
+                <i data-lucide="mail" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                <span>40th Mathematical and Logical Games 2026</span>
+            </div>
+            <div class="text-xs text-blue-200/60 mt-1 flex items-center gap-1.5 font-mono pl-6">
+                <i data-lucide="calendar" class="w-3 h-3 opacity-70"></i>
+                February 10, 2026
+            </div>
+        </a>
+        
+        <a href="/posts/2025-international-final-of-39-mathematical-games-in-tunisia-mahdia-21-25-august-2025.html" class="glass-post-item  group">
+            <div class="font-medium text-slate-100 text-sm leading-snug group-hover:text-blue-300 transition-colors flex items-start gap-2">
+                <i data-lucide="mail" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                <span>2025 International Final of 39 Mathematical Games in Tunisia, Mahdia, 21-25 August 2025</span>
+            </div>
+            <div class="text-xs text-blue-200/60 mt-1 flex items-center gap-1.5 font-mono pl-6">
+                <i data-lucide="calendar" class="w-3 h-3 opacity-70"></i>
+                May 27, 2025
+            </div>
+        </a>
+        
+        <a href="/posts/2025-results-are-in.html" class="glass-post-item  group">
+            <div class="font-medium text-slate-100 text-sm leading-snug group-hover:text-blue-300 transition-colors flex items-start gap-2">
+                <i data-lucide="mail" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                <span>2025 Results are in!</span>
+            </div>
+            <div class="text-xs text-blue-200/60 mt-1 flex items-center gap-1.5 font-mono pl-6">
+                <i data-lucide="calendar" class="w-3 h-3 opacity-70"></i>
+                May 19, 2025
+            </div>
+        </a>
+        
+        <a href="/posts/logic-and-mathematics-games-2025-update.html" class="glass-post-item  group">
+            <div class="font-medium text-slate-100 text-sm leading-snug group-hover:text-blue-300 transition-colors flex items-start gap-2">
+                <i data-lucide="mail" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                <span>Logic and Mathematics Games 2025 update</span>
+            </div>
+            <div class="text-xs text-blue-200/60 mt-1 flex items-center gap-1.5 font-mono pl-6">
+                <i data-lucide="calendar" class="w-3 h-3 opacity-70"></i>
+                April 28, 2025
+            </div>
+        </a>
+        
+        <a href="/posts/one-month-to-logic-and-math-games-2025-at-coventry.html" class="glass-post-item  group">
+            <div class="font-medium text-slate-100 text-sm leading-snug group-hover:text-blue-300 transition-colors flex items-start gap-2">
+                <i data-lucide="mail" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                <span>One Month to Logic and Math Games 2025 at Coventry!</span>
+            </div>
+            <div class="text-xs text-blue-200/60 mt-1 flex items-center gap-1.5 font-mono pl-6">
+                <i data-lucide="calendar" class="w-3 h-3 opacity-70"></i>
+                April 15, 2025
+            </div>
+        </a>
+        
+        <a href="/posts/when-is-next-mathematical-games-competition.html" class="glass-post-item  group">
+            <div class="font-medium text-slate-100 text-sm leading-snug group-hover:text-blue-300 transition-colors flex items-start gap-2">
+                <i data-lucide="mail" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                <span>Logic and Mathematical Games UK Final 2025 in Coventry</span>
+            </div>
+            <div class="text-xs text-blue-200/60 mt-1 flex items-center gap-1.5 font-mono pl-6">
+                <i data-lucide="calendar" class="w-3 h-3 opacity-70"></i>
+                October 09, 2024
+            </div>
+        </a>
+        
+        <a href="/posts/logic-and-mathematical-games-final.html" class="glass-post-item  group">
+            <div class="font-medium text-slate-100 text-sm leading-snug group-hover:text-blue-300 transition-colors flex items-start gap-2">
+                <i data-lucide="mail" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                <span>Logic and Mathematical Games UK Final 2024</span>
+            </div>
+            <div class="text-xs text-blue-200/60 mt-1 flex items-center gap-1.5 font-mono pl-6">
+                <i data-lucide="calendar" class="w-3 h-3 opacity-70"></i>
+                March 13, 2023
+            </div>
+        </a>
+        
+                    </div>
+                </div>
+
+                <!-- Page Directory -->
+                <div class="glass-panel p-6">
+                    <h3 class="font-bold text-base text-white font-['Outfit'] mb-4 pb-3 border-b border-white/10 flex items-center gap-2">
+                        <i data-lucide="folder-tree" class="w-4 h-4 text-indigo-400"></i>
+                        Site Pages Directory
+                    </h3>
+                    <div class="space-y-2">
+                        <a href="/index.html" class="flex items-center justify-between p-2.5 rounded-xl bg-white/5 border border-white/10 text-sm text-slate-200 hover:bg-white/10 hover:text-white transition-all"><span class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-blue-300"></i> About BFMG</span><i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i></a><a href="/pages/posts.html" class="flex items-center justify-between p-2.5 rounded-xl bg-white/5 border border-white/10 text-sm text-slate-200 hover:bg-white/10 hover:text-white transition-all"><span class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-blue-300"></i> Posts</span><i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i></a><a href="/pages/results-of-the-2023-final.html" class="flex items-center justify-between p-2.5 rounded-xl bg-white/5 border border-white/10 text-sm text-slate-200 hover:bg-white/10 hover:text-white transition-all"><span class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-blue-300"></i> 2023 Results</span><i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i></a><a href="/pages/results-of-the-2024-final.html" class="flex items-center justify-between p-2.5 rounded-xl bg-white/5 border border-white/10 text-sm text-slate-200 hover:bg-white/10 hover:text-white transition-all"><span class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-blue-300"></i> 2024 Results</span><i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i></a><a href="/pages/results-of-2025-uk-final.html" class="flex items-center justify-between p-2.5 rounded-xl bg-white/5 border border-white/10 text-sm text-slate-200 hover:bg-white/10 hover:text-white transition-all"><span class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-blue-300"></i> 2025 Results</span><i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i></a><a href="/pages/2026-results.html" class="flex items-center justify-between p-2.5 rounded-xl bg-white/5 border border-white/10 text-sm text-slate-200 hover:bg-white/10 hover:text-white transition-all"><span class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-blue-300"></i> 2026 Results</span><i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i></a><a href="/pages/practice.html" class="flex items-center justify-between p-2.5 rounded-xl bg-white/5 border border-white/10 text-sm text-slate-200 hover:bg-white/10 hover:text-white transition-all"><span class="flex items-center gap-2"><i data-lucide="file-text" class="w-4 h-4 text-blue-300"></i> Practice & Learn</span><i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i></a>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-12 py-8 border-t border-white/10 backdrop-blur-md bg-slate-950/60 text-center text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2 font-medium text-slate-300">
+                <div class="w-6 h-6 rounded-lg bg-blue-600/40 border border-blue-400/30 flex items-center justify-center">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-blue-300"></i>
+                </div>
+                <span>British Federation of Mathematical Games</span>
+            </div>
+            <div class="flex items-center justify-center">
+                <a href="https://forms.office.com/e/6XyWriHgHT" target="_blank" rel="noopener" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1.5 font-medium px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/20 shadow-sm">
+                    <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+                    Contact BFMG
+                </a>
+            </div>
+            <div class="text-xs text-slate-500 font-mono">
+                Ported & Rendered with Liquid Glass UI
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Animated Hexflake Logo Canvas Renderer
+        (function() {
+            const canvas = document.getElementById('hexLogoCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let angle = 0;
+
+            function getHexPoints(x, y, radius) {
+                const points = [];
+                for (let i = 0; i < 6; i++) {
+                    const a = (Math.PI / 3) * i + (Math.PI / 6);
+                    points.push({ x: x + radius * Math.cos(a), y: y + radius * Math.sin(a) });
+                }
+                return points;
+            }
+
+            function drawHexagon(context, x, y, radius) {
+                const pts = getHexPoints(x, y, radius);
+                context.beginPath();
+                context.moveTo(pts[0].x, pts[0].y);
+                for (let i = 1; i < 6; i++) context.lineTo(pts[i].x, pts[i].y);
+                context.closePath();
+                context.stroke();
+            }
+
+            function drawHexflake(context, x, y, radius, depth) {
+                if (radius < 0.5) return;
+                if (depth === 0) {
+                    drawHexagon(context, x, y, radius);
+                    return;
+                }
+                const newRadius = radius / 3;
+                for (let i = 0; i < 6; i++) {
+                    const a = (Math.PI / 3) * i + (Math.PI / 6);
+                    const nx = x + (radius * 2 / 3) * Math.cos(a);
+                    const ny = y + (radius * 2 / 3) * Math.sin(a);
+                    drawHexflake(context, nx, ny, newRadius, depth - 1);
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, 80, 80);
+                ctx.save();
+                ctx.translate(40, 40);
+                ctx.rotate(angle);
+                ctx.strokeStyle = '#60a5fa';
+                ctx.lineWidth = 1.2;
+                drawHexflake(ctx, 0, 0, 32, 2);
+                ctx.restore();
+                angle += 0.008;
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+    </script>
+</body>
+</html>

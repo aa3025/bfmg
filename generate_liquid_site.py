@@ -180,6 +180,185 @@ def build_page_html(current_item, is_post=False, is_home=False):
         all_posts_grid += '</div>'
         item_content += "\n\n" + all_posts_grid
 
+    # If on Practice & Learn page, append interactive Problem Bank App
+    if current_item['slug'] == 'practice':
+        problems_json_path = out_base / 'data' / 'problems.json'
+        problems_data = "[]"
+        if problems_json_path.exists():
+            with open(problems_json_path, 'r', encoding='utf-8') as f:
+                problems_data = f.read()
+                
+        practice_app_html = f'''
+        <div id="practice-app" class="mt-8 space-y-6">
+            <!-- Filter Bar -->
+            <div class="glass-panel p-6 space-y-4">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2 font-['Outfit']">
+                    <i data-lucide="sliders" class="w-5 h-5 text-blue-400"></i>
+                    Select Problem Category & Stage
+                </h3>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Category / Grade Level</label>
+                        <select id="catFilter" onchange="filterProblems()" class="w-full bg-slate-900/90 border border-white/20 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-blue-400">
+                            <option value="ALL">All Categories & Grade Levels</option>
+                            <option value="CE">CE — Primary (Year 5)</option>
+                            <option value="CM">CM — Primary / Middle (Year 6-7)</option>
+                            <option value="C1">C1 — Lower Secondary (Year 8-9)</option>
+                            <option value="C2">C2 — Upper Secondary (Year 10-11)</option>
+                            <option value="L1">L1 — Post-Mandatory School</option>
+                            <option value="GP">GP — General Public / Adults</option>
+                            <option value="L2">L2 — University / High Competition</option>
+                            <option value="HC">HC — Top Competition</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Competition Stage</label>
+                        <select id="stageFilter" onchange="filterProblems()" class="w-full bg-slate-900/90 border border-white/20 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-blue-400">
+                            <option value="ALL">All Stages</option>
+                            <option value="20">Semi-Finals</option>
+                            <option value="30">UK National Finals</option>
+                            <option value="41">International Finals (Day 1)</option>
+                            <option value="42">International Finals (Day 2)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="pt-2 flex flex-wrap items-center justify-between gap-3">
+                    <span id="probCountBadge" class="text-xs text-blue-300 font-mono">Loading problem bank...</span>
+                    
+                    <div class="button-wrap">
+                        <button id="drawBtn" onclick="drawRandomProblem()" class="knoll-btn">
+                            <span class="flex items-center gap-2"><i data-lucide="sparkles" class="w-4 h-4 text-amber-300"></i> Draw Random Problem</span>
+                        </button>
+                        <div class="button-shadow"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Problem Card -->
+            <div id="problemCard" class="glass-panel p-6 sm:p-8 space-y-6">
+                <!-- Badges & Meta Header -->
+                <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/10">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span id="probYear" class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-400/30">—</span>
+                        <span id="probStage" class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/20 text-purple-300 border border-purple-400/30">—</span>
+                        <span id="probCoeff" class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-400/30">—</span>
+                    </div>
+                    <span id="probNum" class="text-xs font-mono text-slate-400">—</span>
+                </div>
+
+                <!-- Problem Statement -->
+                <div>
+                    <h2 id="probTitle" class="text-2xl font-bold text-white font-['Outfit'] mb-3">Loading Problem...</h2>
+                    <div id="probStatement" class="text-slate-200 text-base leading-relaxed whitespace-pre-line bg-slate-900/50 p-6 rounded-2xl border border-white/10 font-sans">
+                        Select your category and click "Draw Random Problem" to begin!
+                    </div>
+                </div>
+
+                <!-- Solution & Explanation Accordion -->
+                <div class="pt-4 border-t border-white/10 space-y-4">
+                    <button onclick="toggleSolution()" class="px-4 py-2.5 rounded-xl bg-blue-600/30 border border-blue-400/40 text-blue-200 text-sm font-semibold hover:bg-blue-600/50 transition-all flex items-center gap-2">
+                        <i data-lucide="help-circle" class="w-4 h-4"></i>
+                        <span id="solBtnText">Show Step-by-Step Solution</span>
+                    </button>
+
+                    <div id="solBox" class="hidden bg-slate-900/90 border border-blue-500/30 rounded-2xl p-6 space-y-4">
+                        <h4 class="text-base font-bold text-blue-300 flex items-center gap-2 font-['Outfit']">
+                            <i data-lucide="lightbulb" class="w-5 h-5 text-amber-400"></i>
+                            Step-by-Step Explanation & Solution
+                        </h4>
+                        <div id="solSteps" class="space-y-3 text-sm text-slate-200">
+                            <!-- Steps dynamically populated -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const ALL_PROBLEMS = {problems_data};
+            let filteredProblems = [];
+            let currentProblem = null;
+
+            function filterProblems() {{
+                const cat = document.getElementById('catFilter').value;
+                const stage = document.getElementById('stageFilter').value;
+
+                filteredProblems = ALL_PROBLEMS.filter(p => {{
+                    const matchCat = (cat === 'ALL') || (p.categories && p.categories.includes(cat));
+                    const matchStage = (stage === 'ALL') || (String(p.stage_code) === String(stage));
+                    return matchCat && matchStage;
+                }});
+
+                const badge = document.getElementById('probCountBadge');
+                if (badge) {{
+                    badge.innerText = filteredProblems.length + " Problems Matching Filters";
+                }}
+            }}
+
+            function drawRandomProblem() {{
+                filterProblems();
+                if (filteredProblems.length === 0) {{
+                    alert("No problems match your selected filters. Try choosing 'All Categories'.");
+                    return;
+                }}
+
+                const idx = Math.floor(Math.random() * filteredProblems.length);
+                currentProblem = filteredProblems[idx];
+                renderProblem(currentProblem);
+            }}
+
+            function renderProblem(p) {{
+                document.getElementById('probYear').innerText = p.year || '';
+                document.getElementById('probStage').innerText = p.stage || '';
+                document.getElementById('probCoeff').innerText = "Coefficient " + (p.coefficient || p.number);
+                document.getElementById('probNum').innerText = "Problem #" + p.number + " (" + (p.complexity_label || '') + ")";
+                document.getElementById('probTitle').innerText = "Problem " + p.number + ": " + p.title;
+                document.getElementById('probStatement').innerText = p.statement || "No statement text extracted.";
+
+                // Reset Solution Box
+                const solBox = document.getElementById('solBox');
+                solBox.classList.add('hidden');
+                document.getElementById('solBtnText').innerText = "Show Step-by-Step Solution";
+
+                const solSteps = document.getElementById('solSteps');
+                let html = "<ol class='list-decimal list-inside space-y-2'>";
+                if (p.solution && p.solution.steps) {{
+                    p.solution.steps.forEach(step => {{
+                        html += "<li class='leading-relaxed'>" + step + "</li>";
+                    }});
+                }}
+                html += "</ol>";
+                solSteps.innerHTML = html;
+                
+                if (window.lucide) lucide.createIcons();
+            }}
+
+            function toggleSolution() {{
+                const solBox = document.getElementById('solBox');
+                const btnText = document.getElementById('solBtnText');
+                if (solBox.classList.contains('hidden')) {{
+                    solBox.classList.remove('hidden');
+                    btnText.innerText = "Hide Solution";
+                }} else {{
+                    solBox.classList.add('hidden');
+                    btnText.innerText = "Show Step-by-Step Solution";
+                }}
+            }}
+
+            // Auto-initialize on page load
+            document.addEventListener('DOMContentLoaded', () => {{
+                filterProblems();
+                if (ALL_PROBLEMS.length > 0) {{
+                    drawRandomProblem();
+                }}
+            }});
+        </script>
+        '''
+        item_content += "\n\n" + practice_app_html
+
     # Posts navigation timeline list (last 12 posts)
     posts_nav_html = ""
     recent_posts = posts[:12]
